@@ -1,0 +1,17 @@
+---
+layout: post
+title: How to set up vim autocompletion
+---
+
+h1. {{ page.title }}
+
+p(meta). 01 May 2012
+
+I've recently had to use eclipse for Java development and I liked a lot the autocomplete feature. I've decided to try to get something similar in Vim, but unfortunately the steps to get there are a bit convoluted. I've decided to list them here.
+
+The first thing to do is to set up omnicompletion, like this:
+
+{% highlight python %}
+    def f():
+        pass
+{% endhighlight %}
