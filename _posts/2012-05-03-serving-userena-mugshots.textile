@@ -1,0 +1,29 @@
+---
+layout: post
+title: Serving userena mugshots
+---
+
+h1. {{ page.title }}
+
+p(meta). 03 May 2012
+
+I recently encountered a problem with django userena : the django server was unable to serve user mugshots even though they were correctly uploaded.
+
+This is because by default the django development server isn't configured to serve media files. I just added the following lines to my urls.py to serve them: 
+
+*Note: You shouldn't do this in production! Instead use nginx or apache to serve this kind of file.*
+
+{% highlight python %}
+import settings
+
+# Serve media files only in development
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+   )
+else:
+    print "no server is configured to serve media files. Do it now."
+
+{% endhighlight %}
