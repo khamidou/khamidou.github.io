@@ -1,0 +1,33 @@
+---
+layout: post
+title: Writing your own python web framework
+---
+
+h1. {{ page.title }}
+
+p(meta). 14 May 2012
+
+I decided recently to try to understand how do python web frameworks work, so I set out to write a minimal framework using only wsgi.
+The code is available (FIXME:) at github.
+
+h3. WSGI
+
+WSGI, the Web Server Gateway Interface is an interface defined by the "PEP333":http://www.python.org/dev/peps/pep-0333/. It enables all the python frameworks and servers to work together. A WSGI-compatible application is simply a callable object which takes a two parameters provided by the server: a dictionnary containing environment variables and function to write the HTTP headers.
+
+This is the most basic wsgi application. It uses the test wsgi server provided by python 2.5+.
+{% highlight python %}
+from wsgiref.simple_server import make_server, demo_app
+
+def app(environ, start_response):
+    start_response("200 OK", [("Content-type", "text/html")])
+    return "Bonjour"
+
+httpd = make_server('', 8000, app)
+print "Serving HTTP on port http://localhost:8000"
+
+# Respond to requests until process is killed
+httpd.serve_forever()
+
+{% endhighlight %}
+
+

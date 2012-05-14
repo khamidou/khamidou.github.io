@@ -8,17 +8,18 @@ title: Karim Hamidou's blog
 </div>
 <div id="home">
 
-  <h1>About</h1>
-  <p>I'm a computer science student at the Université de Technologie de Compiègne (France). I'm interested in user interfaces and UX design.</p>
-  <p>Most of the code I've written is available on my <a href="http://github.com/khamidou">Github account</a>.</p>
-
-
   <h1>Latest blog posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="./{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
+
+  <h1>About</h1>
+  <p>I'm a computer science student at the Université de Technologie de Compiègne (France). I'm interested in user interfaces and UX design.</p>
+  <p>Most of the code I've written is available on my <a href="http://github.com/khamidou">Github account</a>.</p>
+
+
 
   <h1>Projects</h1>
   <ul class="posts">
