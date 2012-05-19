@@ -8,14 +8,16 @@ h1. {{ page.title }}
 p(meta). 14 May 2012
 
 I decided recently to try to understand how do python web frameworks work, so I set out to write a minimal framework using only wsgi.
-The code is available (FIXME:) at github.
+The code is available on "github":https://github.com/khamidou/miniwsgi.
 
 h3. WSGI
 
 WSGI, the Web Server Gateway Interface is an interface defined by the "PEP333":http://www.python.org/dev/peps/pep-0333/. It enables all the python frameworks and servers to work together. A WSGI-compatible application is simply a callable object which takes a two parameters provided by the server: a dictionnary containing environment variables and function to write the HTTP headers.
 
 This is the most basic wsgi application. It uses the test wsgi server provided by python 2.5+.
+
 {% highlight python %}
+
 from wsgiref.simple_server import make_server, demo_app
 
 def app(environ, start_response):
@@ -30,4 +32,97 @@ httpd.serve_forever()
 
 {% endhighlight %}
 
+h3. Implementing routing
 
+To define routes, we're going to use a structure similar to django's urls.
+We want to end up with an app structure similar to this :
+
+{% highlight python %}
+
+from __init__ import run
+
+# this is a view.
+def myview(request):
+    if request.method == 'GET':
+        # request.GET holds the parameters passed.
+        return "<h1>Hello world!</h1><b>Parameters passed: %s" % request.GET
+
+urls = { 
+    "/hello" : {"view": myview}
+}
+
+if __name__ == "__main__":
+    run(urls)
+{% endhighlight %}
+
+To do this we'll need to write a wsgi request handler to dispatch an url to a view.
+This is a first draft of it :
+
+{% highlight python %}
+
+urls = {"/hello" :  {"view": hello_view}}
+
+def route_requests(environ, start_response):
+    method = environ['REQUEST_METHOD'].upper() # get the request method
+    path = environ['PATH_INFO'] 
+
+    # prepare request object
+    request = Request 
+    request.method = method
+    request.path = path
+
+    # then, lookup if there's a matching route:
+    if path in urls:
+        start_response('200 OK', [('content-type', 'text/html')])
+        return [urls[path]["view"](request)]
+
+    else:
+        start_response('404 Page not found', [('content-type', 'text/html')])
+        return ["Error 404 : Page not found"]
+
+
+{% endhighlight %}
+
+The routing function is quite basic: it tries to match an url to a dictionary entry, without using regexps.
+It has one problem, though: it refers to a global object, _urls_ . We would like route_requests to take an url mapping instead of refering to a global object, but it's not possible because the function is called directly by make_server. 
+We'll have instead to return a closure:
+
+The function becomes:
+
+{% highlight python %}
+
+def handler_wrapper(urls):
+    def route_requests(environ, start_response):
+        method = environ['REQUEST_METHOD'].upper() # get the request method
+        path = environ['PATH_INFO'] 
+
+        # prepare request object
+        request = Request 
+        request.method = method
+        request.path = path
+
+        if request.method == "GET":            
+            # set the request.GET array which holds the parameters passed
+            # to the url.
+            request.GET = {}
+
+            if environ["QUERY_STRING"] != "":
+                for param in environ["QUERY_STRING"].split('&'):
+                    key, value = param.split('=')
+                    request.GET[key] = value
+                
+
+        # then, lookup if there's a matching route:
+        if path in urls:
+            start_response('200 OK', [('content-type', 'text/html')])
+            return [urls[path]["view"](request)]
+
+        else:
+            start_response('404 Page not found', [('content-type', 'text/html')])
+            return ["Error 404 : Page not found"]
+
+    return handle_requests
+            
+httpd = make_server('', 8000, handler_wrapper(urls))
+ 
+{% endhighlight %}
