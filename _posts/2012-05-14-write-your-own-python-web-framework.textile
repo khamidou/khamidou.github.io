@@ -7,7 +7,7 @@ h1. {{ page.title }}
 
 p(meta). 14 May 2012
 
-I decided recently to try to understand how do python web frameworks work, so I set out to write a minimal framework using only wsgi.
+I decided recently to try to understand how do python web frameworks work, so I set out to write a minimal framework using only wsgi. This post is a cleaned up version of my notes.
 The code is available on "github":https://github.com/khamidou/miniwsgi.
 
 h3. WSGI
@@ -55,6 +55,7 @@ urls = {
 
 if __name__ == "__main__":
     run(urls)
+
 {% endhighlight %}
 
 To do this we'll need to write a wsgi request handler to dispatch an url to a view.
@@ -93,18 +94,15 @@ h3. Parsing GET parameters
 It would be nice to put the GET parameters in their own array, instead of letting the "views" parse the urls themselves. Luckily, the server defines a variable, QUERY_STRING, which contains the GET parameters. We just have to break the string and populate the request.GET hash.
 
 {% highlight python %}
-
 if request.method == "GET":            
     # set the request.GET array 
     # which holds the parameters passed
     # to the url.
     request.GET = {}
-
     if environ["QUERY_STRING"] != "":
         for param in environ["QUERY_STRING"].split('&'):
             key, value = param.split('=')
             request.GET[key] = value
-
 {% endhighlight %} 
 
 It has one problem, though: it refers to a global object, _urls_ . We would like route_requests to take an url mapping instead of refering to a global object, but it's not possible because the function is called directly by make_server. We'll have to return a closure instead:
@@ -152,3 +150,5 @@ def handler_wrapper(urls):
 httpd = make_server('', 8000, handler_wrapper(urls))
  
 {% endhighlight %}
+
+In the next post, I'll write about implementing a small template language.
