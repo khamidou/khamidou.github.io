@@ -1,4 +1,4 @@
 markdown: rdiscount
 pygments: true
-baseurl: http://khamidou.com/
+baseurl: http://khamidou.com
 permalink: /:title.html
