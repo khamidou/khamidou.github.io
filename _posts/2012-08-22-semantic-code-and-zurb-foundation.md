@@ -18,4 +18,23 @@ one problem though: like most grid frameworks, it expects you to use non-semanti
     </div>
 
 Thankfully, if you use Sass, there's an easy way to drop those non-semantic
-class names. The Sass language has a new 
+class names. The Sass language has a new directive, @extend, which allows a block to integrate the contents of another one. 
+Using extend, it's possible to rewrite the previous example as this :
+
+    <div class="row">
+        <div id="navbar">
+        </div>
+        <div id="content">
+        </div>
+    </div>
+
+The SCSS file looks like this:
+    #navbar {
+        @extend .two, .columns;
+    }
+
+    #content {
+        @extend .ten, .columns;
+    }
+
+The code is now slightly simpler.
