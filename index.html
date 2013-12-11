@@ -3,42 +3,47 @@ layout: default
 title: Karim Hamidou
 ---
 <div class="site">
-  <div class="title">
-    <a href="http://khamidou.com">Karim Hamidou's homepage</a>
-</div>
-<div id="home">
-    <span class="intro">Hello ! I'm a computer science student at the Université de Technologie de Compiègne. I'm interested in <b>user interfaces</b> and <b>UX design</b>.</span>
-    <p>These days, I mostly do web programming (front-end and back-end). I've written code in a lot of languages but my mainstays are <b>C</b>, <b>Python</b> and <b>Javascript</b>. 
-      Most of it is available on my <a href="http://github.com/khamidou">Github account</a>.<br> 
-      Here is my <a href="./resume_hamidou.pdf">resume</a>, by the way.</p>
+    <div class="title">
+        <a href="http://khamidou.com">Karim Hamidou's homepage</a>
+    </div>
+    <div id="home">
+        <span class="intro">Hello ! I'm a computer science student at the Université de Technologie de Compiègne. I'm interested in <b>user interfaces</b> and <b>UX design</b>.</span><br>
+        <p>
+            I'm currently interning at Microsoft until my graduation, in January 2014.
+        </p>
 
-  <p>You can write me an email at karim at this site's domain name.</p>
+        <p>
+            These days, I mostly do web programming (front-end and back-end). I've written code in a lot of languages but my mainstays are <b>C</b>, <b>Python</b> and <b>Javascript</b>. 
+            Most of it is available on my <a href="http://github.com/khamidou">Github account</a>.<br>
+        </p>
 
-  {% comment %}
-  <h1>Projects</h1>
-  <ul class="posts">
-    <li><a href="https://github.com/khamidou/Cagibi">Cagibi</a>, a little file syncing program similar to dropbox</li>
-    <li><a href="https://github.com/khamidou/mojo">Mojo</a>, a little language supposed to look like smalltalk</li>
-  </ul>
-  {% endcomment %}
+        <p>You can write me an email at karim at this site's domain name.</p>
 
-  <h1>Latest blog posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-  <script type="text/javascript">
+        <h1>Projects</h1>
+        <ul class="posts">
+            <li><a href="https://github.com/khamidou/kite">Kite</a>, a modern webmail</li>
+            <li><a href="https://github.com/khamidou/Cagibi">Cagibi</a>, a little file syncing program similar to dropbox</li>
+            <li><a href="https://github.com/khamidou/mojo">Mojo</a>, a little language supposed to look like smalltalk</li>
+        </ul>
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-34184338-1']);
-    _gaq.push(['_trackPageview']);
+        <h1>Latest blog posts</h1>
+        <ul class="posts">
+            {% for post in site.posts %}
+            <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+        <script type="text/javascript">
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34184338-1']);
+            _gaq.push(['_trackPageview']);
 
-   </script>
+            (function() {
+             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             })();
+
+        </script>
+    </div>
 </div>
