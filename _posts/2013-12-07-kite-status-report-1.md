@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Kite status report #1
+title: Kite status report 1
 ---
-### Kite status report #1
+### Kite status report 1
 
 <p class="meta">December 07, 2013</p>
 
@@ -45,6 +45,7 @@ The two big things on my list are:
 - refactoring the server to handle email threads. It should probably be ready by 2014.
 - easy vagrant setup. Trying kite in vagrant will be as easy as running "vagrant up" and connecting to 192.168.50.4.
 
+<br>
 ### Contact, questions, remarks
 
 Send me an email at kite at this domain name (sorry for the obfuscated email, I haven't setup the antispam yet).

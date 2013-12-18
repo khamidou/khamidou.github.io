@@ -1,0 +1,20 @@
+---
+layout: post
+title: Setting up Kite on Digital Ocean
+---
+### Kite status report 1
+
+<p class="meta">December 20, 2013</p>
+
+I've had a lot more time to work on Kite since I finished my internship, so I've been able to do stuff that was in my backlog for a long time. For instance, I just added support experimental support for Digital Ocean. Here's how you can try the latest alpha version of kite on your own droplet: 
+
+#### Creating the droplet
+
+#### Creating the domain name
+
+Pointing the MX DNS field to the correct machine.
+Adding Domain keys
+
+#### Deploying using Puppet
+
+That's all folks!
