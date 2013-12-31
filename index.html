@@ -29,6 +29,7 @@ title: Karim Hamidou's homepage
             {% for post in site.posts %}
             <div class="post">
                 <h3><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h3>
+
                     {% if post.content contains '<!-- more -->' %}
                         {{ post.content | split :'<!-- more -->' | first }}
                             <a href="{{site.baseurl}}{{ post.url }}">More...</a>
