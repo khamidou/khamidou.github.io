@@ -1,19 +1,15 @@
 ---
 layout: post
 title: Setting up Kite on Digital Ocean
+date: December 20, 2013
 ---
-### Setting up Kite on Digital Ocean
-
-<p class="meta">December 20, 2013</p>
 
 One cultural practice I really liked at Microsoft is [dogfooding](http://blogs.msdn.com/b/oldnewthing/archive/2011/08/02/10191834.aspx). It's religiously observed there.<br>Basically, it means using your own software in production to force you to fix issues you may have not seen otherwise.
 
-[Kite](http://khamidou.github.io/kite) is pretty mature now (well, it depends of what you mean by mature. It handles threads well, and not much more), and it's time to start testing it in the real world.
+I wanted to start dogfooding [Kite](http://khamidou.github.io/kite) as soon as possible, and I'm proud to say it's now possible. Here's a quick setup guide.
 
-For instance, I really wanted to see how well a long-lived instance would handle real world loads, so I've deployed one which I subscribed to the linux kernel mailing list.
-I was really surprised to see it handling the load that well. It's pretty crazy what you can get away with on modern machines.
+<!-- more -->
 
-Anyway, here's a quick tutorial on how to deploy the latest kite alpha to your own server. 
 
 **Disclaimer: Obviously, don't use it in production. There's no user separation yet, so anyone can read your email, you could lose data, etc.**
 
@@ -56,5 +52,8 @@ Note: by default, this script does sets some sensible SSH settings, like turning
 run instead `fab setup_plain`.
 
 That's all folks!
+
+I had a number of experiments I wanted to run. For instance, I really wanted to see how well a long-lived instance would handle real world loads, so I've deployed one which I subscribed to the linux kernel mailing list.
+I was really surprised to see it handling the load that well. It's pretty crazy what you can get away with on modern machines.
 
 As always, if you've got remarks or suggestions, don't hesitate to send me an email at: kite AT this domain name (sorry about the obfuscated email, I haven't setup the antispam yet)

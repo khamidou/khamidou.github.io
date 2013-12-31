@@ -22,14 +22,23 @@ title: Karim Hamidou's homepage
             I'm currently looking for full-time work (here's my <a href="resume_hamidou.pdf">CV</a>, by the way). 
             <br>My email address is <b>karim @ this site's domain name</b>.
         </p>
-
         <br>
+
         <h1>Latest blog posts</h1>
-        <ul class="posts">
+        <div class="posts">
             {% for post in site.posts %}
-            <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+            <div class="post">
+                <h3><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h3>
+                    {% if post.content contains '<!-- more -->' %}
+                        {{ post.content | split :'<!-- more -->' | first }}
+                            <a href="{{site.baseurl}}{{ post.url }}">More...</a>
+                    {% else %}
+                        {{ post.excerpt }}
+                        <a href="{{site.baseurl}}{{ post.url }}">Continue reading</a>
+                    {% endif %}
+            </div>
             {% endfor %}
-        </ul>
+        </div>
         <script type="text/javascript">
 
             var _gaq = _gaq || [];

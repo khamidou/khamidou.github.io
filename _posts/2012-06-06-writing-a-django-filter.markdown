@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Writing a django filter
+date: June 06 2012
 ---
 
-### {{ page.title }}
-
-<p class="meta">06 June 2012</p>
 
 I recently had to implement a django filter. My problem was that I had an event page similar to the github feed. I wanted to format a date diferently whether the event occured in the current week or at another date. Instead of doing it in code or in the template (bad), I decided to write a filter for that. 
+
+<!-- more -->
 
 ### Directory structure
 

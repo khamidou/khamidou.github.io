@@ -1,14 +1,13 @@
 ---
 layout: post
 title: How to activate a python virtualenv without having to go through dozen of folders
+date: March, 12 2013
 ---
-
-### {{ page.title }}
-
-<p class="meta">12 March 2013</p>
 
 I'm working on a couple django apps which use separate virtualenvs and I very often have to source the virtualenv activation script.
 It got so tedious that I had to write a small script to automate the finding of the activation script.
+
+<!-- more -->
 
 The following python script, named "findact", searches in the recursively for a file named "activate". If it is not found, it starts again from the parent directory, and so on.
 

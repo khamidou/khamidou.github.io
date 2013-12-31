@@ -1,15 +1,13 @@
 ---
 layout: post
 title: Writing semantic HTML with the Zurb Foundation grid
+date: August 22, 2012
 ---
-
-### {{ page.title }}
-
-<p class="meta">August 22, 2012</p>
 
 I've recently started to use the excellent [Zurb
 Foundation](http://foundation.zurb.com/) CSS framework, and I like it a lot. There's
 one problem though: like most grid frameworks, it expects you to use non-semantic class names in your HTML to specify the placement of the elements.
+<!-- more -->
     <div class="row">
         <div class="two columns" id="navbar">
         </div>

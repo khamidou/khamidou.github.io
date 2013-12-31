@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Kite status report 1
+date: December 07, 2013
 ---
-### Kite status report 1
-
-<p class="meta">December 07, 2013</p>
 
 I get a lot of emails asking about my progress on [kite](http://khamidou.github.io/kite), so from now on I'll regularly share a quick status report.
+
+<!-- more -->
 
 I spent the last four weeks working on backend stuff, in particular:
 

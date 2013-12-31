@@ -61,20 +61,24 @@ table {
 /*
 /*****************************************************************************/
 
-ul.posts {
+.posts {
   list-style-type: none;
   margin-bottom: 2em;
 }
 
-  ul.posts li {
+  .posts h3 {
     line-height: 1.75em;
   }
 
-  ul.posts span {
+  .posts span {
     color: #424242;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
   }
+
+.post {
+    margin-bottom: 10px;
+}
 
 /*****************************************************************************/
 /*
