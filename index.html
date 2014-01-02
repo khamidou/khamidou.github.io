@@ -22,20 +22,28 @@ title: Karim Hamidou's homepage
             I'm currently looking for full-time work (here's my <a href="resume_hamidou.pdf">CV</a>, by the way). 
             <br>My email address is <b>karim @ this site's domain name</b>.
         </p>
+        <hr>
         <br>
 
-        <h1>Latest blog posts</h1>
         <div class="posts">
             {% for post in site.posts %}
             <div class="post">
-                <h3><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h3>
+                <h3>
+                {% if post.link %}
+                    <a href="{{ post.link }}" class="postTitle">{{ post.title }}</a>
+                {% else %}
+                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
+                {% endif %}
+                <a href="{{site.baseurl}}{{ post.url }}" class="permalink" title="permalink">&infin;</a>
+                </h3> 
+                <span class="meta">{{ post.date | date: '%B %d, %Y'}}</span>
+
 
                     {% if post.content contains '<!-- more -->' %}
                         {{ post.content | split :'<!-- more -->' | first }}
-                            <a href="{{site.baseurl}}{{ post.url }}">More...</a>
+                            <a href="{{ post.url }}">More...</a>
                     {% else %}
-                        {{ post.excerpt }}
-                        <a href="{{site.baseurl}}{{ post.url }}">Continue reading</a>
+                        {{ post.content }}
                     {% endif %}
             </div>
             {% endfor %}
