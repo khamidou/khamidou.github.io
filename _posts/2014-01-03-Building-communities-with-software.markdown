@@ -5,7 +5,7 @@ date: January 03 2014
 link: http://www.joelonsoftware.com/articles/BuildingCommunitieswithSo.html 
 ---
 
-More than ten years ago, Joel Spolsky wrote a great post about [how software implementation details influence online communities](www.joelonsoftware.com/articles/BuildingCommunitieswithSo.html). 
+More than ten years ago, Joel Spolsky wrote a great post about [how software implementation details influence online communities](http://www.joelonsoftware.com/articles/BuildingCommunitieswithSo.html). 
 
 One tidbit caught my eye: here's how Joel's forum signals to the user if there are replies to a topic. It's really smart!
 

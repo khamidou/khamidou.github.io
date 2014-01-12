@@ -86,6 +86,12 @@ blockquote {
   .posts .date {
     margin-bottom: 10px;
   }
+  
+  .posts ul {
+        margin-left: 1.1em;
+  }
+
+
 
 .post {
     margin-bottom: 50px;
