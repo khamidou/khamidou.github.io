@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Move fast, break things
+title: The obsolesence of code
 date: January 11 2014
 ---
 
-It's early January, and it's been a year since [Aaron Swartz](http://aaronsw.com) left us. This reminded me of another programmer who 
+It's January, and it's been a year since [Aaron Swartz](http://aaronsw.com) left us. This reminded me of another programmer who 
 decided to disappear one day, [why the lucky stiff](http://viewsourcecode.org/why/index.html).
 
 Apparently, one of his last tweets was:
@@ -16,7 +16,13 @@ Followed by:
 
 <!-- more -->
 
-This is something that has always stayed on the back of my mind.
+There's two ideas here. The first one is that code ages. Ruby code written two years ago will probably work today. Ruby code from ten years ago will not. C code from 25 years ago may work.
+The software development industry seems to change fast. But is it really the case? 
+
+The second idea is whether code can be considered as a work of art?
+
+The industry changes faast BUT
+Are we seeing progress? 
 
 * stuff changes fast in this industry
 
@@ -34,13 +40,5 @@ This is something that has always stayed on the back of my mind.
     * Basically that's why we've got higher level languages
     * Our languages are higer level, but our demands are too.
         * That's why software development delays are still increasing
-
-
-
-
-
-still use emacs, linux, etc.
-
-what do they have in common ? they're enablers. They let people build on.
 
 \_why sees this stuff as an artist. it's m

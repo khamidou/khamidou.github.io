@@ -56,8 +56,9 @@ table {
 }
 
 blockquote {
-    padding-left: 5px;
+    padding-left: 15px;
     border-left: 3px solid #172F4F;
+    font-style: italic;
 }
 
 /*****************************************************************************/
