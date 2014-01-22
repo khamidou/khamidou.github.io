@@ -13,6 +13,7 @@ html, body {
 
 body {
   /*background-color: #e9e9e9;*/
+  border-top: 6px solid #ff3333;
   font-family: "Palatino Linotype","URW Palladio L","palladio l",palatino,"book antiqua",serif;
   font-size: 15px;
   /*font-size: small; */
@@ -178,9 +179,7 @@ blockquote {
   margin-bottom: 20px; }
   .presentation .intro {
     font-size: 30px;
-    line-height: 46px;
-    color: #fdfdfd;
-    background-color: #ff3333; }
+    line-height: 46px; }
 
 .important {
   background-color: #ee9090; }
