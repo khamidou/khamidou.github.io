@@ -19,9 +19,8 @@ layout: default
 </a>
 </div>
 
-<div id="post">   
-    <h3>{{ page.title }}</h3>
-    <p class="meta">{{ page.date | date: '%B %d, %Y'}}</p>
+<div class="post">   
+    <h3>{{ page.title }} <span class="date">&ndash; {{ page.date | date: '%B %d, %Y'}}</span></h3>
     {{ content }}
 </div>
 

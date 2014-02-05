@@ -7,14 +7,12 @@ title: Archives
 <div class="posts">
     <div class="archives">
     {% for month in page.months %}
-    <h2>{{ month | date:"%B" }} <small>{{ month | date:"%Y" }}</small></h2>
-      <ul>
+    <h2>{{ month | date:"%B" }} {{ month | date:"%Y" }}</h2>
+        {% for post in page.posts_by_month[month] %}
         <div class="post">
-          {% for post in page.posts_by_month[month] %}
-            <li><a href="{{ post.url }}">{{ post.title | truncate:65 }}</a></li>
+            <a href="{{ post.url }}">{{ post.title | truncate:65 }}</a>
         </div>
       {% endfor %}
-      </ul>
     {% endfor %}
     </div>
 </div>
