@@ -120,8 +120,9 @@ blockquote {
 /*
 /*****************************************************************************/
 .post {
-  /* standard */
   /* terminal */ }
+  .post .postTitle {
+    margin-bottom: 60px; }
   .post pre {
     border: 1px solid #dddddd;
     background-color: #eef;

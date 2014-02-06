@@ -165,8 +165,10 @@ blockquote {
 /*****************************************************************************/
 
 .post {
+  .postTitle {
+    margin-bottom: 60px;
+  }
 
-  /* standard */
   pre {
     border: 1px solid #ddd;
     background-color: #eef;
