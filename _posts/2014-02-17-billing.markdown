@@ -1,0 +1,16 @@
+---
+layout: post
+title: When the intern writes the billing system
+link: http://tghw.com/blog/when-the-intern-writes-the-billing-system
+---
+
+An ex-fog creek intern [remembers](http://tghw.com/blog/when-the-intern-writes-the-billing-system) how he wrote the fog creek billing system.
+
+**Key takeaway is: don't work on stuff that isn't your core competency.**
+
+> In all, thousands of developer hours were spent developing and maintaining something that had nothing to do with the software our customers were paying us for. 
+> Time that we could have spent on writing new features and fixing bugs for customers was instead spent digging into stringy old billing code. 
+> What's worse, the system always was and, unless some great rewrite happens, will always be a mess. 
+> (Little known fact: The odds of such a rewrite happening on such a critical system are 2276709 to 1 against.) The fact is, writing billing software is not Fog Creek's core competency.
+
+Also, since this was 2005, it's possible that no good solution existed for handling SaaS billing. 
