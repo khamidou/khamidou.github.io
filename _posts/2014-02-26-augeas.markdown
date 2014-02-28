@@ -1,0 +1,18 @@
+---
+layout: post
+title: Augeas
+---
+
+I spent the past afternoon wrestling with fabric, Apache, Virtualenv and PostgreSQL. 
+
+I was going to write a long post about how Unix is old, creaky and mostly designed to be used with a text editor, when I heard about [Augeas](http://augeas.net/).
+Augeas is a tool to modify UNIX config files from the commandline. It's used by a lot of projects, notably Puppet.
+
+This is how you add an entry in /etc/hosts with augeas:
+
+> set /files/etc/hosts/01/ipaddr 192.168.0.1
+
+I'm not a fan of representing everything as a tree, but it beats `echo "192.168.0.1 ipaddr" >> /etc/hosts;`.
+
+
+I guess I'll have to hold on this rant for another day.
