@@ -89,6 +89,7 @@ blockquote {
 
   .posts .postTitle {
     text-decoration: none;
+    font-size: 1.2em;
   }
 
   .posts .date {
@@ -103,6 +104,11 @@ blockquote {
 
 .post {
     margin-bottom: 50px;
+
+  .postTitle {
+    text-decoration: none;
+    font-size: 1.2em;
+  }
 }
 
 /*****************************************************************************/

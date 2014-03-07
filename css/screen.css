@@ -66,7 +66,8 @@ blockquote {
   color: #424242; }
 
 .posts .postTitle {
-  text-decoration: none; }
+  text-decoration: none;
+  font-size: 1.2em; }
 
 .posts .date {
   margin-bottom: 10px; }
@@ -76,6 +77,9 @@ blockquote {
 
 .post {
   margin-bottom: 50px; }
+  .post .postTitle {
+    text-decoration: none;
+    font-size: 1.2em; }
 
 /*****************************************************************************/
 /*
