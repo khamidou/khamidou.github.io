@@ -1,26 +1,27 @@
 ---
 layout: post
-title: Steam, Humble Bundles and sales cannibalization (part 2)
+title: You probably shouldn't leave your job to work on an indie game.
 ---
+A friend of mine always talks about leaving his job at $BIGCORP to go working fulltime on his indie game venture. I wrote this post to try to dissuade him of doing this. It doesn't make economic sense to me.
+
 After writing last week's [post](http://khamidou.com/steam-bundles-and-sales-cannibalization.html), I realized that I missed a number of things, so I thought I'd write an addendum.
 
-This one will be mostly about the economics of digital goods.
+This will be mostly about the economics of digital goods.
 
 <!-- more -->
-The price of a good depends of three factors: 
+In economics, the price of a good depends of three factors: 
 
-- its scarcity. Is there a unique seller who can sell me this good?
+- its scarcity. How many sellers are there?
 - its marginal cost. This is econ-speak for the cost of producing one more unit.
 - its demand. Are people ready to pay a lot for it?
 
 If there's a lot of demand for a product, concurrents will move-in to try to capture some of the market. If the products are very similar &mdash; economists say "undifferentiated" &mdash; there will be a pricing race to the bottom. This is what happened to the PC market in the late 90s.[^pcmarket] 
 
-Steam solves the scarcity problem. You can buy a game on Steam whenever you feel like it. The transaction is fulfilled instantly.
+I think there's an similar phenomenon ongoing for video games. Here's why.
 
-The marginal cost of software is 0$. Once the software is written, it costs nothing to duplicate it. There are fixed costs when developing it, but they have been falling too, for two reasons:
+Video games, when distributed by Steam, are mostly digits. Digits have this very interesting property that it costs almost nothing to copy and store them. Scarcity and marginal costs become irrelevant. They don't influence the price of a game. What does?
 
-- huge productivity gains from using common software. Today you can write a game using Unity and have it run on PC, Mac and mobile.
-- labor costs are down since there's a flood of hobbyists working on their part-time on games.
+When developing a game there's a flurry of fixed costs. The one which impacts the bottom-line the most is labor. But even the cost of labor has been falling. Indie gamemakers work on their own time.
 
 Marketing produces differentiation. 
 
