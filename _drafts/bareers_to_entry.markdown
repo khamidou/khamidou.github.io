@@ -2,14 +2,22 @@
 layout: post
 title: You probably shouldn't leave your job to work on an indie game.
 ---
-A friend of mine always talks about leaving his job at $BIGCORP to go working fulltime on his indie game venture. This follows a number of conversations I learned that Steam greenlight is going away and that it's easier than ever to get a video game published and to make a money making game.
+A friend of mine always talks about leaving his job at $BIGCORP to go working fulltime on his indie game venture.
 
 I wrote this post to try to dissuade him of doing this.
 
 This will be mostly about the economics of digital goods.
 
 <!-- more -->
-If there's a lot of demand for a product, concurrents will move-in to try to capture some of the market. If the products are very similar &mdash; economists say "undifferentiated" &mdash; there will be a pricing race to the bottom. This is what happened to the PC market in the late 90s.[^pcmarket] 
+
+### Microsoft and PC Makers
+
+If there's a lot of demand for a product, concurrents will move-in to try to capture some of the market. If the products are very similar &mdash; economists say "undifferentiated" &mdash; there will be a pricing race to the bottom. 
+
+This is what happened to the PC market in the late 90s. In hindsight, Microsoft's strategy in the 80s and 90s was brillant. Hardware makers have never been very good at developing software. They've never been interested in developing OSes, so they happily gave this responsibility to Microsoft.
+
+The problem is that a Dell and a Compaq PC are essentially the same computer but with a different logo on the box. They both run Windows, so the consumer has little incentive to choose a Dell other a Compaq except price. So PC makers competed on price, until they got to the very very thin marges they have today ([about 16$ per PC sold](http://www.theguardian.com/technology/2014/jan/09/pc-value-trap-windows-chrome-hp-dell-lenovo-asus-acer)).
+Essentially, in their effort to get more shares of the market, the makers all competed to sell more windows copies. 
 
 I think there's an similar phenomenon ongoing for video games. Here's why.
 
@@ -23,21 +31,12 @@ This has a consequence: _there's more and more video games._
 Second, Steam is a digital store. This means that Valve doesn't have an inventory costs. It costs almost the same for Valve to carry 1,000  games or 10,000 games. In a way, Valve has an incentive to carry _as many games as possible._[^barn].
 
 Let's say you've written a platformer. You manage to make it available on Steam (as are FIXME: 540,000 other platformers). How do you get people to buy it? When you've got dozens of competitors, with similar offerings, your only way to get more clients is to slash your prices. 
- 
-So, on the one hand we have more and more games, and on the other hand the 
-So, if you add this two facts together what do you get? Hundreds of games released. There only so much time in a day.
-The traditional way to solve this has been advertising. Marketing produces differentiation. 
 
+In essence, this is Valve's biggest problem. If the store gets too crowded, quality drops and it becomes harder to distinguish the chaff from the wheat.
+ 
 **Key takeaway: Don't leave your job to become a fulltime indie developer.**
 
-[^pcmarket]: 
-    In hindsight, Microsoft's strategy in the 80s and 90s was brillant. 
-    Hardware makers have never been very good at developing software. They've never been interested in developing OSes, so they happily gave this responsibility to Microsoft.
-
-    The problem is that a Dell and a Compaq PC are essentially the same computer but with a different logo on the box. They both run Windows, so the consumer has little incentive to choose a Dell other a Compaq except price. So PC makers competed on price, until they got to the very very thin marges they have today ([about 16$ per PC sold](http://www.theguardian.com/technology/2014/jan/09/pc-value-trap-windows-chrome-hp-dell-lenovo-asus-acer)).
-    Essentially, in their effort to get more shares of the market, the makers all competed to sell more windows copies. 
-
-    This has been a great strategy for Microsoft but it has backfired : to increase their terribly thin margins, constructors now preinstall crapware on their computers. This makes the first-run experience of windows abysmal.
+[^pcmarket]: More recently, the same thing happened to the app store.
 
 [^devartists]: Just like a lot of web development now involves adding features to wordpress, I think a lot of the programming in games in the coming years will be about adding features to Unity/UDK/your favorite engine. This is good news for artists and generalists, but not so much for devs.
 
