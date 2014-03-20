@@ -2,7 +2,9 @@
 layout: post
 title: You probably shouldn't leave your job to work on an indie game.
 ---
-A friend of mine always talks about leaving his job at $BIGCORP to go working fulltime on his indie game venture. I wrote this post to try to dissuade him of doing this.
+A friend of mine always talks about leaving his job at $BIGCORP to go working fulltime on his indie game venture. This follows a number of conversations I learned that Steam greenlight is going away and that it's easier than ever to get a video game published and to make a money making game.
+
+I wrote this post to try to dissuade him of doing this.
 
 This will be mostly about the economics of digital goods.
 
@@ -18,10 +20,11 @@ First, there's been a drop in the costs necessary to produce a game:
 
 This has a consequence: _there's more and more video games._
 
-Second, Steam is a digital store. This means that Valve doesn't have an inventory costs. It costs almost the same for Valve to carry 1,000  games or 10,000 games. Scarcity and marginal cost become irrelevant.
+Second, Steam is a digital store. This means that Valve doesn't have an inventory costs. It costs almost the same for Valve to carry 1,000  games or 10,000 games. In a way, Valve has an incentive to carry _as many games as possible._[^barn].
 
-In a way, Valve has an incentive to carry _as many games as possible._[^barn]
-
+Let's say you've written a platformer. You manage to make it available on Steam (as are FIXME: 540,000 other platformers). How do you get people to buy it? When you've got dozens of competitors, with similar offerings, your only way to get more clients is to slash your prices. 
+ 
+So, on the one hand we have more and more games, and on the other hand the 
 So, if you add this two facts together what do you get? Hundreds of games released. There only so much time in a day.
 The traditional way to solve this has been advertising. Marketing produces differentiation. 
 
@@ -38,4 +41,4 @@ The traditional way to solve this has been advertising. Marketing produces diffe
 
 [^devartists]: Just like a lot of web development now involves adding features to wordpress, I think a lot of the programming in games in the coming years will be about adding features to Unity/UDK/your favorite engine. This is good news for artists and generalists, but not so much for devs.
 
-[^barn]: Valve also has an incentive in slowly accepting horses in the barn, unless they see a terrible drop in the prices of games.
+[^barn]: They also have an incentive to not accept games into the store too quickly, otherwise we would see a terrible drop in the prices of games.
