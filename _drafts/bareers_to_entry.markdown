@@ -6,32 +6,25 @@ A friend of mine always talks about leaving his job at $BIGCORP to go working fu
 
 I wrote this post to try to dissuade him of doing this.
 
-This will be mostly about the economics of digital goods.
-
 <!-- more -->
 
-If there's a lot of demand for a product, concurrents will move-in to try to capture some of the market. If the products are very similar &mdash; economists say "undifferentiated" &mdash; there will be a pricing race to the bottom. 
+When there's a lot of demand for a product, concurrents will move-in to try to capture some of the market. If the products are very similar &mdash; economists say "undifferentiated" &mdash; there will be a pricing race to the bottom. 
 
 This is what happened to the PC market in the late 90s. In hindsight, Microsoft's strategy in the 80s and 90s was brillant. Hardware makers have never been very good at developing software. They've never been interested in developing OSes, so they happily gave this responsibility to Microsoft.
 
 The problem is that a Dell and a Compaq PC are essentially the same computer but with a different logo on the box. They both run Windows, so the consumer has little incentive to choose a Dell other a Compaq except price. So PC makers competed on price, until they got to the very very thin marges they have today ([about 16$ per PC sold](http://www.theguardian.com/technology/2014/jan/09/pc-value-trap-windows-chrome-hp-dell-lenovo-asus-acer)).
 Essentially, in their effort to get more shares of the market, the makers all competed to sell more windows copies. 
 
-I think there's an similar phenomenon ongoing for video games.
+I think there's an similar phenomenon ongoing for indie games. All the conditions are here:
 
-I know what you're going to say: "Yes, but this is different, we're making games! Braid is not Super Meat Boy! Every game is different!". It's true, but think about this:
+1. Indie games are mostly undifferentiated products. Let's take roguelikes for instance. You can buy the following roguelikes on Steam: Spelunky, Rogue Legacy, FTL, Dungeons of Dredmor, Risk of Rain, the Binding of Isaac, Teleglitch, the Pit. 
 
-1. Games are cheaper than ever to make and will get more so over time[^devartists]
-2. Steam has an incentive to carry as many video games SKUs as possible[^skus]
+    Average price of my very unscientific sample: __10.99$__.
+2. The concurrence is fiercest than ever since it's easier than ever to make a game and get it sold. 
 
-This has a consequence: _there's more and more video games._
+There's two reasons why we the game prices on Steam haven't tanked yet:
+- 
 
-Second, Steam is a digital store. This means that Valve doesn't have an inventory costs. It costs almost the same for Valve to carry 1,000  games or 10,000 games. In a way, Valve has an incentive to carry _as many games as possible._[^barn].
-
-Let's say you've written a platformer. You manage to make it available on Steam (as are FIXME: 540,000 other platformers). How do you get people to buy it? When you've got dozens of competitors, with similar offerings, your only way to get more clients is to slash your prices. 
-
-In essence, this is Valve's biggest problem. If the store gets too crowded, quality drops and it becomes harder to distinguish the chaff from the wheat.
- 
 **Key takeaway: Don't leave your job to become a fulltime indie developer.**
 
 [^pcmarket]: More recently, the same thing happened to the app store and the android market.
