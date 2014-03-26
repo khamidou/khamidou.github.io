@@ -2,9 +2,7 @@
 layout: post
 title: You probably shouldn't leave your job to work on an indie game.
 ---
-A friend of mine always talks about leaving his job at $BIGCORP to go working fulltime on his indie game venture.
-
-I wrote this post to try to dissuade him of doing this.
+A friend of mine always talks about leaving his job at $BIGCORP to go working fulltime on his indie game venture. I don't think it's a good idea, and I'll try to show why in my usual handwavy way.
 
 <!-- more -->
 
@@ -15,17 +13,26 @@ This is what happened to the PC market in the late 90s. In hindsight, Microsoft'
 The problem is that a Dell and a Compaq PC are essentially the same computer but with a different logo on the box. They both run Windows, so the consumer has little incentive to choose a Dell other a Compaq except price. So PC makers competed on price, until they got to the very very thin marges they have today ([about 16$ per PC sold](http://www.theguardian.com/technology/2014/jan/09/pc-value-trap-windows-chrome-hp-dell-lenovo-asus-acer)).
 Essentially, in their effort to get more shares of the market, the makers all competed to sell more windows copies. 
 
-I think there's an similar phenomenon ongoing for indie games. All the conditions are here:
+I think there's an similar phenomenon ongoing for indie games. 
+For instance, look at roguelikes. Roguelikes are one of the simplest game to produce, so there's obviously more contenders in this category.
 
-1. Indie games are mostly undifferentiated products. Let's take roguelikes for instance. You can buy the following roguelikes on Steam: Spelunky, Rogue Legacy, FTL, Dungeons of Dredmor, Risk of Rain, the Binding of Isaac, Teleglitch, the Pit. 
+I checked the prices of the following roguelikes on Steam: Spelunky (14.99$), Rogue Legacy (14.99$), FTL (9.99$), Dungeons of Dredmor (4.99$), Risk of Rain (9.99$), the Binding of Isaac (4.99$), Teleglitch (12.99$), the Pit (6.99$). 
 
-    Average price of my very unscientific sample: __10.99$__.
-2. The concurrence is fiercest than ever since it's easier than ever to make a game and get it sold. 
+Average price of my very unscientific sample: __10.99$__.
+
+So, yeah, there could be two explanations why prices for roguelikes on Steam are so low.
+
+1. Either the roguelike makers collectively decided that the correct price for an indie roguelike was between 4.99$ and 14.99$
+2. Or they had to price their game at this price point. 
+
+I think the first explanation is mostly BS. Kerbal Space Program is game of its own. It has no direct substitute, so it's priced accordingly, at 26.99$. Economists call this "pricing power".
 
 There's two reasons why we the game prices on Steam haven't tanked yet:
 - 
 
 **Key takeaway: Don't leave your job to become a fulltime indie developer.**
+
+[^roguelikes]:  Roguelikes are with platformers one of the easiest kind of game to produce.
 
 [^pcmarket]: More recently, the same thing happened to the app store and the android market.
 
