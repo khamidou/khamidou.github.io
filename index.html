@@ -26,37 +26,29 @@ title: Karim Hamidou's homepage
 
         <div style="float: right;">
             <a href="atom.xml">
-            <img src="images/rss.png" alt="Subscribe to RSS Feed" />
-        </a>
+                <img src="images/rss.png" alt="Subscribe to RSS Feed" />
+            </a>
         </div>
 
+
         <div class="posts">
-            {% for post in site.posts %}
+            <p>Here are my latest blog posts:</p>
+
+            {% for post in site.posts limit:7 %}
             <div class="post">
-                {% capture day %}{{ post.date | date: '%m%d%Y' }}{% endcapture %}
-                {% capture nday %}{{ post.next.date | date: '%m%d%Y' }}{% endcapture %}
-
-                {% if day != nday %}
-                <h5 class="date">{{ post.date | date: "%A, %B %e, %Y" }}</h5>
-                {% endif %}
-
                 <h3>
                 {% if post.link %}
-                <a href="{{ post.link }}" class="postLinkTitle">{{ post.title }} →</a>
+                <a href="{{ post.link }}" class="postLinkTitle">{{ post.title }} (link)</a>
                 {% else %}
                     <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
                 {% endif %}
                 <a href="{{site.baseurl}}{{ post.url }}" class="permalink" title="permalink">&infin;</a>
                 </h3> 
-
-                    {% if post.content contains '<!-- more -->' %}
-                        {{ post.content | split :'<!-- more -->' | first }}
-                            <a href="{{ post.url }}">More...</a>
-                    {% else %}
-                        {{ post.content }}
-                    {% endif %}
             </div>
             {% endfor %}
+            <p>
+            Older stuff is probably in the <a href="archives.html">archives</a>
+            </p>
         </div>
         Copyright (c) Karim Hamidou.
     </div>

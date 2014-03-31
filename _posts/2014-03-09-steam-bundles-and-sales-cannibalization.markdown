@@ -23,7 +23,7 @@ So, do sales and bundles affect negatively the revenue of indie game makers? It 
 
 I don't think it's true, though. Last week, the Monaco team revealed their day-to-day sales during the humble indie bundle 11 (it ran from February 18 to March 4).
 
-![monaco sales](images/steam_bundles/monaco_sales.png)
+![monaco sales](/images/steam_bundles/monaco_sales.png)
 
 It looks like they made a huge number of steam sales *during* the humble bundle. Don't forget there's [65 million steam users](http://store.steampowered.com/news/12396/). The humble indie bundle 11 sold 493,000 copies. It's probably hard to imagine this in the Internet Echo Chamber, but bundle buyers are a tiny portion of steam users. Steam probably makes the equivalent revenue of a bundle daily.
 
@@ -31,7 +31,7 @@ But, I can already hear you "But Karim, this is a humble bundle. It has five gam
 
 Again, I don't think it's true. The graph below is Dustforce's net income for 2012:
 
-![dustforce net income](images/steam_bundles/dustforce_net_income.png)
+![dustforce net income](/images/steam_bundles/dustforce_net_income.png)
 
 There's two interesting things: 
 

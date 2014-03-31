@@ -26,7 +26,6 @@ body {
   font-family: Avenir,'Segoe UI','Lucida Grande',Lucida,Verdana,sans-serif;
   font-size: 15px;
   /*font-size: small; */
-  text-align: center;
   color: $text_color;
   background-color: $primary_color;
 }
@@ -102,19 +101,6 @@ blockquote {
 
 
 
-.post {
-    margin-bottom: 50px;
-
-  .postTitle {
-    text-decoration: none;
-    font-size: 1.2em;
-  }
-
-  .postLinkTitle {
-    font-size: 1.2em;
-  }
-}
-
 /*****************************************************************************/
 /*
 /* Site
@@ -172,10 +158,17 @@ blockquote {
 /* Posts
 /*
 /*****************************************************************************/
-
 .post {
+   margin-bottom: 10px;
+
   .postTitle {
-    margin-bottom: 60px;
+     margin-bottom: 60px;
+     text-decoration: none;
+     font-size: 1.2em;
+  }
+
+  .postLinkTitle {
+    font-size: 1.2em;
   }
 
   pre {
