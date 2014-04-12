@@ -2,47 +2,26 @@
 layout: post
 title: The structure of a longform sales page
 ---
-Call me weird but I've always loved reading longform sales pages. I guess I just like the way they gently take me by the hand. After reading through a couple dozens, I found the best pages [all](http://www.dw-secrets.com/) [have](http://zerotolaunchsystem.com/about/) [the](http://www.jstorimer.com/products/working-with-unix-processes) (this one is not technically long but it shares the same ideas) [same]() [structure]().
+Call me weird but I've always loved reading longform sales pages. I guess I just like the way they lead the reader to the sale. 
+I've read through a few ebooks landing page for ebooks, notably by programmers and, well, it's a kind of mixed bag.
 
-When I was in high school, years ago, I used to study latin. I don't remember a lot from these days, but this one stuck with me: the action in a classical play follows three stages. It's always the case. Ancient greeks loved consistency. 
+There's a thing I've noticed again and again: ebooks written by programmers have [extremely](http://createyourproglang.com/) [short](http://www.jstorimer.com/products/working-with-unix-processes) [landing](http://exceptionalruby.com/) [pages](https://www.petekeen.net/mastering-modern-payments). I think it's because we programmers generally don't like to brag. We'd like our products to stand on their own merits. It's a delusion though.
 
-A good longform copy page follows mostly the same structure, except it's a lot less _dramatic_[^pun].
-
-This structure is __Exposition__ - __Tension__ - __Resolution__. In this post I'll try to explain this structure with show examples from real world ebooks.
-
-## Exposition!
-
-The goal of this stage is make people realize they have a problem and that you, the writer, understand them.
-The best sales pages tell a story about your reader and yourself.
-
-Here's a couple examples. This one is from the [Ultimate Guide to Disney World Savings](http://dw-secrets.com).
-
-![the story of haworth](/images/longform_copy/haworth_story.png)
-
-Or this one, from the sales page of [Working with Unix Processes](http://www.jstorimer.com/products/working-with-unix-processes) (it's a really strong opener by the way. It's only five short sentences and I could already identify myself with the person described.).
-
-![storimer story](/images/longform_copy/storimer_story.png)
-
-
-## Tension!
-
-In this part, the writer tries to spark the enthusiasm of the reader. This is were the actual selling happens.
-There's a variety of ways to do this. The most common one is simply going over the benefits of the book, while detailing how much value they will bring out:
+Here's an excerpt from the landing page of [the Ultimate Guide to Disneyworld](http://dw-secrets.com). It's an ebook written for middle-aged stay-at-home moms, and it's a great landing page. Here's how the author sells one of the many chapters of it's book (highlighting is mine):
 
 ![haworth benefits](/images/longform_copy/haworth_benefits.png)
 
-By the way, there's a thing I've noticed with ebooks written by programmer: they rarely talk about benefits. It's always features, features, features. 
-
-Now, I don't want to single out anyone but Jesse's ebook suffers from the same problem:
+On the other hand, here's how [Working with unix processes](http://www.jstorimer.com/products/working-with-unix-processes) sells itself[^pick].
 
 ![storimer benefits](/images/longform_copy/storimer_benefits.png)
 
-I'm sure people would have benefitted from a little more hand-holding.
+Of course the subject is deeply technical, but I'm sure people would have benefitted from a little more hand-holding. So, there's four different ways to exit a process, how does it matter to me? There's real world concerns about spawning shell commands, ok, why not be more specific? What if this paragraph was rewritten like this:
 
-## Resolution!
+__The real world concerns of spawning shell commands and how to avoid them__
 
+Recognize it, everyone has done this from time to time.
 
 **Key takeaway: Study the work of the greats. Read more longform copy.**
 
-[^pun]: Pun intended.
+[^pick]: (I've got nothing about the author, 
 
