@@ -147,6 +147,8 @@ blockquote {
     color: white; }
   .post pre.terminal code {
     background-color: #333333; }
+  .post p {
+    max-width: 42em; }
 
 /** v2 */
 .presentation {

@@ -208,6 +208,10 @@ blockquote {
   pre.terminal code {
     background-color: $text_color;
   }
+
+  p {
+    max-width: 42em;
+  }
 }
 
 /** v2 */
