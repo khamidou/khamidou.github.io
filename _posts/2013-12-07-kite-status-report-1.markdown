@@ -46,6 +46,7 @@ The two big things on my list are:
 - easy vagrant setup. Trying kite in vagrant will be as easy as running "vagrant up" and connecting to 192.168.50.4.
 
 <br>
+
 ### Contact, questions, remarks
 
 Send me an email at kite at this domain name (sorry for the obfuscated email, I haven't setup the antispam yet).
