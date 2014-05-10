@@ -4,11 +4,11 @@ title: Small gains compound
 ---
 Lately I've been focused on reducing a friction in my development environment. 
 
-It began when I discovered that fabric lets you pass a password argument. Before using this option, I had to enter my password multiple times. This cut my deploy time from 2 minutes down to 30 sec. 
+It began when I discovered that fabric lets you pass a password argument.[^fabric] Before using this option, I had to enter my password multiple times. This cut my deploy time from 2 minutes down to about 45 sec. 
+
+I used to think making small improvements like this would be a waste of time partly because of this XKCD chart and partly because I can't be bothered to make the change[^rabbithole].
 
 ![Xkcd chart](/images/small_gains/is_it_worth_the_time.png)
-
-<small>(image courtesy of [XKCD](http://xkcd.com))</small>
 
 This sounds like a small change, but it's not. Development is all about feedback loops. For example, if deploying is a process which takes ten minutes of your life[^maven] during which you have to babysit a server chances are you won't do it often.
 
@@ -17,6 +17,11 @@ Cutting the deployment time makes it easier to test things on your staging serve
 
 So, one-click deploys let me deploy more often, ok. There's something else they bring you: it's no
 
+[^fabric]: The option is -p, if you're wondering.
 [^parallax]: How many sites are barely usable because their developers developed them locally on cutting-edge desktops? I'm not saying you should develop on a VT-100 sshing into a 2006 laptop stored in your cupboard but you've got to test your site using the devices your users have. It's part of the development process now.
+[^rabbithole]: You should see the vim config I'm using to type this. It's a total mess. I can't be bothered to fix it because I know that I'll have to take an extensive trip through the vimscript rabbit hole. 
 
+    Very often, things are a lot more complex than they appear to be. I try to pick my fights.
+
+ 
 [^maven]: How many hours were wasted trying to get Maven or MSBUILD to work? The thought is staggering.
