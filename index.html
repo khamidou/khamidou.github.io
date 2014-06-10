@@ -10,49 +10,63 @@ title: Karim Hamidou's homepage
             <p>
                 These days, I mostly do web programming (front-end and back-end). I've written code in a lot of languages but my mainstays are <b>C</b>, <b>Python</b> and <b>Javascript</b>. 
             </p>
-
-            <p>
-                I'm working on <a href="http://kiteapp.io">Kite</a>, a modern
-                webmail.
-                The rest of my open source work is available on my <a
-                    href="http://github.com/khamidou">Github page</a>.<br>
-            </p>
-
-            <p>
-                I'm currently looking for full-time work (here's my <a href="resume_hamidou.pdf">CV</a>, by the way). 
-                <br>My email address is <b>karim @ this site's domain name</b>.
-            </p>
         </div>
 
-        <div style="float: right;">
-            <a href="atom.xml">
-                <img src="images/rss.png" alt="Subscribe to RSS Feed" />
-            </a>
-        </div>
+        <div class="panels">
+            <div class="leftPane">
+                <h3 class="section">Side-projects</h3>
+                <ul>
+                    <li>
+                        <a href="http://kiteapp.io">Kite</a>, a modern
+                        webmail.
+                    </li>
+                    <li>
+                        <a href="http://debuggers.co">Debuggers</a>, a blog about interesting bugs.
+                    </li>
+                </ul>
 
-
-        <div class="posts">
-                <p>I write infrequently. Here are some of the best essays I've written:</p>
-                <div class="post">
-                    <h3><a class="postTitle" href="">Steam, Bundles and sales cannibalization</a></h3>
-                </div>
-            </p>
-            <p>Here are my latest blog posts:</p>
-
-            {% for post in site.posts limit:7 %}
-            <div class="post">
-                <h3>
-                {% if post.link %}
-                <a href="{{ post.link }}" class="postLinkTitle">{{ post.title }} (link)</a>
-                {% else %}
-                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
-                {% endif %}
-                </h3> 
+                <h3 class="section">Open source</h3>
+                <p><a href="https://github.com/khamidou">My github page.</a></p>
+                <p>
+                    I'm currently looking for full-time work (here's my <a href="resume_hamidou.pdf">CV</a>, by the way). 
+                    <br>My email address is <b>karim @ this site's domain name</b>.
+                </p>
             </div>
-            {% endfor %}
-            <p>
-            Older stuff is probably in the <a href="archives.html">archives</a>
-            </p>
+
+            <div class="rightPane">
+                <h3 class="section">Writings <a href="/atom.xml">(feed)</a></h3> 
+                <div class="posts">
+                    <i class="category">Software</i>
+                    {% for post in site.categories.software %}
+                        {% if post.url and post.title %}
+                                <li>
+                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
+                                </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    <i class="category">Design</i>
+                    {% for post in site.categories.design %}
+                        {% if post.url and post.title %}
+                                <li>
+                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
+                                </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    <i class="category">Random musings</i>
+                    {% for post in site.posts %}
+                        {% if post.categories == [] %}
+                                <li>
+                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
+                                </li>
+                        {% endif %}
+                    {% endfor %}
+                    <p>
+                        Older stuff is probably in the <a href="archives.html">archives</a>
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="footer">
             Copyright (c) 2012-{{ site.time | date: "%Y"}} Karim Hamidou.

@@ -2,6 +2,7 @@
 layout: post
 title: How to activate a python virtualenv without having to go through dozen of folders
 date: March, 12 2013
+categories: programming
 ---
 
 I'm working on a couple django apps which use separate virtualenvs and I very often have to source the virtualenv activation script.

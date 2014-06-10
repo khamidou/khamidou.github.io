@@ -128,17 +128,17 @@ blockquote {
   .post .postLinkTitle {
     font-size: 1.2em; }
   .post pre {
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     background-color: #eef;
-    padding: 0 0.4em; }
+    padding: 0 .4em; }
   .post ul,
   .post ol {
     margin-left: 1.35em; }
   .post code {
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     background-color: #eef;
     font-size: 85%;
-    padding: 0 0.2em; }
+    padding: 0 .2em; }
   .post pre code {
     border: none; }
   .post pre.terminal {
@@ -150,14 +150,22 @@ blockquote {
   .post p {
     max-width: 42em; }
 
-/** v2 */
 .presentation {
-  border-bottom: 1px solid #cccccc;
   margin-bottom: 20px; }
   .presentation .intro {
     font-size: 30px;
     line-height: 46px;
     font-family: Georgia,Palatino,'Palatino Linotype',Times,'Times New Roman',serif; }
+
+.panels {
+  overflow: auto; }
+  .panels .leftPane {
+    float: left;
+    width: 49%;
+    border-right: 1px solid black; }
+  .panels .rightPane {
+    float: right;
+    width: 50%; }
 
 .important {
   background-color: #ee9090; }
