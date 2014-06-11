@@ -2,6 +2,7 @@
 layout: post
 title: Writing semantic HTML with the Zurb Foundation grid
 date: August 22, 2012
+categories: uncategorized
 ---
 
 I've recently started to use the excellent [Zurb

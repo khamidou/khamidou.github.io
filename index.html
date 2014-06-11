@@ -10,6 +10,12 @@ title: Karim Hamidou's homepage
             <p>
                 These days, I mostly do web programming (front-end and back-end). I've written code in a lot of languages but my mainstays are <b>C</b>, <b>Python</b> and <b>Javascript</b>. 
             </p>
+            <p class="greenlight">
+                    I'm currently looking for full-time work (here's my <a href="resume_hamidou.pdf">CV</a>, by the way). 
+            </p>
+            <p>
+                My email address is <b>karim @ this site's domain name</b>.
+            </p>
         </div>
 
         <div class="panels">
@@ -17,21 +23,21 @@ title: Karim Hamidou's homepage
                 <h3 class="section">Side-projects</h3>
                 <ul>
                     <li>
-                        <a href="http://kiteapp.io">Kite</a>, a modern
-                        webmail.
+                        <a href="http://octaveguitars.com">Octave Guitars</a>, a boutique guitar maker.<br>
+                        We build awesome guitars according to your specs. Give a try to our <a href="http://octaveguitars.com/designer">designer</a>.
                     </li>
                     <li>
-                        <a href="http://debuggers.co">Debuggers</a>, a blog about interesting bugs.
+                        <a href="http://debuggers.co">Debuggers</a>, a blog about interesting bugs. Once a week a programmer tells us about this one bug they had to solve.
                     </li>
                 </ul>
 
                 <h3 class="section">Open source</h3>
-                <p><a href="https://github.com/khamidou">My github page.</a></p>
-                <p>
-                    I'm currently looking for full-time work (here's my <a href="resume_hamidou.pdf">CV</a>, by the way). 
-                    <br>My email address is <b>karim @ this site's domain name</b>.
-                </p>
-            </div>
+                <ul>
+                    <li><a href="http://kiteapp.io">Kite</a>, a modern webmail.</li>
+                    <li><a href="https://github.com/khamidou/tinybackup">Tinybackup</a>, a really simple backup system for linux users.</li>
+                    <li>The rest of my projects are on <a href="https://github.com/khamidou">my github page.</a></li>
+                </ul>
+           </div>
 
             <div class="rightPane">
                 <h3 class="section">Writings <a href="/atom.xml">(feed)</a></h3> 
@@ -40,7 +46,11 @@ title: Karim Hamidou's homepage
                     {% for post in site.categories.software %}
                         {% if post.url and post.title %}
                                 <li>
+                                    {% if post.favorite %}
+                                    <b><a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a></b> (personal favorite)
+                                    {% else %}
                                     <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
+                                    {% endif %}
                                 </li>
                         {% endif %}
                     {% endfor %}
@@ -54,13 +64,22 @@ title: Karim Hamidou's homepage
                         {% endif %}
                     {% endfor %}
 
-                    <i class="category">Random musings</i>
-                    {% for post in site.posts %}
-                        {% if post.categories == [] %}
+                    <i class="category">Programming</i>
+                    {% for post in site.categories.programming %}
+                        {% if post.url and post.title %}
                                 <li>
                                     <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
                                 </li>
                         {% endif %}
+                    {% endfor %}
+
+
+                    <i class="category">Random musings</i>
+                    {% assign uncategorized_posts = site.posts | filter_categorized_posts %}
+                    {% for post in uncategorized_posts limit: 15 %}
+                                <li>
+                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
+                                </li>
                     {% endfor %}
                     <p>
                         Older stuff is probably in the <a href="archives.html">archives</a>

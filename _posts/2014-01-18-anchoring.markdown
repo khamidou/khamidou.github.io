@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Price anchoring
+favorite: true
+categories: design
 ---
 
 I recently discovered the practice of price anchoring, which is based on a cognitive bias we all have called... [anchoring](http://en.wikipedia.org/wiki/Anchoring_bias).<br>
@@ -10,11 +12,11 @@ Put simply, when presented with choices, our brains have a natural tendency to t
 
 Anchoring is why for instance 37signals chose this design: 
 
-![37signals pricing page](images/anchoring/37s_page.png)
+![37signals pricing page](/images/anchoring/37s_page.png)
 
 Over this older one:
 
-![37signals old pricing page](images/anchoring/37s_old_page.png)
+![37signals old pricing page](/images/anchoring/37s_old_page.png)
 
 On the older design, the eye is attracted to the "Plus Plan", skipping entirely the others. 
 
@@ -22,7 +24,7 @@ I suppose that at the time they thought they needed to upsell their users to the
 
 Another interesting example is Apple's web store:
 
-![Apple anchoring](images/anchoring/aapl.png)
+![Apple anchoring](/images/anchoring/aapl.png)
 
 It really interesting to see how the page design guides the eye. The Mac Pro takes most of the space of the page, even though Apple probably sells more iMacs than Mac Pros. Why then emphasize the Mac Pro other the more popular choice? 
 
