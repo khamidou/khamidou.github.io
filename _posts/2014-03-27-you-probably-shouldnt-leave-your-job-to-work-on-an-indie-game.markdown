@@ -1,6 +1,7 @@
 ---
 layout: post
 title: You probably shouldn't leave your job to work on an indie game.
+categories: software
 ---
 A friend of mine always talks about leaving his cushy job at $BIGCORP to go work fulltime on his indie game venture. I don't think it's a good idea, and I'll try to show why in my trademark hand-wavy way.
 

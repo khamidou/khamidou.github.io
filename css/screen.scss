@@ -111,7 +111,7 @@ blockquote {
     padding: 10px;
     font-size: 16px;
     text-align: left;
-    width: 47em;
+    width: 44em;
     margin: 0 auto;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -133,6 +133,10 @@ blockquote {
       a:hover {
         color: black;
       }
+    }
+
+    img {
+        max-width: 42em;
     }
 }
 
@@ -159,6 +163,7 @@ blockquote {
   .postTitle {
      margin-bottom: 60px;
      text-decoration: none;
+     font-size: 1.3em;
   }
 
   .postLinkTitle {

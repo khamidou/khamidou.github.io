@@ -82,7 +82,7 @@ blockquote {
   padding: 10px;
   font-size: 16px;
   text-align: left;
-  width: 47em;
+  width: 44em;
   margin: 0 auto;
   margin-top: 5px;
   margin-bottom: 15px;
@@ -98,6 +98,8 @@ blockquote {
       text-decoration: none; }
     .site .title a:hover {
       color: black; }
+  .site img {
+    max-width: 42em; }
 
 .footer {
   font-size: 80%;
@@ -118,7 +120,8 @@ blockquote {
   /* terminal */ }
   .post .postTitle {
     margin-bottom: 60px;
-    text-decoration: none; }
+    text-decoration: none;
+    font-size: 1.3em; }
   .post .postLinkTitle {
     font-size: 1.2em; }
   .post pre {
