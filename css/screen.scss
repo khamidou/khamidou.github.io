@@ -126,7 +126,7 @@ blockquote {
       margin-bottom: 0.7em;
 
       a {
-        color: #172F4F;
+        color: #a00;
         text-decoration: none;
       }
 
@@ -161,10 +161,16 @@ blockquote {
    margin-bottom: 10px;
 
   .postTitle {
-     margin-bottom: 60px;
      text-decoration: none;
      font-size: 1.3em;
   }
+
+
+  .date {
+      font-size: 0.96em;
+      margin-bottom: 40px;
+  }
+
 
   .postLinkTitle {
     font-size: 1.2em;

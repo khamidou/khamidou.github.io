@@ -5,9 +5,12 @@ categories: guitars, programming
 ---
 I'm working on a [guitar-related venture](http://octaveguitars.com) with a friend. We wanted to help our potential clients get a better feel of how their guitar will look like. To do this we decided to create a step by step wizard. You can try it [here](http://octaveguitars.com/designer). 
 
-Implementing the wizard was simple thanks to django's SessionWizard. The most interesting problems came from wanting to draw semi-realistic guitars.
+We're using Django to develop the site, with some Javascript sprinkled here and there. It's a great framework for this type of website and it provided everything we needed out of the box, except for one thing: drawing guitars. 
 
-This is what this article is about.
+We had interesting problems trying to draw semi-realistic guitars. This is what this article is about.
+<br>
+<br>
+
 
 <img src="/images/drawing_guitars/guitar.jpg" width="512" />
 
@@ -21,8 +24,6 @@ To generate images on the server, I wanted to use PIL - the Python Imaging Libra
 
 The problem with PHP is the language tries very hard to not get in your way. You can get away with almost anything, which is nice at the beginning of a project, but get tedious when things need to have structure.
 
-Apart from that I was quite impressed by the quality of the PHP documentation. I mostly use Python to get stuff done and the PHP docs are miles ahead of the python docs. 
-
 ## Playing Dr Frankenstein with images
 
 We asked an illustrator to draw for us individual guitar elements:
@@ -34,6 +35,8 @@ We asked an illustrator to draw for us individual guitar elements:
 
 After this I wrote a script to take these elements and build a guitar image beginning with the body and progressively adding the neck, the pickups, painting, etc. 
 
-Generating an image maps pretty well to a procedural program: 
+One interesting problem I met is with positioning elements.
+
+![geometry manager](/images/drawing_guitars/geometry_manager.png)
 
 Of course, no plan survives contact with the enemy. The main problem I met was positioning.
