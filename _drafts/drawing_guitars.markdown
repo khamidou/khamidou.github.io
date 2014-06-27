@@ -22,10 +22,11 @@ You've got two options if you want to generate an image programatically. We eith
 
 To generate images on the server, I wanted to use PIL - the Python Imaging Library - which is notorious for being hard to install. At some point I just threw my hands in the air and said "I'll just write some quick script in PHP. How hard could it be?". Quite hard indeed.
 
-The problem with PHP is the language tries very hard to not get in your way. You can get away with almost anything, which is nice at the beginning of a project, but get tedious when things need to have structure.
+The problem with PHP is the language tries very hard to not get in your way. You can get away with almost anything, which is nice at the beginning of a project, but get tedious when things need to have structure. It's very easy to paint yourself into a corner.
 
 ## Playing Dr Frankenstein with images
 
+So, we wanted to have people progressively customize their guitar. It maps nicely to a script: 
 We asked an illustrator to draw for us individual guitar elements:
 
 
@@ -38,5 +39,3 @@ After this I wrote a script to take these elements and build a guitar image begi
 One interesting problem I met is with positioning elements.
 
 ![geometry manager](/images/drawing_guitars/geometry_manager.png)
-
-Of course, no plan survives contact with the enemy. The main problem I met was positioning.
