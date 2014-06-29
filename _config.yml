@@ -1,5 +1,5 @@
 markdown: kramdown
-pygments: true
+highlighter: pygments
 baseurl: http://khamidou.com
 permalink: /:year/:month/:day/:title.html
 excerpt_separator: ""
