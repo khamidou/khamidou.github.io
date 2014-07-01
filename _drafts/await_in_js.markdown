@@ -60,9 +60,9 @@ greet('Paul'); // output: 'console.log('hello ' + 'Paul');'
 
 There's several important things.
 
-1. First you can see sweet has a little more syntax than the C preprocessor. A macro is defined inside a `macro` block. Inside this bloc you can have several rules of the form { pattern } { replacement }.
+1. First you can see sweet has a little more syntax than the C preprocessor. A macro is defined inside a `macro` block. Inside this block you can have several rules of the form `{ pattern } { replacement }`.
 
-2. The rules for matching macros are similar to regexps. The block `($name:lit)` means: match litteral between two parentheses and assign it to the variable `$name`.
+2. The rules for matching macros are similar to regexps. The block `($name:lit)` means: "match one litteral between two parentheses and assign it to the variable `$name`".
 
 3. The replacement block contains the replacement text and can optionally call javascript code.
 
@@ -83,6 +83,12 @@ greet('Paul', 'Ringo', 'George');
 // output: console.log('hello ', 'Paul', 'Ringo', 'George');
 {% endhighlight %}
 
+Again, here are some important changes:
+
+1. We don't want to match commas, so ask the compiler to ignore them by using `(,)`.
+2. The '...' statement. It means "match one or more token of the previous matched". The tokens matched are exposed in the replacement rule as `...`.
+
+Now, let's use sweet to implement an `await` macro.
 
 # Handling async AJAX calls 
 
