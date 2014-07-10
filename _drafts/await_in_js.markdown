@@ -14,20 +14,20 @@ if (status.success) {
 }
 {% endhighlight %}
 
-And it gets compiled to that:
+And it gets compiled to this:
 {% highlight javascript %}
-$.get("/login", {success: function(status) { 
+$.get("/login").done(function(status) { 
                                 if (status.success) {
                                     // whatever 
                                 }
-                }, error: function(status) { 
+                }).fail(function(status) { 
                                 if (status.success) {
                                     // whatever 
                                 }
-                }});
+                });
 {% endhighlight %}
 
-To me, it's a net win in terms of readability because I've never really liked callback. I feel like they're an implementation detail and I'd rather have swept under the rug. They're the reason why I've been reluctant to write anything more complex than toy servers with nodejs.
+To me, it's a net win in terms of readability because I've never really liked callbacks. They're an implementation detail and I'd rather have them swept under the rug.
 
 Last week I heard of [sweet.js](http://sweetjs.org/), a macro compiler for Javascript, so I decided to try to implement some sort of `await` functionality with macros.
 
@@ -68,7 +68,7 @@ There's several important things.
 
 So, we've got a macro and it gets expanded at compile-time. However, because of the way we wrote it, it will trigger an error if we pass it more than one argument. Let's fix this.
 
-# Handling multiple arguments
+# Handling multiple parameters
 
 Sweetjs has a specific syntax for defining variadic macros: a `...` will match any token similar to the previous match:
 
@@ -88,43 +88,54 @@ Again, here are some important changes:
 1. We don't want to match commas, so ask the compiler to ignore them by using `(,)`.
 2. The '...' statement. It means "match one or more token of the previous matched". The tokens matched are exposed in the replacement rule as `...`.
 
-Now, let's use sweet to implement an `await` macro.
+Now, let's try to define a small macro to do simplify those messy jQuery ajax calls.
 
 # Handling async AJAX calls 
 
-Now, let's try to define a small macro to do simplify those messy jQuery ajax calls.
+The jQuery guys, knowing how painful it is to use callbacks, have defined a promise interface. It allows us to chain calls in a pseudo-procedural type:
 
 {% highlight javascript %}
-macro await {
+    $.get({"/api.json"})
+        .done(function(data) { }) 
+        .fail(function(error) { });
+{% endhighlight %}
+
+I still find this too annoying. Let's simplify things with this macro:
+
+{% highlight javascript %}
+let var = macro {
   rule {
-    $method($x);
+    $result = await $.get($x);
     $rest
     ...
   } => {
-    // just return the token that is bound to `$x`
-    $method($x, function() {
+    var $result = $.get($x).done(function($result) {
+        $rest
+        ...
+    }).fail(function($result) {
         $rest
         ...
     });
   }
 }
 
-await setTimeout(64);
-console.log("hey");
-await setTimeout(65);
-console.log("ho");
+var result = await $.get({url: "http://google.com"});
+console.log(result);
 {% endhighlight %}
 
 This compiles to the following javascript:
 
 {% highlight javascript %}
-setTimeout(64, function () {
-    console.log('hey');
-    setTimeout(65, function () {
-        console.log('ho');
+var result$511[^hygienic] = $.get({ url: 'http://google.com' }).done(function (result$512) {
+        console.log(result$512);
+    }).fail(function (result$513) {
+        console.log(result$513);
     });
-});
 {% endhighlight %}
 
-[^hygienic]: Hygienic macros are
- 
+There's only two major changes between the `greet` macro and this one:
+
+1. We're using variadic parameters to capture every token after the macro.
+2. We're redefining `var` as a macro. This lets us expands constructs like `var result = await $.get`. To get more specific, we're redefining `var` as an anonymous macro because we don't want sweet to try to expand every `var` inside the macro.
+
+By the way, do you wonder where these weird `result$511` and al come from? It's because sweet macros are _hygienic_: when they get expanded, identifiers are renamed to prevent name clashes.
