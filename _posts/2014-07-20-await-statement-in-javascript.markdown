@@ -44,7 +44,7 @@ Here's the simplest macro of all, a greet function.
 #define greet(name) printf("hello #name")
 {% endhighlight %}
  
-And here's the equivalent sweetjs macro:
+This is the equivalent sweetjs macro:
 {% highlight javascript %}
 macro greet {
   rule {
@@ -86,7 +86,7 @@ greet('Paul', 'Ringo', 'George');
 Again, here are some important changes:
 
 1. We don't want to match commas, so ask the compiler to ignore them by using `(,)`.
-2. The '...' statement. It means "match one or more token of the previous matched". The tokens matched are exposed in the replacement rule as `...`.
+2. The '...' token itself. The tokens matched are exposed in the replacement rule as `...`.
 
 Now, let's try to define a small macro to do simplify those messy jQuery ajax calls.
 
@@ -126,7 +126,8 @@ console.log(result);
 This compiles to the following javascript:
 
 {% highlight javascript %}
-var result$511[^hygienic] = $.get({ url: 'http://google.com' }).done(function (result$512) {
+var result$511[^hygienic] = $.get({ url: 'http://google.com' }).done(
+    function (result$512) {
         console.log(result$512);
     }).fail(function (result$513) {
         console.log(result$513);
@@ -135,7 +136,7 @@ var result$511[^hygienic] = $.get({ url: 'http://google.com' }).done(function (r
 
 There's only two major changes between the `greet` macro and this one:
 
-1. We're using variadic parameters to capture every token after the macro.
+1. We're using variadic parameters differently than in the previous example: instead of capturing function parameters we use them to capture every token after the macro.
 2. We're redefining `var` as a macro. This lets us expands constructs like `var result = await $.get`. To get more specific, we're redefining `var` as an anonymous macro because we don't want sweet to try to expand every `var` inside the macro.
 
 By the way, do you wonder where these weird `result$511` and al come from? It's because sweet macros are _hygienic_: when they get expanded, identifiers are renamed to prevent name clashes.
