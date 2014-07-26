@@ -1,6 +1,7 @@
 ---
 layout: post
 title: vagrant-rails
+category: tips
 ---
 
 I'm learning rails at the moment. Coming from python, the ruby community seems markedly different. One thing doesn't change, though: package managers suck. I was so confused by rbenv, rvm, bundler and gems that I thought it'd be safer to install it in a virtual machine. 

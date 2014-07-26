@@ -75,10 +75,20 @@ title: Karim Hamidou's homepage
                         {% endif %}
                     {% endfor %}
 
+                    <i class="category">Tips</i>
+                    {% for post in site.categories.tips %}
+                        {% if post.url and post.title %}
+                                <li>
+                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
+                                </li>
+                        {% endif %}
+                    {% endfor %}
+
+
 
                     <i class="category">Random musings</i>
                     {% assign uncategorized_posts = site.posts | filter_categorized_posts %}
-                    {% for post in uncategorized_posts limit: 15 %}
+                    {% for post in uncategorized_posts limit: 7 %}
                                 <li>
                                     <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
                                 </li>

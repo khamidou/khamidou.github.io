@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Programming and negativity
+categories: programming
 ---
 My uncle is a teacher. When I was a kid, he would often slip into "teacher mode" even not in a school setting. Not only would he lecture us (which I'm glad he did), but he would also try to discipline us as if we were a classroom. Having to write a memoir during your holidays is not fun.
 

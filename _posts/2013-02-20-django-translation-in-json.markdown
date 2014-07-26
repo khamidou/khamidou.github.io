@@ -2,6 +2,7 @@
 layout: post
 title: Using Django lazily translated strings in JSON
 date: February, 20 2013
+category: tips
 ---
 
 Last week I had to add support for i18n to a django application. Everything went swiftly, except for one thing : I needed to output a translated JSON structure in my HTML and doing this simple with json.dumps triggered a TypeError exception, with the message : "<django.utils.functional.\__proxy__ object at 0x987a86c> is not JSON serializable".
