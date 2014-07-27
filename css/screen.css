@@ -145,7 +145,7 @@ blockquote {
   .post pre.terminal code {
     background-color: #333333; }
   .post p {
-    max-width: 42em; }
+    max-width: 32em; }
 
 .presentation {
   margin-bottom: 20px; }
