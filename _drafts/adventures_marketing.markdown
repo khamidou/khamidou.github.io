@@ -29,11 +29,16 @@ First, I need to get more serious about getting interviews. My current process i
 
 This obviously doesn't work. I've thought of two ways to get more leads. First, I feel silly because I didn't think of it before, but asking for referrals is a cool way to get new interviewees.
 
-Second, I've been working on getting more unwanted contributions because they're awesome. On the original site it just wasn't obvious you could contribute a story to the blog. You had to hunt my email address on the "About" page and read some uninteresting blurb about the blog. Since then I reworked the page to be more about contributing stories and added a more proeminent "Contributing a story" link. 
+Second, I've been working on getting more unsolicited contributions because they're awesome. On the original site it just wasn't obvious you could contribute a story to the blog. You had to hunt my email address on the "About" page and read some uninteresting blurb about the blog. Since then I reworked the page to be more about contributing stories. I've also added a more proeminent "Contributing a story" link.
 
 #2. Getting more traffic
 
-I'm not looking to do extensive promotion - in my opinion great content promotes itself[^content]. However, there's some low-hanging fruit to pick up. For instance, I'm a huge fan of [the setup](http://usesthis.com). Every the setup post is named after the person they're interviewing. It works for them, and they get upvoted because people have heard of them. 
+I'm not looking to do extensive promotion - in my opinion great content promotes itself[^content]. However, there's some low-hanging fruit to pick up.
+
+For example, I've got a lot of work to do on post titles. If a post doesn't have a good title, it won't get read, period. Some blogs can get away with sybilline titles ([the setup](http://usesthis.com), daring fireball), but not mine[^buzzfeed].
+
+All in all, it's going to be less time on Google Analytics and more time writing emails.
 
 [^marketing]: In my uneducated mind a combination of sales/marketing/corruption. It took me working at Microsoft to realize marketing wasn't really their forte, but I digress.
 [^content]: At least that's what my SEO friends tell me.
+[^buzzfeed]: I'm not saying I'm going to rewrite my titles as "This programmer was debugging the kernel... You won't believe what happened next".
