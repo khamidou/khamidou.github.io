@@ -4,7 +4,7 @@ title: The bare minimum you need to know about accepting payments with Django
 ---
 
 <br>
-I've implementing payments processing for a project of mine. Here are my notes in the hope it saves some time to someone else.
+I'm implementing payments processing for a project of mine. Here are my notes in the hope it saves some time to someone else.
 
 # Table of Contents
 
@@ -24,7 +24,9 @@ The advantage of having a dedicated merchant account is that it's easier to nego
 
 ### What you need to know about PCI compliance
 
-PCI 
+The *PCI Security Standards Council* is an organization whose goal is to define security standards for handling credit cards on the Internet. If you want to accept credit cards, you'll have to deal with them, one day or another.
+
+However, if you're simply going to integrate with a vendor, you can 
 
 # How it works
 
