@@ -6,7 +6,7 @@ title: The bare minimum you need to know about accepting payments with Django
 <br>
 I'm implementing payments processing for a project of mine. Here are my notes in the hope it saves some time for someone else.
 
-# Table of Contents
+## Table of Contents
 
 * Toc
 {:toc}
@@ -14,40 +14,39 @@ I'm implementing payments processing for a project of mine. Here are my notes in
 <br>
 
 
-# Payment processors, gateways, Stripe and the rest
+## Payment processors, gateways, Stripe and the rest
 
 Paying on the Internet is very similar to using your credit card at a point-of-sale terminal. In both cases the seller (the **merchant**) is not the one who debits your bank account. This is the job of the **payment gateway**.
 
 Most payment gateways (Authorize.net, PayBox, etc.) will deposit the money in a temporary account called a **merchant account**. Others (Stripe, PayPal, Gumroad) will deposit directly the money in your account[^aggregate_account].
 
-The advantage of having a dedicated merchant account is that it's easier to negotiate a specific rate. But except if you have a high volume, it's simpler to start with an easy to setup solution like Stripe or Paypal.
+The advantage of having a dedicated merchant account is that it's easier to negotiate a specific rate. But except if you have a high transaction volume, it's simpler to start with an easy to setup solution like Stripe or Paypal.
 
-## What you need to know about PCI compliance
+### What you need to know about PCI compliance
 
 The *PCI Security Standards Council* is an organization whose goal is to define security standards for handling credit cards on the Internet. If you want to accept credit cards, you'll have to deal with them, one day or another.
 
 Thankfully, since most of the time you're simply going to integrate with a vendor, you won't have an extremely long checklist of things to worry about.[^vendor]
 
-Here's some of the things you need to check for:
+I read the official docs on the subject. Here's what I think are the highlights. 
 
 |---
-|Category|Requirements
+|Requirement category|Translation
 |-|-
-|Network security|Using a firewall
-|                |Having an auditing process
+|__Build and maintain a secure network__ | Use a firewall on your server network and on your dev machines.
+|                                        | Change the defaults passwords (DUH)
+|                                        | Always use HTTPS for administrative access
+|__Protect Cardholder data__             | Don't store cardholder data. Actually you can store this data, but the security requirements and paperwork make this not worth it.
+|                                        | 
 |                |Having a security policy
-|Hey|Lol
 |===
 
-1. Do you use SSL?
-2. Do you store the credit card numbers?
-
-# Accepting payments with Django
+## Accepting payments with Django
 
 You've probably come to this page after having seen the tons of different packages on Django packages. There's a lot, but among those, only django-payments and ... seem to provide decent support for multiple providers.
 
 
-# Implementing payments using django-payments
+## Implementing payments using django-payments
 
 lkmkmlk
 
