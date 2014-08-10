@@ -4,7 +4,7 @@ title: The bare minimum you need to know about accepting payments with Django
 ---
 
 <br>
-I'm implementing payments processing for a project of mine. Here are my notes in the hope it saves some time for someone.
+I've implemented payments processing for a consulting client. Here are my notes in the hope it saves some time for someone.
 
 ## Table of Contents
 <br>
