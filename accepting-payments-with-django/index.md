@@ -4,7 +4,7 @@ title: The bare minimum you need to know about accepting payments with Django
 ---
 
 <br>
-I've implemented payments processing for a consulting client. Here are my notes in the hope it saves some time for someone.
+I've implemented payment processing for a consulting client. Here are my notes in the hope it saves some time for someone.
 
 ## Table of Contents
 <br>
@@ -28,7 +28,7 @@ The *PCI Security Standards Council* is an organization whose goal is to define 
 
 Thankfully, since most of the time you're simply going to integrate with a vendor, you won't have an extremely long checklist of things to worry about.[^vendor]
 
-I read the [official docs on the subject](https://www.pcisecuritystandards.org/documents/PCI%20SSC%20Quick%20Reference%20Guide.pdf). Here's what I think are the highlights. 
+I read the [official docs on the subject](https://www.pcisecuritystandards.org/documents/PCI%20SSC%20Quick%20Reference%20Guide.pdf). Here are the highlights:
 
 |---
 |Requirement category|Translation
@@ -58,7 +58,10 @@ lkmkmlk
 
 ## Implementing the payment form
 
-There's a lot of usability concerns to be aware of when implementing payments.
+There's a lot of usability concerns to be aware of when implementing payments. If you're like most people, you'll probably want to choose an off-the-shelf solution. [jQuery.payments](https://github.com/stripe/jquery.payment) was developed by Stripe while working on their Checkout add-on. It's a good solution if you're implementing your payment form yourself, and if you care mostly about validating fields.
+
+I've also heard good things about [Creditcardjs](http://creditcardjs.com/) but I never tried it personally. 
+
 
 # Checklist
 
