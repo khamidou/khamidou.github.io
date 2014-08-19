@@ -7,7 +7,6 @@ title: The bare minimum you need to know about accepting payments with Django
 I've implemented payment processing for a consulting client. Here are my notes in the hope it saves some time for someone.
 
 ## Table of Contents
-<br>
 * Toc
 {:toc}
 
@@ -49,8 +48,11 @@ I read the [official docs on the subject](https://www.pcisecuritystandards.org/d
 
 ## Accepting payments with Django
 
-You've probably come to this page after having seen the tons of different packages on Django packages. There's a lot, but among those, only django-payments and ... seem to provide decent support for multiple providers.
+You've probably come to this page after having seen the [tons of different packages on Django packages](https://www.djangopackages.com/grids/g/payment-processing/). I'll cut to the chase. To me, [django-merchant](https://github.com/agiliq/merchant) is the most mature payments app if you need support for multiple providers.
 
+If you only need to support PayPal or Stripe, [django-stripe-payments](https://github.com/eldarion/django-stripe-payments) and [django-paypal](https://github.com/spookylukey/django-paypal) are good options.
+
+### Stripe and PayPal gotchas
 
 ## Implementing payments using django-payments
 
@@ -58,9 +60,11 @@ lkmkmlk
 
 ## Implementing the payment form
 
-There's a lot of usability concerns to be aware of when implementing payments. If you're like most people, you'll probably want to choose an off-the-shelf solution. [jQuery.payments](https://github.com/stripe/jquery.payment) was developed by Stripe while working on their Checkout add-on. It's a good solution if you're implementing your payment form yourself, and if you care mostly about validating fields.
+There's a lot of usability concerns to be aware of when implementing payments because it matters a lot. First, it's complicated to validate card numbers -- they're a lot of variations between countries. In the ideal case, validating cards should be done both by the frontend and the backend, however in my case I prefiered to choose 
 
-I've also heard good things about [Creditcardjs](http://creditcardjs.com/) but I never tried it personally. 
+ wanted to have a form that validates credit card numbers. [jQuery.payments](https://github.com/stripe/jquery.payment) was developed by Stripe while working on their Checkout add-on. It's a good solution if you're implementing your payment form yourself, and if you care mostly about validating fields.
+
+I've also heard good things about [Creditcardjs](http://creditcardjs.com/) but I never tried it personally. Besides this, it seems like most of the functionality of creditcardjs is available in jQuery.Payments.[^commodity]
 
 
 # Checklist
@@ -74,3 +78,4 @@ You can contact me at karim @ this site's domain. I try to reply to every email 
 [^aggregate_account]: This is not entirely true. Payment processors like Stripe and PayPal still have a merchant account, but it's shared among all the merchants. Because of this, it takes a lot less paperwork to accept money using them than with something like Authorize.net.
 
 [^vendor]: at least compared to a vendor. They have a specific set of requirements called PCI PA-DSS.
+[^commodity]: This reminds me of Joel Spolsky's classic [Strategy Letter V](http://joelonsoftware.com/articles/StrategyLetterV.html). Stripes works smartly to commoditize their complements.
