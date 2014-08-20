@@ -54,17 +54,24 @@ If you only need to support PayPal or Stripe, [django-stripe-payments](https://g
 
 ### Stripe and PayPal gotchas
 
-## Implementing payments using django-payments
+## Implementing payments using django-merchants
+
+Django-merchant is pretty straightforward to use. I'm not going to show code examples here, because this get stale quickly, but here's how it works:
+
+1. You must define your payment processing userid keys
 
 lkmkmlk
 
 ## Implementing the payment form
 
-There's a lot of usability concerns to be aware of when implementing payments because it matters a lot. First, it's complicated to validate card numbers -- they're a lot of variations between countries. In the ideal case, validating cards should be done both by the frontend and the backend, however in my case I prefiered to choose 
+There's a lot of usability concerns to be aware of when implementing payments. First, it's complicated to validate card numbers -- there's a lot of variations between countries.
 
- wanted to have a form that validates credit card numbers. [jQuery.payments](https://github.com/stripe/jquery.payment) was developed by Stripe while working on their Checkout add-on. It's a good solution if you're implementing your payment form yourself, and if you care mostly about validating fields.
+[jQuery.payments](https://github.com/stripe/jquery.payment) was developed by Stripe while working on their Checkout add-on. It's a good solution if you're implementing your payment form yourself, and if you care mostly about validating fields.
 
 I've also heard good things about [Creditcardjs](http://creditcardjs.com/) but I never tried it personally. Besides this, it seems like most of the functionality of creditcardjs is available in jQuery.Payments.[^commodity]
+
+In the ideal case, validating cards should be done both by the frontend and the backend. In my case, I decided to validate cards on the frontend, with jQuery.payments and let the payment processor handle the rest.
+
 
 
 # Checklist
