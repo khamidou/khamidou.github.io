@@ -10,8 +10,6 @@ I've implemented payment processing for a consulting client. Here are my notes i
 * Toc
 {:toc}
 
-<br>
-
 
 ## Payment processors, gateways, Stripe and the rest
 
@@ -32,18 +30,13 @@ I read the [official docs on the subject](https://www.pcisecuritystandards.org/d
 |---
 |Requirement category|Translation
 |-|-
-|__Build and maintain a secure network__ | Use a firewall on your server network and on your dev machines.
-|                                        | Change the defaults passwords (DUH)
-|                                        | Always use HTTPS for administrative access
+|__Build and maintain a secure network__ | Use a firewall on your server network and on your dev machines.<br> Change the defaults passwords (duh).<br> Always use HTTPS for administrative access
 |__Protect Cardholder data__             | Don't store cardholder data. Actually you can store this data, but the security requirements and paperwork make this not worth it.
-|__Encrypt ransmission of cardholder data across open, public networks__ | Use HTTPS   | 
-|__Develop and maintain secure systems and applications__ | Maintain the systems up-to-date |
-|                                                         | Stay informed of the latest security vulnerabilities. Subscribing to the [Django blog](https://www.djangoproject.com/weblog/) and the [Ubuntu Security notices](http://www.ubuntu.com/usn/) is a good start.
-|                                                         | Develop code secure code (DUH) and do code reviews and at least one annual audit. 
-|__Restrict access to cardholder data by business need-to-know__ | Self-explaining |
-|__Assign a unique ID to each person with computer access__ | Have an audit-trail: specific accounts for each user, two-factor auth and VPNs if possible, hash passwords
-|__Restrict physical access to cardholder data__ | You shouldn't store card-holder data
-|__Track and monitor all access to network resources and cardholder data__|
+|__Encrypt ransmission of cardholder data across open, public networks__ | Use HTTPS.   | 
+|__Develop and maintain secure systems and applications__ | Maintain the systems up-to-date. <br> Stay informed of the latest security vulnerabilities (subscribing to the [Django blog](https://www.djangoproject.com/weblog/) and the [Ubuntu Security notices](http://www.ubuntu.com/usn/) is a good start).<br><br> Develop secure code (easier said than done) and do code reviews and at least one annual audit. 
+|__Restrict access to cardholder data by business need-to-know__ | Self-explaining. |
+|__Assign a unique ID to each person with computer access__ |Have an audit-trail: specific accounts for each user, two-factor auth and VPNs if possible, hash passwords.
+|__Restrict physical access to cardholder data__ | You shouldn't store cardholder data.
 |===
 
 ## Accepting payments with Django
@@ -54,13 +47,17 @@ If you only need to support PayPal or Stripe, [django-stripe-payments](https://g
 
 ### Stripe and PayPal gotchas
 
+It's relatively easy to implement payments, however there's some gotchas to be aware of.
+
+#### The Paypal encrypted button gotcha
+
+PayPal has two payments solutions. The most basic (and the one I choose) consists in inserting a PayPal button which takes the user to PayPal for payments and then redirects him to a page you've choosen. The problem is the contents of the button aren't encrypted -- someone could modify it to change a 100$ charge into a 1$ charge. The solution to this is implementing button encryption.
+
 ## Implementing payments using django-merchants
 
 Django-merchant is pretty straightforward to use. I'm not going to show code examples here, because this get stale quickly, but here's how it works:
 
 1. You must define your payment processing userid keys
-
-lkmkmlk
 
 ## Implementing the payment form
 
@@ -74,15 +71,15 @@ In the ideal case, validating cards should be done both by the frontend and the 
 
 
 
-# Checklist
+## Checklist
 
 mlkmlk
 
-# Comments, remarks, complaints
+## Comments, remarks, complaints
 
 You can contact me at karim @ this site's domain. I try to reply to every email I receive.
 
 [^aggregate_account]: This is not entirely true. Payment processors like Stripe and PayPal still have a merchant account, but it's shared among all the merchants. Because of this, it takes a lot less paperwork to accept money using them than with something like Authorize.net.
 
-[^vendor]: at least compared to a vendor. They have a specific set of requirements called PCI PA-DSS.
+[^vendor]: at least compared to a vendor. They have a specific set of requirements called PCI PA-DSS. It's long, somehow dated and absolutely necessary.
 [^commodity]: This reminds me of Joel Spolsky's classic [Strategy Letter V](http://joelonsoftware.com/articles/StrategyLetterV.html). Stripes works smartly to commoditize their complements.
