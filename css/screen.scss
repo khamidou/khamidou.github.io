@@ -23,32 +23,32 @@ $background_color: #e9e9e9;
 
 body {
   background-color: $background_color;
-  font-family: "DejaVu sans", "Segoe UI";
+  font-family: "DejaVu sans", "Segoe UI", sans-serif;
   font-size: 15px;
   /*font-size: small; */
   color: $text_color;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-h1 {
-  font-size: 28px;
-  margin-bottom: 1em;
-}
-
-h2 {
-    font-size: 20px;
 }
 
 p {
   margin: 1em 0;
 }
 
+h1, h2, h3 {
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 20.5px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
 a {
-  /* color: #172F4F; */
   color: $secondary_color;
 }
 
@@ -63,6 +63,22 @@ a:visited {
 table {
   font-size: inherit;
   font: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+$table_color: #ddd;
+th, td {
+  border: 1px solid $table_color;
+  padding: 5px;
+  vertical-align: top;
+}
+
+tr {
+}
+
+tr:nth-child(even) {
+  background-color: #f5f5f5;
 }
 
 blockquote {
@@ -115,7 +131,7 @@ blockquote {
     margin: 0 auto;
     margin-top: 5px;
     margin-bottom: 15px;
-    line-height: 1.5em;
+    line-height: 1.35;
     box-shadow: 0px 1px #ccc;
     border: 1px solid #ccc;
 
@@ -213,7 +229,8 @@ blockquote {
   }
 
   #markdown-toc {
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 25px;
   }
 
 }
@@ -244,9 +261,10 @@ blockquote {
         padding-left: 2%;
     }
 
-    h3.section {
+    .section {
         text-transform: uppercase;
         margin-bottom: 10px;
+        font-weight: bold;
     }
 
     .category {
