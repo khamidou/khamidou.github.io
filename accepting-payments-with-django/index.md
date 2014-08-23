@@ -41,39 +41,28 @@ I read the [official docs on the subject](https://www.pcisecuritystandards.org/d
 
 ## Accepting payments with Django
 
-You've probably come to this page after having seen the [tons of different packages on Django packages](https://www.djangopackages.com/grids/g/payment-processing/). I'll cut to the chase. To me, [django-merchant](https://github.com/agiliq/merchant) is the most mature payments app if you need support for multiple providers.
+You've probably come to this page after seeing the [tons of different packages on Django packages](https://www.djangopackages.com/grids/g/payment-processing/). I'll cut to the chase. To me, [django-merchant](https://github.com/agiliq/merchant) is the most mature payments app if you need support for multiple providers.
 
 If you only need to support PayPal or Stripe, [django-stripe-payments](https://github.com/eldarion/django-stripe-payments) and [django-paypal](https://github.com/spookylukey/django-paypal) are good options.
 
 ### Stripe and PayPal gotchas
 
-It's relatively easy to implement payments, however there's some gotchas to be aware of.
+It's really easy to implement payments, especially with django-merchant -- seriously, [look at how long is takes to add Stripe payments](https://django-merchant.readthedocs.org/en/latest/gateways/stripe_payment.html). However, there's some gotchas to be aware of.
 
-#### The Paypal encrypted button gotcha
+#### The Paypal encrypted button
 
-PayPal has two payments solutions. The most basic (and the one I choose) consists in inserting a PayPal button which takes the user to PayPal for payments and then redirects him to a page you've choosen. The problem is the contents of the button aren't encrypted -- someone could modify it to change a 100$ charge into a 1$ charge. The solution to this is implementing button encryption.
+PayPal has two payments solutions. The most basic (and the one I choose) consists in inserting a PayPal button which takes the user to PayPal for payments and then redirects him to a page of your choice. The problem is the contents of the button aren't encrypted -- someone could modify it to change a 100$ charge into a 1$ charge. The solution to this is implementing button encryption.
 
-## Implementing payments using django-merchants
+[Here's how to do it using Django-paypal](https://github.com/spookylukey/django-paypal#using-paypal-payments-standard-with-encrypted-buttons).
 
-Django-merchant is pretty straightforward to use. I'm not going to show code examples here, because this get stale quickly, but here's how it works:
+## Implementing the payment form
 
-1. You must define your payment processing userid keys
-
-## Implementing the payment form
-
-There's a lot of usability concerns to be aware of when implementing payments. First, it's complicated to validate card numbers -- there's a lot of variations between countries.
+There's a lot of usability concerns to be aware of when implementing payments. First, it's complicated to validate card numbers -- there's a lot of variations between countries. Second, it's nice to have a payment form which adapts itself to what the user entered.
 
 [jQuery.payments](https://github.com/stripe/jquery.payment) was developed by Stripe while working on their Checkout add-on. It's a good solution if you're implementing your payment form yourself, and if you care mostly about validating fields.
 
 I've also heard good things about [Creditcardjs](http://creditcardjs.com/) but I never tried it personally. Besides this, it seems like most of the functionality of creditcardjs is available in jQuery.Payments.[^commodity]
 
-In the ideal case, validating cards should be done both by the frontend and the backend. In my case, I decided to validate cards on the frontend, with jQuery.payments and let the payment processor handle the rest.
-
-
-
-## Checklist
-
-mlkmlk
 
 ## Comments, remarks, complaints
 
