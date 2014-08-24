@@ -21,7 +21,7 @@ The advantage of having a dedicated merchant account is that it's easier to nego
 
 ### What you need to know about PCI compliance
 
-The *PCI Security Standards Council* is an organization whose goal is to define security standards for handling credit cards on the Internet. If you want to accept credit cards, you'll have to deal with them, one day or another.
+The *PCI Security Standards Council* is an organization whose goal is to define security standards for handling credit cards on the Internet. If you want to accept credit cards, you'll have to respect their rules.
 
 Thankfully, since most of the time you're simply going to integrate with a vendor, you won't have an extremely long checklist of things to worry about.[^vendor]
 
@@ -41,9 +41,9 @@ I read the [official docs on the subject](https://www.pcisecuritystandards.org/d
 
 ## Accepting payments with Django
 
-You've probably come to this page after seeing the [tons of different packages on Django packages](https://www.djangopackages.com/grids/g/payment-processing/). I'll cut to the chase. To me, [django-merchant](https://github.com/agiliq/merchant) is the most mature payments app if you need support for multiple providers.
+If you're like me, you've probably cursed the open source gods after seeing the [tons of different packages on Django packages](https://www.djangopackages.com/grids/g/payment-processing/). I'll cut to the chase. To me, [django-merchant](https://github.com/agiliq/merchant) is the most mature payments app if you need support for multiple providers.
 
-If you only need to support PayPal or Stripe, [django-stripe-payments](https://github.com/eldarion/django-stripe-payments) and [django-paypal](https://github.com/spookylukey/django-paypal) are good options.
+If you only need to support PayPal or Stripe, [django-stripe-payments](https://github.com/eldarion/django-stripe-payments) and [django-paypal](https://github.com/spookylukey/django-paypal) are good options, but who wants to puts all his eggs in the same basket? I've heard too many stories of merchants having problems with Paypal to not have a backup plan.
 
 ### Stripe and PayPal gotchas
 
@@ -52,7 +52,6 @@ It's really easy to implement payments, especially with django-merchant -- serio
 #### The Paypal encrypted button
 
 PayPal has two payments solutions. The most basic (and the one I choose) consists in inserting a PayPal button which takes the user to PayPal for payments and then redirects him to a page of your choice. The problem is the contents of the button aren't encrypted -- someone could modify it to change a 100$ charge into a 1$ charge. The solution to this is implementing button encryption.
-
 [Here's how to do it using Django-paypal](https://github.com/spookylukey/django-paypal#using-paypal-payments-standard-with-encrypted-buttons).
 
 ## Implementing the payment form

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Filtering uncategorized posts with Jekyll
-category: programming
+category: tips
 ---
 I'm using [Jekyll](http://jekyllrb.com/) to generate this blog. It's pretty cool once you get the hang of it.
 Yesterday I had a problem stackoverflow couldn't solve: I wanted to filter my blog posts to keep only the ones who weren't categorized.
