@@ -24,16 +24,12 @@ $background_color: #e9e9e9;
 body {
   background-color: $background_color;
   font-family: "DejaVu sans", "Segoe UI", sans-serif;
-  font-size: 15px;
   /*font-size: small; */
   color: $text_color;
 }
 
 p {
   margin: 1em 0;
-}
-
-h1, h2, h3 {
 }
 
 h1 {
@@ -46,6 +42,10 @@ h2 {
 
 h3 {
   font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
 }
 
 a {
