@@ -49,6 +49,10 @@ If you only need to support PayPal or Stripe, [django-stripe-payments](https://g
 
 It's really easy to implement payments, especially with django-merchant -- seriously, [look at how long is takes to add Stripe payments](https://django-merchant.readthedocs.org/en/latest/gateways/stripe_payment.html). However, there's some gotchas to be aware of.
 
+#### Testing mode
+
+This is probably silly but, still. In django-merchant there's a global switch called MERCHANT_TEST_MODE. Setting this to True enables test mode. Don't forget to set it up during development and to remove it when deploying.
+
 #### The Paypal encrypted button
 
 PayPal has two payments solutions. The most basic (and the one I choose) consists in inserting a PayPal button which takes the user to PayPal for payments and then redirects him to a page of your choice. The problem is the contents of the button aren't encrypted -- someone could modify it to change a 100$ charge into a 1$ charge. The solution to this is implementing button encryption.
