@@ -1,9 +1,10 @@
 ---
 layout: guide
 title: The bare minimum you need to know about accepting payments with Django
+date: 2014-09-16 00:00:00
 ---
+_Last updated on {{ page.date | date_to_string }}_
 
-<br>
 I've implemented payment processing for a consulting client. Here are my notes in the hope it saves some time for someone.
 
 ## Table of Contents
