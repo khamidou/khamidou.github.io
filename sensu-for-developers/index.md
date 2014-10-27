@@ -12,7 +12,7 @@ I'm a developer, which means I consider ops stuff a necessary evil. One of my ma
 It's very short -- about 2400 lines for the core app -- and very readable. Let's read its source code, and hopefully we'll get some understanding of what makes it tick.
 
 {:.yellowbox}
-__A disclaimer__: I spend most of my days writing Python and my Ruby is somehow rusty.
+__A disclaimer__: I spend most of my days writing Python and my Ruby is somehow rusty. Caveat lector.
 
 ## The architecture of Sensu
 
@@ -24,7 +24,7 @@ They run __checks__ locally and report the results to the server (more about thi
 
 ## The sensu client
 
-## General set up
+### General set up
 
 The sensu client runs on every machine you want to monitor. Here's the entry point: (Note that I've slightly re-arranged the order of the functions in the file for readability and cut some error reporting because who needs this?)
 
@@ -93,7 +93,7 @@ end
 {:.yellowbox}
 __Remark:__ You can see that at no point we have had to tell the server _"hey I'm a new client"_. A client may come and go without notice, and the server detects this automatically.
 
-## Standalone and server checks
+### Standalone and server checks
 
 Sensu has two different types of checks: standalone and server checks (the sensu docs calls the latter "checks" which is somehow confusing). Both checks run on the client but server checks are triggered by the server.
 
@@ -124,8 +124,42 @@ The handler parses requests and passes them to `process_check`, which does all t
 __Remark:__ Now, there's probably a reason for this but I find pretty annoying that the user has to specify in the client config file the checks it has to subscribe to. It's just redudant.<br>
 My guess is this is because sensu doesn't integrate with service directories like [consul](https://www.consul.io/). Still, that's annoying.
 
-
 {:.greenbox}
-__Trivia:__ The server sends check requests with RabbitMQ, using the fanout exchange type -- fanout simply means the message is sent to every other client. The name sensu is the translation of umbrella in japanese, which is often used to explain the fanout exchange.
+__Trivia:__ The server sends check requests with RabbitMQ, using the fanout exchange type -- which simply means the message is sent to every other client. The name sensu is the translation of umbrella in japanese, which is often used to explain the fanout exchange.
 
+### Running checks
 
+Let's see what's in `process_check`:
+
+{% highlight ruby %}
+def process_check(check)
+  if check.has_key?(:command)
+    if @settings.check_exists?(check[:name])
+      check.merge!(@settings[:checks][check[:name]])
+      execute_check_command(check)
+    elsif @safe_mode
+      check[:output] = 'Check is not locally defined (safe mode)'
+      check[:status] = 3
+      check[:handle] = false
+      check[:executed] = Time.now.to_i
+      publish_result(check)
+    else
+      execute_check_command(check)
+    end
+  else
+    if @extensions.check_exists?(check[:name])
+      run_check_extension(check)
+    else
+      @logger.warn('unknown check extension', {
+        :check => check
+      })
+    end
+  end
+end
+{% endhighlight %}
+
+There's three cases here:
+
+1. the check is defined in the client configuration file. In this case the config pushed by the server is merged with the one defined on the client -- with the server-side values taking precedence other the client config values.
+2. the check is not defined and safe mode is activated. The client simply notifies the server that the check wasn't run.
+3. the check is run anyway and its results are reported to the server.
