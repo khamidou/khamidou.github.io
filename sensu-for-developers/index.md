@@ -1,6 +1,6 @@
 ---
 layout: guide
-title: A dive into the Sensu source code
+title: A dive into the Sensu source code (part 1)
 date: 2014-10-01 00:00:00
 ---
 _Last updated on {{ page.date | date_to_string }}_
@@ -9,7 +9,9 @@ I'm a developer, which means I consider ops stuff a necessary evil. One of my ma
 
 [Sensu](http://sensuapp.org) is the latest hero trying to slay the Nagios dragon. It's a monitoring system "built for the cloud" and written in Ruby. The main problem is the docs are somehow confusing.
 
-It's very short -- about 2400 lines for the core app -- and very readable. Let's read its source code, and hopefully we'll get some understanding of what makes it tick.
+Fortunately the code is short -- about 2400 lines for the core app -- and very readable. Let's read it, and hopefully we'll get some understanding of what makes it tick.
+
+This is a two part series. The first part (the one you're reading right now) details the sensu client and the second part will talk about the server.
 
 {:.yellowbox}
 __A disclaimer__: I spend most of my days writing Python and my Ruby is somehow rusty. Caveat lector.
@@ -21,6 +23,8 @@ Before diving in the code, let's talk about the high-level details. Sensu is bas
 Clients register themselves to the server so it's not necessary to reconfigure the server whenever you add a new client to a network.
 
 They run __checks__ locally and report the results to the server (more about this later). The server can define __handlers__ to react to the results of a check. Handlers can do a lot of things, like calling pagerduty or sending an email.
+
+Sensu is written with [EventMachine](https://github.com/eventmachine/eventmachine/wiki), an event loop similar to Python's [gevent](http://www.gevent.org/).
 
 ## The sensu client
 
@@ -158,8 +162,47 @@ def process_check(check)
 end
 {% endhighlight %}
 
-There's three cases here:
+So what's happening with all these nested ifs? The common case is that the JSON we received from the server contains a command to execute. In this case either:
 
 1. the check is defined in the client configuration file. In this case the config pushed by the server is merged with the one defined on the client -- with the server-side values taking precedence other the client config values.
 2. the check is not defined and safe mode is activated. The client simply notifies the server that the check wasn't run.
 3. the check is run anyway and its results are reported to the server.
+
+Otherwise, sensu tries to find an extension with the same name (more about this later, but an extension is simply a check that runs inside the sensu event loop, mostly for performance reasons).
+
+Here's the code to actually run checks. It's a little complicated because it has to handle some edge cases. Let's break it in parts.
+
+{% highlight ruby %}
+def execute_check_command(check)
+  @logger.debug('attempting to execute check command', {
+    :check => check
+  })
+  unless @checks_in_progress.include?(check[:name])
+    @checks_in_progress << check[:name]
+    command, unmatched_tokens = substitute_command_tokens(check)
+    if unmatched_tokens.empty?
+      check[:executed] = Time.now.to_i
+      started = Time.now.to_f
+      Spawn.process(command, :timeout => check[:timeout]) do |output, status|
+        check[:duration] = ('%.3f' % (Time.now.to_f - started)).to_f
+        check[:output] = output
+        check[:status] = status
+        publish_result(check)
+        @checks_in_progress.delete(check[:name])
+      end
+    else
+      check[:output] = 'Unmatched command tokens: ' + unmatched_tokens.join(', ')
+      check[:status] = 3
+      check[:handle] = false
+      publish_result(check)
+      @checks_in_progress.delete(check[:name])
+    end
+  else
+    @logger.warn('previous check command execution in progress', {
+      :check => check
+    })
+  end
+end
+{% endhighlight %}
+
+
