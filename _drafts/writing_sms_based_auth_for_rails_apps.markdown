@@ -22,7 +22,12 @@ HOTP is the simpler of the two algorithms. Let's talk about it first.
 
 The basic idea behind HOTP is to use a modified HMAC function to generate one-time numbers. This function takes two arguments: a secret key and a counter. The counter is incremented between runs which actually changes the output of the function.
 
-If you are using an auth system like [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator) then the counter is incremented both on the server and on your smartphone. This can lead to interesting sync problems when counters get askew. Thankfully, we don't need to bother about this since we only want to generate a one-time code, we don't need to prove our user shares a secret with us.
+{% highlight javascript %}
+HOTP(Key,Counter) = Truncate(HMAC(Key, Counter)) & 0x7FFFFFFF{% endhighlight %}
+
+
+
+If you are using an auth system like [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator) to auth to a server then the algorithm will run both on the server and your smartphone. This can lead to interesting sync problems when counters get askew but thankfully, we don't need to bother about this since: we only want to generate a one-time code, we don't need to prove our user shares a secret with us.
 
 The main problem with HOTP -- which is why most real-world systems use TOTP -- is that the generated code has no expiration time.[^google_authenticator]. If for some reason a hacker intercepted the SMS with the code and prevented you from entering it, they would be able to log into your account at their leisure.
 
@@ -36,4 +41,4 @@ Wondering about what makes an auth system great? I'm writing a short guide to ex
 
 [^readable]: They're very readable, if not a little dry.
 [^google_authenticator]: This is especially important when you're using an app like the Google Authenticator to auth you.
-[^drift]: Of course, this approach has problems too: it's necessary to keep the two systems in sync. 
+[^drift]: Of course, this approach has problems too: it's necessary to keep the two systems in more or less in sync. There is an error compensation mechanism built in the algorithm -- it's recommended that the server looks up one or two values in the before the generated time 
