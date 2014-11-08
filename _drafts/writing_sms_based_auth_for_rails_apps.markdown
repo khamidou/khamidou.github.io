@@ -1,10 +1,10 @@
 ---
 layout: post
-title: SMS-based auth for Rails applications
+title: Implementing SMS-based auth for Rails applications
 category: software
 ---
 
-Let's add SMS-based two-factor auth to a generic Rails application. Hopefully we'll learn what makes an auth system robust along the way. We'll be using devise, because it's pretty much the standard library for adding user support to a Rails app.
+Let's add SMS-based two-factor auth to a generic Rails application. Hopefully we'll learn what makes an auth system robust along the way. We'll be using [devise](https://github.com/plataformatec/devise), because it's pretty much the standard library for adding user support to a Rails app.
 
 ## The basics: generating codes
 
@@ -26,7 +26,7 @@ The basic idea behind HOTP is to use a modified HMAC function to generate one-ti
 HOTP(Key,Counter) = Truncate(HMAC(Key, Counter)) & 0x7FFFFFFF
 {% endhighlight %}
 
-If you are using an auth system like [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator) to auth to a server then the algorithm will run both on the server and your smartphone. This can lead to interesting sync problems when counters get askew but thankfully, we don't need to bother about this since we only want to generate a one-time code. We don't need to prove our user shares a secret with us.
+If you are using an auth system like [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator) to auth to a server then the algorithm will run both on the server and your smartphone. This can lead to interesting sync problems when counters get askew but thankfully, we don't need to bother about this since we only want to generate a one-time code. We don't have to prove the user shares a secret with us.
 
 The main problem with HOTP -- which is why most real-world systems use TOTP -- is that the generated code has no expiration time.[^google_authenticator]. If for some reason a hacker intercepted the SMS with the code and prevented you from entering it, they would be able to log into your account at their leisure.
 
@@ -66,13 +66,62 @@ We can check the validity of a token like this:
 totp.verify("076864") # => true
 {% endhighlight %}
 
+Now that we can generate tokens, let's figure out how to send them.
+
 ## Sending SMS codes
 
-I've heard nothing but good things about Twilio, so I'm going to use their service. Of course, having an easy to use Ruby API helped too.
+I've heard nothing but good things about [Twilio](http://twilio.com/), so I'm going to use their API. Of course, you can use one of their [many](https://www.plivo.com/) [alternatives](https://www.nexmo.com/).
+
+Twilio has an easy to use [gem](https://github.com/twilio/twilio-ruby). Grab it with:
+
+{% highlight ruby %}
+gem install twilio-ruby
+{% endhighlight %}
+
+Now, let's write a short function to send an SMS to our user:
+
+{% highlight ruby %}
+require 'twilio-ruby'
+
+# Replace those with the values from the Twilio application dashboard
+account_sid = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+@twilio_phone_number = '+nnnnnnnnnnn'
+
+# set up a client to talk to the Twilio REST API
+@client = Twilio::REST::Client.new account_sid, auth_token
+
+def send_message(number, message)
+    @client.messages.create(
+        from: @twilio_phone_number,
+        to: number,
+        body: message)
+end
+
+send_message('+33669797118', 'Hey, this is a test')
+{% endhighlight %}
+
+So, we now know how to generate relatively secure codes, and how to send them. Logically the next step should be to start integrating this with Rails. Wrong! We've got some thinking to do about how we will piece things together.
 
 ## The auth flow
 
-This is probably the hardest part of the problem. I think that the easiest way to understand this it to model an user account as a finite state machine (seriously).
+Designing the auth flow is probably the hardest part of the problem.
+
+Think about it: we've got to make something which not only should be secure but also relatively user-friendly -- after all we don't want to have users locked out of their accounts because they lost their phone.
+
+I think that the easiest way to understand this it to model an user account as a finite state machine (seriously). Let's start with a basic account, one which hasn't enabled two-factor auth.
+
+(Apologies for the crude graphics)
+
+{:.center}
+![Password-based auth flow](/images/rails_2fa/passwd_auth.png)
+
+This is a relatively simple system: there's only two states and three state transitions. Let's add a third state, "password verified but not yet authed".
+
+{:.center}
+![Two factor auth flow](/images/rails_2fa/2fa_flow.png)
+
+Things got somewhat more complicated. What you've got to understand is that we're only building the simplest system here. It's litteraly "Baby's first two-factor auth". For instance, what if someone loses his phone number? Tough luck.
 
 Wondering about what makes an auth system great? I'm writing a short guide to explain the basics of two-factor auth. Subscribe to my mailing list to occasionally get short emails about this.
 
