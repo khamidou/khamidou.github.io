@@ -6,11 +6,13 @@ category: software
 
 Let's add SMS-based two-factor auth to a generic Rails application. Hopefully we'll learn what makes an auth system robust along the way. We'll be using [devise](https://github.com/plataformatec/devise), because it's pretty much the standard library for adding user support to a Rails app.
 
+One warning: I haven't written serious ruby in a while -- I mostly work with Python[^inbox] -- so a pythonism or two may have slipped in.
+
 ## The basics: generating codes
 
 First, we need to generate codes. What do we want from a generated code?
 
- A one-time code should:
+A one-time code should:
 
 - be usable only once (duh)
 - have a built-in expiration date
@@ -101,15 +103,15 @@ end
 send_message('+33669797118', 'Hey, this is a test')
 {% endhighlight %}
 
-So, we now know how to generate relatively secure codes, and how to send them. Logically the next step should be to start integrating this with Rails. Wrong! We've got some thinking to do about how we will piece things together.
+So, we now know how to generate relatively secure codes, and how to send them. Logically the next step should be to start integrating this with Rails. Right? Wrong![^austrian] We've got some thinking to do about how we will piece things together.
 
 ## The auth flow
 
 Designing the auth flow is probably the hardest part of the problem.
 
-Think about it: we've got to make something which not only should be secure but also relatively user-friendly -- after all we don't want to have users locked out of their accounts because they lost their phone.
+Think about it: a real world auth system not only has to be secure but also relatively user-friendly -- you can't tell an user they're locked out of their account because they've lost their phone.
 
-I think that the easiest way to understand this it to model an user account as a finite state machine (seriously). Let's start with a basic account, one which hasn't enabled two-factor auth.
+I think that the easiest way to understand this it to model an user account as a finite state machine (seriously). Let's start with a basic account, without two-factor auth.
 
 (Apologies for the crude graphics)
 
@@ -121,11 +123,26 @@ This is a relatively simple system: there's only two states and three state tran
 {:.center}
 ![Two factor auth flow](/images/rails_2fa/2fa_flow.png)
 
-Things got somewhat more complicated. What you've got to understand is that we're only building the simplest system here. It's litteraly "Baby's first two-factor auth". For instance, what if someone loses his phone number? Tough luck.
+We're only trying to build the simplest possible system here (it's litteraly "Baby's first two-factor auth") and yet things got suddenly a lot more complicated. In the grand tradition of Unix, let's sweep some of this complexity under the rug. Has an user lost their phone? Tough luck. We may send you a password reset link in a few weeks.
 
-Wondering about what makes an auth system great? I'm writing a short guide to explain the basics of two-factor auth. Subscribe to my mailing list to occasionally get short emails about this.
+## Plugging all of this in a Rails app
 
+Now's the time to take everything that we learned and implement this into a Rails app. We're going to write a devise plugin to handle code sending and validation.
+
+<div class="bluebox">
+<p>
+    Wondering about what makes an auth system great? I'm writing a short guide to explain the how to write an auth system from the ground up.
+</p>
+Subscribe to my mailing list to occasionally get short emails about this:
+<form>
+    <input type="text"></input>
+    <input type="submit" value="Subscribe!"></input>
+</form>
+</div>
+
+[^inbox]: At [Inbox](http://inboxapp.com). We're hiring!
 [^readable]: You should try reading them. Unlike a lot of RFCs, they're very readable, if not a little dry.
 [^google_authenticator]: This is especially important when you're using an app like the Google Authenticator to auth you.
 [^drift]: Of course, this approach has problems too: it's necessary to keep the two systems in more or less in sync. There is an error compensation mechanism built in the algorithm -- it's recommended that the server looks up one or two values in the before the generated time.
 [^real_world]: Note that this not the best thing to do in the real world. You almost certainly want instead to compute the values of the previous one-time codes and check if the code is one of them. See [resync mechanism](https://tools.ietf.org/html/rfc6238#page-7) for more details.
+[^austrian]: Please read this with a thick Austrian accent.
