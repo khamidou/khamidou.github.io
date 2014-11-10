@@ -123,11 +123,16 @@ This is a relatively simple system: there's only two states and three state tran
 {:.center}
 ![Two factor auth flow](/images/rails_2fa/2fa_flow.png)
 
-We're only trying to build the simplest possible system here (it's litteraly "Baby's first two-factor auth") and yet things got suddenly a lot more complicated. In the grand tradition of Unix, let's sweep some of this complexity under the rug. Has an user lost their phone? Tough luck. We may send you a password reset link in a few weeks.
+We're only trying to build the simplest possible system here (it's litteraly "Baby's first two-factor auth") and yet things got suddenly a lot more complicated. In the grand tradition of Unix, let's sweep some of this complexity under the rug.
 
-## Plugging all of this in a Rails app
+Has an user lost their phone? Tough luck. We may send them a password reset link in a few weeks, if they complain loudly.
 
-Now's the time to take everything that we learned and implement this into a Rails app. We're going to write a devise plugin to handle code sending and validation.
+## Integration this with Rails
+
+Now's the time to take everything that we learned and implement this into a Rails app. We're using [devise](https://github.com/plataformatec/devise) to handle auth concerns so we'll have to write a plugin to integrate with them. But fear not! This is something relatively easy!
+
+### Writing a devise plugin
+
 
 <div class="bluebox">
 <p>
@@ -140,7 +145,7 @@ Subscribe to my mailing list to occasionally get short emails about this:
 </form>
 </div>
 
-[^inbox]: At [Inbox](http://inboxapp.com). We're hiring!
+[^inbox]: At [Inbox](http://inboxapp.com). We're [hiring!](https://www.inboxapp.com/jobs)
 [^readable]: You should try reading them. Unlike a lot of RFCs, they're very readable, if not a little dry.
 [^google_authenticator]: This is especially important when you're using an app like the Google Authenticator to auth you.
 [^drift]: Of course, this approach has problems too: it's necessary to keep the two systems in more or less in sync. There is an error compensation mechanism built in the algorithm -- it's recommended that the server looks up one or two values in the before the generated time.
