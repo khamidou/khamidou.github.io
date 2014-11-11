@@ -6,7 +6,7 @@ category: software
 
 Let's add SMS-based two-factor auth to a generic Rails application. Hopefully we'll learn what makes an auth system robust along the way. We'll be using [devise](https://github.com/plataformatec/devise), because it's pretty much the standard library for adding user support to a Rails app.
 
-One warning: I haven't written serious ruby in a while -- I mostly work with Python[^inbox] -- so a pythonism or two may have slipped in.
+A warning: I haven't written serious ruby in a while -- I mostly work with Python[^inbox] -- so a pythonism or two may have slipped in.
 
 ## The basics: generating codes
 
@@ -72,7 +72,7 @@ Now that we can generate tokens, let's figure out how to send them.
 
 ## Sending SMS codes
 
-I've heard nothing but good things about [Twilio](http://twilio.com/), so I'm going to use their API. Of course, you can use one of their [many](https://www.plivo.com/) [alternatives](https://www.nexmo.com/).
+I've heard nothing but good things about [Twilio](http://twilio.com/), so I'm going to use their API. Of course, you can use one of their [many](https://www.plivo.com/) [alternatives](https://www.nexmo.com/) instead.
 
 Twilio has an easy to use [gem](https://github.com/twilio/twilio-ruby). Grab it with:
 
@@ -100,10 +100,10 @@ def send_message(number, message)
         body: message)
 end
 
-send_message('+33669797118', 'Hey, this is a test')
+send_message('+336123456789', 'Hey, this is a test')
 {% endhighlight %}
 
-So, we now know how to generate relatively secure codes, and how to send them. Logically the next step should be to start integrating this with Rails. Right? Wrong![^austrian] We've got some thinking to do about how we will piece things together.
+So, we now know how to generate relatively secure codes, and how to send them. Logically the next step should be to start integrating this with Rails. Right? Wrong![^austrian] We've got some thinking to do about how we will fit everything together.
 
 ## The auth flow
 
@@ -129,7 +129,30 @@ Has an user lost their phone? Tough luck. We may send them a password reset link
 
 ## Integration this with Rails
 
-Now's the time to take everything that we learned and implement this into a Rails app. We're using [devise](https://github.com/plataformatec/devise) to handle auth concerns so we'll have to write a plugin to integrate with them. But fear not! This is something relatively easy!
+Now's the time to take everything that we learned and implement this into a Rails app. Since we're using [devise](https://github.com/plataformatec/devise) to handle auth concerns we'll have to write a plugin to send a one-time code after that an user has logged in successfully. But fear not! This is relatively easy!
+
+### Getting started
+
+Skip this if you already have set up devise. If not, I strongly recommend reading the [Getting Started with Devise guide](https://github.com/plataformatec/devise#getting-started).
+
+In the unlikely case that you're a devise veteran but still forgot how to set it up[^more_likely], here's how to do it.
+
+<ol>
+    <li>
+add the following line to your `Gemfile`:
+{% highlight ruby %}
+gem 'devise'
+{% endhighlight %}
+    </li>
+    <li>
+run these commands in a shell
+{% highlight bash %}
+bundle install # install the required gems
+rails generate devise:install # set up devise
+rails generate devise User # create an user model
+{% endhighlight %}
+    </li>
+</ol>
 
 ### Writing a devise plugin
 
