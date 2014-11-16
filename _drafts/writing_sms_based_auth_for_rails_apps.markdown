@@ -6,7 +6,7 @@ category: software
 
 Let's add SMS-based two-factor auth to a generic Rails application. Hopefully we'll learn what makes an auth system robust along the way. We'll be using [devise](https://github.com/plataformatec/devise), because it's pretty much the standard library for adding user support to a Rails app.
 
-A warning: I haven't written serious ruby in a while -- I mostly work with Python[^inbox] -- so a pythonism or two may have slipped in.
+A warning: I haven't written serious ruby in a while --- I mostly work with Python[^inbox] --- so a pythonism or two may have slipped in.
 
 ## The basics: generating codes
 
@@ -14,13 +14,13 @@ First, we need to generate codes. What do we want from a generated code?
 
 A one-time code should:
 
-- be usable only once (duh)
+- be usable only once
 - have a built-in expiration date
 - not allowing to guess the previous or next codes
 
-Luckily, the smart people at the IETF have thought about this and created a standard (two actually): [HOTP](https://tools.ietf.org/html/rfc4226) and [TOTP](https://tools.ietf.org/html/rfc6238)[^readable].
+Luckily, the smart people at the IETF have thought about this and created a standard algorithm (two actually): [HOTP](https://tools.ietf.org/html/rfc4226) and [TOTP](https://tools.ietf.org/html/rfc6238)[^readable].
 
-HOTP is the simpler of the two algorithms. Let's talk about it first.
+**HOTP** is the simpler of the two algorithms. Let's talk about it first.
 
 The basic idea behind HOTP is to use a modified HMAC function to generate one-time numbers. This function takes two arguments: a secret key and a counter. The counter is incremented between runs which actually changes the output of the function.
 
@@ -28,24 +28,24 @@ The basic idea behind HOTP is to use a modified HMAC function to generate one-ti
 HOTP(Key,Counter) = Truncate(HMAC(Key, Counter)) & 0x7FFFFFFF
 {% endhighlight %}
 
-If you are using an auth system like [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator) to auth to a server then the algorithm will run both on the server and your smartphone. This can lead to interesting sync problems when counters get askew but thankfully, we don't need to bother about this since we only want to generate a one-time code. We don't have to prove the user shares a secret with us.
+If you are using an auth system like [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator) to auth to a server then the algorithm will run both on the server and your smartphone. This can lead to interesting sync problems when counters get askew but thankfully we don't have to prove the user shares a secret with us. We just want to generate a one-time code.
 
-The main problem with HOTP -- which is why most real-world systems use TOTP -- is that the generated code has no expiration time.[^google_authenticator]. If for some reason a hacker intercepted the SMS with the code and prevented you from entering it, they would be able to log into your account at their leisure.
+The main problem with HOTP --- which is why most real-world systems use TOTP --- is that the generated code has no expiration time.[^google_authenticator]. If for some reason a hacker intercepted the SMS with the code and prevented you from entering it, they would be able to log into your account at their leisure.[^unlikely]
 
-TOTP elegantly solves this problem by replacing the shared counter with the current time.[^drift] This is the formula from the RFC:
+**TOTP** elegantly solves this problem by replacing the shared counter with the current time.[^drift] This is the formula from the RFC:
 
 {% highlight ruby %}
 T = (Current Unix time / Token_Validity_Period).floor
 TOTP(Key) = HOTP(Key, T)
 {% endhighlight %}
 
-How does this work? First we've got to define a validity period for our token. The RFC recommends 30 seconds because it's a good compromise between security and usability. We divide the current time by the token validity period and floor it to get a value rounded to the start of the closest validity period(FIXME.
+How does this work? First we've got to define a validity period for our token. The RFC recommends 30 seconds because it's a good compromise between security and usability.
 
-Finally we feed the value to the token to the HOTP algorithm.
+We divide the current time by the token validity period and floor it to get a value rounded to the start of the closest validity period. Finally we feed the value to the HOTP algorithm.
 
 ### Generating one-time tokens in Ruby
 
-We're going to use [ROTP](https://github.com/mdp/rotp) which is a nice pure-ruby library that generates RFC6328-compatible tokens[FIXME].
+We're going to use [ROTP](https://github.com/mdp/rotp) which is a nice pure-ruby library that generates RFC-compatible tokens.
 
 You'll need to install it first:
 
@@ -105,63 +105,38 @@ send_message('+336123456789', 'Hey, this is a test')
 
 So, we now know how to generate relatively secure codes, and how to send them. Logically the next step should be to start integrating this with Rails. Right? Wrong![^austrian] We've got some thinking to do about how we will fit everything together.
 
-## The auth flow
+## The perils of designing a real world system
 
-Designing the auth flow is probably the hardest part of the problem.
+A real world auth system not only has to be secure but also relatively user-friendly --- you can't tell an user they're locked out of their account because they've lost their phone.[^google]
 
-Think about it: a real world auth system not only has to be secure but also relatively user-friendly -- you can't tell an user they're locked out of their account because they've lost their phone.
+Fortunately, we're not designing a real-world system. We can be cavalier. We may send them a reset link, in a few weeks, if they complain loudly.
 
-I think that the easiest way to understand this it to model an user account as a finite state machine (seriously). Let's start with a basic account, without two-factor auth.
+## Fitting everything together
 
-(Apologies for the crude graphics)
+Now's the time to take everything that we learned and implement this into a Rails app. Since we're using [devise](https://github.com/plataformatec/devise) to handle auth concerns we'll have to write a plugin to send a one-time code after that an user has logged in successfully. Fear not, this is relatively easy!
 
-{:.center}
-![Password-based auth flow](/images/rails_2fa/passwd_auth.png)
+### Setting up devise
 
-This is a relatively simple system: there's only two states and three state transitions. Let's add a third state, "password verified but not yet authed".
+If you haven't setup devise yet, I strongly recommend reading the [Getting Started with Devise guide](https://github.com/plataformatec/devise#getting-started). I'll assume you've got it set up with a basic user model.
 
-{:.center}
-![Two factor auth flow](/images/rails_2fa/2fa_flow.png)
+### Extending devise
 
-We're only trying to build the simplest possible system here (it's litteraly "Baby's first two-factor auth") and yet things got suddenly a lot more complicated. In the grand tradition of Unix, let's sweep some of this complexity under the rug.
+What happens when an user logs in using devise?
 
-Has an user lost their phone? Tough luck. We may send them a password reset link in a few weeks, if they complain loudly.
+1. His browser POSTs a form to /users/sign_in
+2. The devise controller, 
 
-## Integration this with Rails
+Believe it or not, devise is just another Rails application and its pretty easy to modify it.
 
-Now's the time to take everything that we learned and implement this into a Rails app. Since we're using [devise](https://github.com/plataformatec/devise) to handle auth concerns we'll have to write a plugin to send a one-time code after that an user has logged in successfully. But fear not! This is relatively easy!
-
-### Getting started
-
-Skip this if you already have set up devise. If not, I strongly recommend reading the [Getting Started with Devise guide](https://github.com/plataformatec/devise#getting-started).
-
-In the unlikely case that you're a devise veteran but still forgot how to set it up[^more_likely], here's how to do it.
-
-<ol>
-    <li>
-add the following line to your `Gemfile`:
 {% highlight ruby %}
-gem 'devise'
-{% endhighlight %}
-    </li>
-    <li>
-run these commands in a shell
-{% highlight bash %}
-bundle install # install the required gems
-rails generate devise:install # set up devise
-rails generate devise User # create an user model
-{% endhighlight %}
-    </li>
-</ol>
 
-### Writing a devise plugin
+{% endhighlight %}
 
 
 <div class="bluebox">
 <p>
-    Wondering about what makes an auth system great? I'm writing a short guide to explain the how to write an auth system from the ground up.
+    I've got a mailing list. I occasionally send to my subscribers in-depth guides on backend programming.
 </p>
-Subscribe to my mailing list to occasionally get short emails about this:
 <form>
     <input type="text"></input>
     <input type="submit" value="Subscribe!"></input>
@@ -171,6 +146,8 @@ Subscribe to my mailing list to occasionally get short emails about this:
 [^inbox]: At [Inbox](http://inboxapp.com). We're [hiring!](https://www.inboxapp.com/jobs)
 [^readable]: You should try reading them. Unlike a lot of RFCs, they're very readable, if not a little dry.
 [^google_authenticator]: This is especially important when you're using an app like the Google Authenticator to auth you.
+[^unlikely]: I concede this is somewhat unlikely. I'm not good at making plausible, real-world scenarios. That's why I'm not a security researcher.
 [^drift]: Of course, this approach has problems too: it's necessary to keep the two systems in more or less in sync. There is an error compensation mechanism built in the algorithm -- it's recommended that the server looks up one or two values in the before the generated time.
 [^real_world]: Note that this not the best thing to do in the real world. You almost certainly want instead to compute the values of the previous one-time codes and check if the code is one of them. See [resync mechanism](https://tools.ietf.org/html/rfc6238#page-7) for more details.
 [^austrian]: Please read this with a thick Austrian accent.
+[^google]: Unless you're Google, I guess.

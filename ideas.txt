@@ -1,0 +1,2 @@
+Using Ruby DSLs for handling customers -- querying data -- whatever
+Gmail-style sessions with devise and Rails
