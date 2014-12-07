@@ -6,11 +6,11 @@ category: software
 
 Let's add SMS-based two-factor auth to a generic Rails application. Hopefully we'll learn what makes an auth system robust along the way. We'll be using [devise](https://github.com/plataformatec/devise), because it's pretty much the standard library for adding user support to a Rails app.
 
-A warning: I haven't written serious ruby in a while --- I mostly work with Python[^inbox] --- so a pythonism or two may have slipped in.
+__A warning__: I haven't written serious ruby in a while --- I mostly work with Python[^inbox] --- so a pythonism or two may have slipped in.
 
 ## The basics: generating codes
 
-First, we need to generate codes. What do we want from a generated code?
+First, we need to generate codes. What do we want from a one-time code?
 
 A one-time code should:
 
@@ -107,9 +107,19 @@ So, we now know how to generate relatively secure codes, and how to send them. L
 
 ## The perils of designing a real world system
 
+A login system is a complex thing to design and I found the easiest way to design one is to model it as a finite state machine. Take a couple minutes and try to design a simple auth flow. You'll need to list all the possible states for an account (hint: three in the simplest case) and all the transitions that occur between them.
+
 A real world auth system not only has to be secure but also relatively user-friendly --- you can't tell an user they're locked out of their account because they've lost their phone.[^google]
 
-Fortunately, we're not designing a real-world system. We can be cavalier. We may send them a reset link, in a few weeks, if they complain loudly.
+Fortunately, we're not designing a real-world system. We can take shortcuts. Here's my assumptions about the system we're designing:
+
+1. We're striving to have the simplest possible system --- as such, we're going to have to minimize state transitions
+1. It's okay to delay things. If you've lost your password, we'll send you one if you complain loudly, in a couple weeks.
+
+I think that the simplest way to
+
+
+As an exercise left for the reader, I've left three critical security flaws in the login process. Can you spot them?
 
 ## Fitting everything together
 
@@ -118,6 +128,10 @@ Now's the time to take everything that we learned and implement this into a Rail
 ### Setting up devise
 
 If you haven't setup devise yet, I strongly recommend reading the [Getting Started with Devise guide](https://github.com/plataformatec/devise#getting-started). I'll assume you've got it set up with a basic user model.
+
+### Extending our user model
+
+The first thing we'll do is to extend our user model to hold the secret key used to generate the one-time code. To do this we'll add a new field, `auth_secret` to the field.
 
 ### Extending devise
 
@@ -146,7 +160,7 @@ Believe it or not, devise is just another Rails application and its pretty easy 
 [^inbox]: At [Inbox](http://inboxapp.com). We're [hiring!](https://www.inboxapp.com/jobs)
 [^readable]: You should try reading them. Unlike a lot of RFCs, they're very readable, if not a little dry.
 [^google_authenticator]: This is especially important when you're using an app like the Google Authenticator to auth you.
-[^unlikely]: I concede this is somewhat unlikely. I'm not good at making plausible, real-world scenarios. That's why I'm not a security researcher.
+[^unlikely]: I admit this is somewhat unlikely. I'm not good at making plausible, real-world scenarios. That's why I'm not a security researcher.
 [^drift]: Of course, this approach has problems too: it's necessary to keep the two systems in more or less in sync. There is an error compensation mechanism built in the algorithm -- it's recommended that the server looks up one or two values in the before the generated time.
 [^real_world]: Note that this not the best thing to do in the real world. You almost certainly want instead to compute the values of the previous one-time codes and check if the code is one of them. See [resync mechanism](https://tools.ietf.org/html/rfc6238#page-7) for more details.
 [^austrian]: Please read this with a thick Austrian accent.
