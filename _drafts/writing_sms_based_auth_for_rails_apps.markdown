@@ -117,7 +117,8 @@ Fortunately, we're not designing a real-world system. We can take shortcuts. Her
 1. It's okay to delay things. If you've lost your password, we'll send you one if you complain loudly, in a couple weeks.
 
 I think that the simplest way to
-
+  
+![Basic auth flow](/images/rails_2fa/basic.png)
 
 As an exercise left for the reader, I've left three critical security flaws in the login process. Can you spot them?
 
