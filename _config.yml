@@ -1,5 +1,13 @@
+# Site settings
+title: Karim Hamidou
+email: dontspam@khamidou.com
+description: "My blog. I mostly talk about solving problems with software, devops and, occasionally, security."
+baseurl: "/"
+url: "http://khamidou.com"
+
+# Build settings
 markdown: kramdown
 highlighter: pygments
-baseurl: http://khamidou.com
-permalink: /:year/:month/:day/:title.html
-excerpt_separator: ""
+permalink: pretty
+paginate: 20
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]

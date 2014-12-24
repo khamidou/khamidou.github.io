@@ -2,49 +2,50 @@
 layout: default
 ---
 
-{% comment %}
-<!-- ugly -->
-<!-- syntax highlighting CSS -->
-{% endcomment %}
-<div class="title">
-    <div>
-        <a href="/">Karim Hamidou</a>
+<!-- Post Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{{ page.header-img }}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <a href='/' class='escape-hatch'>Escape hatch &#8617;</a>
+                    <h1>{{ page.title }}</h1>
+                    {% if page.subtitle %}
+                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                    {% endif %}
+                    <span class="meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</header>
 
-<div class="site">
-    <div style="float: right;">
-        <a href="{{site.baseurl}}/atom.xml">
-            <img src="{{site.baseurl}}/images/rss.png" alt="Subscribe to RSS Feed" />
-        </a>
-    </div>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-    <div class="post">   
-        <h3 class="postTitle">{{ page.title }}</h3>
-        <div class="date">{{ page.date | date: '%B %d, %Y'}}</div>
-        {{ content }}
-    </div>
+				{{ content }}
 
-    {% comment %}
-    <!-- Begin MailChimp Signup Form -->
-    <style type="text/css">
-        #mc_embed_signup label {display: block; font-size: 1em; border-top: 1px solid red;}
-        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-        We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-    </style>
-    <div id="mc_embed_signup">
-        <form action="http://khamidou.us8.list-manage.com/subscribe/post?u=3420a1e0a27cb99701eb3692f&amp;id=9e995bb99d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <label for="mce-EMAIL">Liked this post? <a href="../../../atom.xml">Here's my RSS feed</a>, or you can subscribe to my newsletter, if it's your kind of thing:</label>
-            <input type="email" value="" name="EMAIL" class="email" inputd="mce-EMAIL" placeholder="email address" required>
-            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-            <div style="position: absolute; left: -5000px;"><input type="text" name="b_3420a1e0a27cb99701eb3692f_9e995bb99d" value=""></div>
-            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-        </form>
-    </div>
-    <!--End mc_embed_signup-->
-    {% endcomment %}
+                <hr>
 
-    <div class="footer">
-        Copyright 2012-{{ site.time | date: "%Y"}} (c) Karim Hamidou.
+                <ul class="pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+                    </li>
+                    {% endif %}
+                    {% if page.next.url %}
+                    <li class="next">
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
     </div>
-</div>
+</article>
+
+<hr>

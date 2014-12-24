@@ -1,112 +1,38 @@
 ---
-layout: default
-title: Karim Hamidou's homepage
+layout: page
+title: "Hello. I'm karim"
+description: "<p>I'm a software engineer. I mostly write about software, devops and security.</p><p>I've written a book, <a href='http://google.com'>A simple guide to sensu</a></p>"
 ---
-<div class="site">
-    <div id="home">
-        <div class="presentation">
-            <span class="intro">Hello! My name is Karim Hamidou. <br>I'm a french software engineer who dabbles in UI design.
-            </span>
-            <p>
-                These days, I mostly do web programming (front-end and back-end). I've written code in a lot of languages but my mainstays are <b>C</b>, <b>Python</b> and <b>Javascript</b>. 
-            </p>
-            {% comment %}
-            <p class="greenlight">
-                    I'm currently looking for full-time work (here's my <a href="resume_hamidou.pdf">CV</a>, by the way). 
-            </p>
-            {% endcomment %}
-            <p>
-                My email address is <b>karim @ this site's domain name</b>.
-            </p>
-        </div>
 
-        <div class="panels">
-            <div class="leftPane">
-                <div class="section">Side-projects</div>
-                <ul>
-                    <li>
-                        <a href="http://octaveguitars.com">Octave Guitars</a>, a boutique guitar maker.
-                        We build awesome guitars according to your specs. Give a try to our <a href="http://octaveguitars.com/designer">designer</a>.
-                    </li>
-                    <li>
-                        <a href="http://debuggers.co">Debuggers</a>, a blog about interesting bugs. Once a week a programmer tells us about this one bug they had to solve.
-                    </li>
-                </ul>
-
-                <div class="section">Guides</div>
-                <ul>
-                    <li><a href="/sensu-for-developers/">Sensu for developers</a></li>
-                    <li><a href="/accepting-payments-with-django/">The bare minimum you need to know about accepting payments with Django</a></li>
-                </ul>
-                <div class="section">Open source</div>
-                <ul>
-                    <li><a href="http://kiteapp.io">Kite</a>, a modern webmail.</li>
-                    <li><a href="https://github.com/khamidou/vice">Vice</a>, a truly barebones text editor.</li>
-                    <li>The rest of my projects are on <a href="https://github.com/khamidou">my github page.</a></li>
-                </ul>
-           </div>
-
-            <div class="rightPane">
-                <div class="section">Writings <a href="/atom.xml">(feed)</a></div> 
-                <div class="posts">
-                    <i class="category">Software</i>
-                    {% for post in site.categories.software %}
-                        {% if post.url and post.title %}
-                                <li>
-                                    {% if post.favorite %}
-                                    <b><a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a></b> (personal favorite)
-                                    {% else %}
-                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
-                                    {% endif %}
-                                </li>
-                        {% endif %}
-                    {% endfor %}
-
-                    <i class="category">Design</i>
-                    {% for post in site.categories.design %}
-                        {% if post.url and post.title %}
-                                <li>
-                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
-                                </li>
-                        {% endif %}
-                    {% endfor %}
-
-                    <i class="category">Programming</i>
-                    {% for post in site.categories.programming %}
-                        {% if post.url and post.title %}
-                                <li>
-                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
-                                </li>
-                        {% endif %}
-                    {% endfor %}
-
-                    <i class="category">Tips</i>
-                    {% for post in site.categories.tips %}
-                        {% if post.url and post.title %}
-                                <li>
-                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
-                                </li>
-                        {% endif %}
-                    {% endfor %}
-
-
-
-                    <i class="category">Random musings</i>
-                    {% assign uncategorized_posts = site.posts | filter_categorized_posts %}
-                    {% for post in uncategorized_posts limit: 7 %}
-                                <li>
-                                    <a href="{{site.baseurl}}{{ post.url }}" class="postTitle">{{ post.title }}</a>
-                                </li>
-                    {% endfor %}
-                    <p>
-                        Older stuff is probably in the <a href="archives.html">archives</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            Copyright (c) 2012-{{ site.time | date: "%Y"}} Karim Hamidou.
-        </div>
-
-    </div>
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+    </a>
+    <p class="post-meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
 </div>
+<hr>
+{% endfor %}
+
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
