@@ -2,6 +2,7 @@
 layout: post
 title: When programmers write sales pages
 categories: software
+featured: true
 ---
 Call me weird but I've always loved reading longform sales pages. Lately I've been reading through some programming ebooks sales pages and I've noticed a pattern again and again: every one of [them](http://createyourproglang.com/) [is](http://www.jstorimer.com/products/working-with-unix-processes) [extremely](http://exceptionalruby.com/) [short](https://www.petekeen.net/mastering-modern-payments). 
 

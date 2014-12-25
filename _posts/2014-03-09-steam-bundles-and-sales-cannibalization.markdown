@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Steam, Humble Bundles and sales cannibalization
-categories: software
-favorite: true
+featured: true
 ---
 
 For the longest time, I've wondered if Humble Bundles and Steam sales were hurting or helping the video games industry. 

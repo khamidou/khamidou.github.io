@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Price anchoring
-favorite: true
-categories: design
+featured: true
 ---
 
 I recently discovered the practice of price anchoring, which is based on a cognitive bias we all have called... [anchoring](http://en.wikipedia.org/wiki/Anchoring_bias).<br>
