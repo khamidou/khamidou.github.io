@@ -37,6 +37,7 @@ The next part is _brillant_! Most sales pages would jump straight to the present
 
 ## Benefits
 
+We get to the meat of the page with a long list of benefits Snappy brings. 
 <img src="/images/snappy_teardown/6.png" class="img-responsive" />
 <img src="/images/snappy_teardown/7.png" class="img-responsive" />
 
