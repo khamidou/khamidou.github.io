@@ -27,7 +27,7 @@ The role of this part is to make the reader realize she has a support email prob
 
 First, what's with the very long sentences? _"Do you remember the first time you answered a paying customer’s email, quickly and courteously, with joy and even honor at the opportunity to solve a problem, delivering exactly the solution they needed, right when they needed it?"_ This is just confusing.
 
-Second, and this is very subjective, but the parts could flow a little better. I especially feel like part two and three could be merged together.
+Second, and this is very subjective, but the parts could flow a little better. In particular, I feel like part two and three could be merged together. They're about the same thing after all.
 
 The next part is _brillant_! Most sales pages would jump straight to the presentation of the product. The snappy guys chose to feature a great customer testimonial. **"We ain't going back"**. This is gold!
 
@@ -41,11 +41,16 @@ We get to the meat of the sales pitch with the long list of benefits Snappy brin
 <img src="/images/snappy_teardown/7.png" class="img-responsive" />
 <img src="/images/snappy_teardown/8.png" class="img-responsive" />
 
+I'm a sort of sad to see that the designers haven't followed their idea all the way through: they've got a great testimonial about how easy it is to set up Snappy, but it floats at the bottom of the page instead of supporting the main pitch:
+
+<img src="/images/snappy_teardown/10.png" class="img-responsive" />
+
 ## Pricing grid
 
 <img src="/images/snappy_teardown/9.png" class="img-responsive" />
 
 Snappy has an interesting flat pricing model. 
+
 __Key takeaway:__ Use your customer testimonials to support your pitch.
 
 [^loginpage]: You'd be surprised by the number of webapps that forget this.
