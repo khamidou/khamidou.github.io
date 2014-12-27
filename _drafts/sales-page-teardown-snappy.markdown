@@ -5,7 +5,7 @@ featured: true
 ---
 Let's try something a little different. I've always loved picking apart great sales pages to see what makes them tick.
 
-Snappy is a customer support webapp. It targets small to medium-sized companies.
+[Snappy](https://besnappy.com/) is a customer support webapp. It targets small to medium-sized companies.
 
 # Introduction
 
@@ -13,7 +13,7 @@ Snappy is a customer support webapp. It targets small to medium-sized companies.
 
 This is the first thing you see about snappy. The design is quite minimalist, but there are links to all the important pages, including my favorite one, the login page.[^loginpage]
 
-The tagline is clear and direct. There's even a testimonial from one of their customers, and his picture. That's always reassuring to see Snappy is used by real persons. The quote could be a little better though:
+The tagline is clear and direct. There's even a testimonial from one of their customers, and his picture. That's always reassuring an app is used by real persons. The quote could be a little better though:
 
 _"Snappy allows us to get rid of all of the problems of email"_. Sure, but what problems exactly does it solve? Email has a lot of problems.[^abtests]
 
@@ -41,21 +41,36 @@ We get to the meat of the sales pitch with the long list of benefits Snappy brin
 <img src="/images/snappy_teardown/7.png" class="img-responsive" />
 <img src="/images/snappy_teardown/8.png" class="img-responsive" />
 
-I'm a sort of sad to see that the designers haven't followed their idea all the way through: they've got a great testimonial about how easy it is to set up Snappy, but it floats at the bottom of the page instead of supporting the main pitch:
+Unfortunately they didn't follow their idea all the way through: they've got a great testimonial about how easy it is to set up Snappy, but it floats at the bottom of the page instead of supporting the main pitch:
 
 <img src="/images/snappy_teardown/10.png" class="img-responsive" />
 
 ## Pricing grid
 
+The next section is the pricing grid. I really like how their design reminds the reader of the hidden cost of using Gmail for support. It's a great way to make choosing Snappy obvious.
+
 <img src="/images/snappy_teardown/9.png" class="img-responsive" />
 
-Snappy has an interesting flat pricing model. 
+One weird thing with this pricing model is that they're charging the same flat-rate per seat whatever the number of users. Surely the usefulness of Snappy increases with the number of support persons, which implies higher prices?
 
-__Key takeaway:__ Use your customer testimonials to support your pitch.
+## Wrap-up
+
+The page wraps things up quickly by presenting the team, showing one last testimonial and suggesting taking the product tour.
+
+<img src="/images/snappy_teardown/11.png" class="img-responsive" />
+
+It would be awesome to have a link to talk to support directly --- this a helpdesk solution after all. I looked at a few other helpdesk webapps[^saaswebapps] and none of them displayed a prominent link to contact support. Either they all forgot about it or there's a specific reason --- maybe spending to much time on unqualified leads?
+
+<hr>
+
+All in all, this is a great sales page! It has a couple minor problems, but nothing that couldn't be improved with some patient testing.
+
+__Key takeaway:__ Customer testimonials are great. Use them to support your pitch.
 
 [^loginpage]: You'd be surprised by the number of webapps that forget this.
 [^abtests]: Of course, they've probably A/B tested this quote to death, but still.
 
-    I also have a very personal nitpick: there's no link to Grant's company. I understand the rationale --- you don't want people to leave your sales page before you've had the time to pitch them. It's annoying for compulsive readers like me though (arguably a very small part of the population).
+    I also have a very personal nitpick: there's no link to Grant's company. I understand the rationale --- you don't want people to leave your sales page before you've had the time to pitch them. It's annoying for compulsive readers like me though (arguably a very small part of the population). This too has probably been A/B tested a lot.
 
 [^unread]: Especially the bit about marking emails as unread. I do this all the time!
+[^saaswebapps]: [Freshdesk](http://freshdesk.com/), [Front](https://frontapp.com/) and [Zendesk](http://www.zendesk.com/)
