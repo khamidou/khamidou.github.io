@@ -65,7 +65,7 @@ The page wraps things up quickly by presenting the team, showing one last testim
 
 <img src="/images/snappy_teardown/11.png" class="img-responsive" />
 
-It would be awesome to have a link to talk to support directly --- this a helpdesk solution after all. I looked at a few other helpdesk webapps[^saaswebapps] and none of them displayed a prominent link to contact support. Either they all forgot about it or there's a specific reason --- maybe spending to much time on unqualified leads?
+It would be awesome to have a link to talk to support directly --- this a helpdesk solution after all. I looked at a few other helpdesk webapps[^saaswebapps] and none of them displayed a prominent link to contact support. Either they all forgot about it or there's a specific reason --- maybe spending too much time on unqualified leads?
 
 <hr>
 
