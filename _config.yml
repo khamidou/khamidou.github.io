@@ -4,6 +4,7 @@ email: dontspam@khamidou.com
 description: "My blog. I mostly talk about solving problems with software, devops and, occasionally, security."
 baseurl: "/"
 url: "http://khamidou.com"
+github_username: khamidou
 
 # Build settings
 markdown: kramdown
