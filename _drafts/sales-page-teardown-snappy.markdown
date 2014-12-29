@@ -7,15 +7,19 @@ Let's try something a little different. I've always loved picking apart great sa
 
 [Snappy](https://besnappy.com/) is a customer support webapp. It targets small to medium-sized companies.
 
-# Introduction
+## Introduction
 
 <img src="/images/snappy_teardown/1.png" class="img-responsive" />
 
 This is the first thing you see about snappy. The design is quite minimalist, but there are links to all the important pages, including my favorite one, the login page.[^loginpage]
 
-The tagline is clear and direct. There's even a testimonial from one of their customers, and his picture. It's always reassuring to see an app is used by real persons. The quote could be a little better though:
+The tagline is clear and direct. There's even a testimonial from one of their customers, and his picture. It's always reassuring to see an app is used by real persons. This is a nitpick but the quote itself is a little too non-specific for my taste:
 
-_"Snappy allows us to get rid of all of the problems of email"_. This is awfully non-specific. Email has a lot of problems.[^abtests]
+_"Snappy allows us to get rid of all of the problems of email"_.
+
+Sure, email has a lot of problems, but does Snappy solve mine? The role of the first screen is to make the reader read the rest of the page. Opening with a quote about a very specific problem of email support (e.g: the number of dropped support emails before and after snappy) would make the copy much more compelling.[^abtests]
+
+## Story
 
 The next screen shows a small screenshot of Snappy followed by four paragraphs of sales text. It's a _very good idea_ to tease us with this image before getting to the wall of text.
 
@@ -27,9 +31,7 @@ The role of this part is to make the reader realize she has a support email prob
 
 First, what's with the very long sentences? _"Do you remember the first time you answered a paying customer’s email, quickly and courteously, with joy and even honor at the opportunity to solve a problem, delivering exactly the solution they needed, right when they needed it?"_
 
-Long and meandering sentences like this one run out of steam quickly. Shorter phrases are easier to grasp and pack more punch.
-
-In general, having one idea per sentence is a good rule of thumb. (In this case, I would rewrite the previous sentence like this: _"Do you remember the first time you answered a customer's email? How quickly you replied --- the joy you felt about solving their problem? Do you remember how thrilled they were?"_)
+Long and meandering sentences like this one run out of steam quickly. Shorter phrases are easier to grasp, and pack more punch. (In this case, I would rewrite the previous sentence like this: _"Do you remember the first time you answered a customer's email? How quickly you replied --- the joy you felt about solving their problem? Do you remember how thrilled they were to see their problem solved?"_)
 
 Second, and this is very subjective, but the parts could flow a little better. In particular, I feel like part two and three could be merged together. They're about the same thing after all.
 
@@ -69,12 +71,16 @@ It would be awesome to have a link to talk to support directly --- this a helpde
 
 <hr>
 
+## Conclusion
+
 All in all, this is a great sales page! It has a couple minor problems, but nothing that couldn't be improved with some patient testing.
 
 __Key takeaway:__ Customer testimonials are great. Use them to support your pitch.
 
+<hr>
+
 [^loginpage]: You'd be surprised by the number of webapps that forget this.
-[^abtests]: Of course, they've probably A/B tested this quote to death, but still.
+[^abtests]: Of course, they've probably A/B tested a bunch of quotes and this one came out ahead, but still.
 
     I also have a very personal nitpick: there's no link to Grant's company. I understand the rationale --- you don't want people to leave your sales page before you've had the time to pitch them. It's annoying for compulsive readers like me though (arguably a very small part of the population). This too has probably been A/B tested a lot.
 
