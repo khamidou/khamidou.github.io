@@ -397,3 +397,7 @@ body {
 .escape-hatch {
   text-decoration: underline;
 }
+
+.fixedfont {
+ font-family: "Lucida Console", Monaco, monospace;
+}

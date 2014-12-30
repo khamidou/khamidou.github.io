@@ -13,7 +13,7 @@ Let's try something a little different. I've always loved picking apart great sa
 
 This is the first thing you see about snappy. The design is quite minimalist, but there are links to all the important pages, including my favorite one, the login page.[^loginpage]
 
-The tagline is clear and direct. It's a good idea to have a customer testimonial from the get-go --- it's always reassuring to see an app is used by real persons. This is a nitpick but the quote itself is a little too non-specific for my taste:
+The tagline is clear and direct. It's a good idea to have a customer testimonial from the get-go --- it's always reassuring to see an app is used by real persons. However, the quote itself is a little too non-specific for my taste:
 
 _"Snappy allows us to get rid of all of the problems of email"_.
 
@@ -29,13 +29,13 @@ The next screen shows a small screenshot of Snappy followed by four paragraphs o
 
 The role of this part is to make the reader realize she has a support email problem. It tells a story, which is the most important thing in sales page. The story itself is great --- I found myself nodding twice at it[^unread] --- and the outline is very clear (which is great for skimmers!). However, there's a couple things which could be better.
 
-First, what's with the very long sentences? _"Do you remember the first time you answered a paying customer’s email, quickly and courteously, with joy and even honor at the opportunity to solve a problem, delivering exactly the solution they needed, right when they needed it?"_
+First, some sentences are way too long. _"Do you remember the first time you answered a paying customer’s email, quickly and courteously, with joy and even honor at the opportunity to solve a problem, delivering exactly the solution they needed, right when they needed it?"_
 
 Long and meandering sentences like this one run out of steam quickly. Shorter phrases are easier to grasp, and pack more punch. (In this case, I would rewrite the previous sentence like this: _"Do you remember the first time you answered a customer's email? How quickly you replied --- the joy you felt about solving their problem? Do you remember how thrilled they were to see their problem solved?"_)
 
 Second, and this is very subjective, but the parts could flow a little better. In particular, I feel like part two and three could be merged together. They're about the same thing after all.
 
-I don't want to come off as saying that this page is bad. It has got a lot of things right, it's just not all the way there.
+Still, these are minor complaints which could get smoothed out with a little editing.
 
 The next part is _brillant_! Most sales pages would jump straight to the presentation of the product. The snappy guys chose to feature a great customer quote. **"We ain't going back"**. This is gold!
 
@@ -63,7 +63,7 @@ One weird thing with this pricing model is that they're charging the same flat-r
 
 ## Wrap-up
 
-The page wraps things up quickly by presenting the team, showing one last testimonial and suggesting taking the product tour.
+The page wraps things up quickly by presenting the team[^aboutpage], showing one last testimonial and suggesting taking the product tour.
 
 <img src="/images/snappy_teardown/11.png" class="img-responsive" />
 
@@ -86,4 +86,4 @@ __Key takeaway:__ Customer testimonials are great. Use them to support your pitc
 
 [^unread]: Especially the bit about marking emails as unread. I do this all the time!
 [^saaswebapps]: [Freshdesk](http://freshdesk.com/), [Front](https://frontapp.com/) and [Zendesk](http://www.zendesk.com/)
-[^marcelproust]: Except if you're Marcel Proust, I guess.
+[^aboutpage]: If you've read this far, you probably understand that I like nitpicking. Benefits of a french education. Anyway, it would be nice to have a link to a brief "About us/History of the company" page. It's important for the reader to know that this is not a fly-by-night operation.
