@@ -5,7 +5,7 @@ featured: true
 ---
 Let's try something a little different. I've always loved picking apart great sales pages to see what makes them tick.
 
-[Snappy](https://besnappy.com/) is a customer support webapp. It targets small to medium-sized companies.
+[Snappy](https://besnappy.com/) is a customer support webapp. It targets small to medium-sized companies. It's a page that uses customer quotes really well.
 
 ## Introduction
 
@@ -13,7 +13,7 @@ Let's try something a little different. I've always loved picking apart great sa
 
 This is the first thing you see about snappy. The design is quite minimalist, but there are links to all the important pages, including my favorite one, the login page.[^loginpage]
 
-The tagline is clear and direct. There's even a testimonial from one of their customers, and his picture. It's always reassuring to see an app is used by real persons. This is a nitpick but the quote itself is a little too non-specific for my taste:
+The tagline is clear and direct. It's a good idea to have a customer testimonial from the get-go --- it's always reassuring to see an app is used by real persons. This is a nitpick but the quote itself is a little too non-specific for my taste:
 
 _"Snappy allows us to get rid of all of the problems of email"_.
 
@@ -37,7 +37,7 @@ Second, and this is very subjective, but the parts could flow a little better. I
 
 I don't want to come off as saying that this page is bad. It has got a lot of things right, it's just not all the way there.
 
-The next part is _brillant_! Most sales pages would jump straight to the presentation of the product. The snappy guys chose to feature a great customer testimonial. **"We ain't going back"**. This is gold!
+The next part is _brillant_! Most sales pages would jump straight to the presentation of the product. The snappy guys chose to feature a great customer quote. **"We ain't going back"**. This is gold!
 
 <img src="/images/snappy_teardown/5.png" class="img-responsive" />
 
@@ -49,7 +49,7 @@ We get to the meat of the sales pitch with the long list of benefits Snappy brin
 <img src="/images/snappy_teardown/7.png" class="img-responsive" />
 <img src="/images/snappy_teardown/8.png" class="img-responsive" />
 
-Unfortunately they didn't follow their idea all the way through: they've got a great testimonial about how easy it is to set up Snappy, but it floats at the bottom of the page instead of supporting the main pitch:
+Unfortunately they didn't follow their idea all the way through: they've got a great quote about how easy it is to set up Snappy, but it floats at the bottom of the page instead of supporting the main pitch:
 
 <img src="/images/snappy_teardown/10.png" class="img-responsive" />
 
