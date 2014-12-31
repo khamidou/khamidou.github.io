@@ -5,7 +5,7 @@ featured: true
 ---
 Let's try something a little different. I've always loved picking apart great sales pages to see what makes them tick.
 
-[Snappy](https://besnappy.com/) is a customer support webapp. It targets small to medium-sized companies. It's a page that uses customer quotes really well.
+[Snappy](https://besnappy.com/) is a customer support webapp which targets small to medium-sized companies. I chose to look into their sales page because it uses customer quotes really well.
 
 ## Introduction
 
@@ -27,7 +27,7 @@ The next screen shows a small screenshot of Snappy followed by four paragraphs o
 <img src="/images/snappy_teardown/3.png" class="img-responsive" />
 <img src="/images/snappy_teardown/4.png" class="img-responsive" />
 
-The role of this part is to make the reader realize she has a support email problem. It tells a story, which is the most important thing in sales page. The story itself is great --- I found myself nodding twice at it[^unread] --- and the outline is very clear (which is great for skimmers!). However, there's a couple things which could be better.
+The role of this part is to make the reader realize she has a support email problem. It tells a story, which is the most important thing in sales page. The story itself is great --- I found myself nodding[^unread] --- and the outline is very clear (which is great for skimmers!). However, there's a couple things which could be better.
 
 First, some sentences are way too long. _"Do you remember the first time you answered a paying customer’s email, quickly and courteously, with joy and even honor at the opportunity to solve a problem, delivering exactly the solution they needed, right when they needed it?"_
 
@@ -55,11 +55,11 @@ Unfortunately they didn't follow their idea all the way through: they've got a g
 
 ## Pricing grid
 
-The next section is the pricing grid. I really like how their design reminds the reader of the hidden cost of using Gmail for support. It's a great way to make choosing Snappy obvious.
+The next section is the pricing grid. I really like how their design reminds the reader of the hidden costs of using Gmail for support. It's a great way to make choosing Snappy obvious.
 
 <img src="/images/snappy_teardown/9.png" class="img-responsive" />
 
-One weird thing with this pricing model is that they're charging the same flat-rate per seat whatever the number of users. Surely the usefulness of Snappy increases with the number of support persons, which implies higher prices?
+One weird thing with this pricing model is that they're charging the same flat-rate per seat whatever the number of users. Surely the usefulness of Snappy increases with the number of support persons, which implies higher prices?[^gmailuse]
 
 ## Wrap-up
 
@@ -87,3 +87,4 @@ __Key takeaway:__ Customer testimonials are great. Use them to support your pitc
 [^unread]: Especially the bit about marking emails as unread. I do this all the time!
 [^saaswebapps]: [Freshdesk](http://freshdesk.com/), [Front](https://frontapp.com/) and [Zendesk](http://www.zendesk.com/)
 [^aboutpage]: If you've read this far, you probably understand that I like nitpicking. Benefits of a french education. Anyway, it would be nice to have a link to a brief "About us/History of the company" page. It's important for the reader to know that this is not a fly-by-night operation.
+[^gmailuse]: This also applies to using Gmail or Outlook. The hidden cost of using Outlook for a single user is probably 100$/month but it increases significantly (read: non-linearly) with the number of users.
