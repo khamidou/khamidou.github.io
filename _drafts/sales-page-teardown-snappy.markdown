@@ -5,7 +5,7 @@ featured: true
 ---
 Let's try something a little different. I've always loved picking apart great sales pages to see what makes them tick.
 
-[Snappy](https://besnappy.com/) is a customer support webapp which targets small to medium-sized companies. I chose to look into their sales page because it uses customer quotes really well.
+[Snappy](https://besnappy.com/) is a customer support webapp which targets small to medium-sized companies. They have a great sales page which uses customer quotes really well.
 
 ## Introduction
 
@@ -27,7 +27,7 @@ The next screen shows a small screenshot of Snappy followed by four paragraphs o
 <img src="/images/snappy_teardown/3.png" class="img-responsive" />
 <img src="/images/snappy_teardown/4.png" class="img-responsive" />
 
-The role of this part is to make the reader realize she has a support email problem. It tells a story, which is the most important thing in sales page. The story itself is great --- I found myself nodding[^unread] --- and the outline is very clear (which is great for skimmers!). However, there's a couple things which could be better.
+The role of this part is to make the reader realize she has a support email problem. It tells a story, which is the most important thing in sales page. The story itself is good[^unread] --- and the outline is very clear (which is great for skimmers!). However, there's a couple things which could be better.
 
 First, some sentences are way too long. _"Do you remember the first time you answered a paying customer’s email, quickly and courteously, with joy and even honor at the opportunity to solve a problem, delivering exactly the solution they needed, right when they needed it?"_
 
@@ -81,10 +81,7 @@ __Key takeaway:__ Customer testimonials are great. Use them to support your pitc
 
 [^loginpage]: You'd be surprised by the number of webapps that forget this.
 [^abtests]: Of course, they've probably A/B tested a bunch of quotes and this one came out ahead, but still.
-
-    I also have a very personal nitpick: there's no link to Grant's company. I understand the rationale --- you don't want people to leave your sales page before you've had the time to pitch them. It's annoying for compulsive readers like me though (arguably a very small part of the population). This too has probably been A/B tested a lot.
-
 [^unread]: Especially the bit about marking emails as unread. I do this all the time!
 [^saaswebapps]: [Freshdesk](http://freshdesk.com/), [Front](https://frontapp.com/) and [Zendesk](http://www.zendesk.com/)
-[^aboutpage]: If you've read this far, you probably understand that I like nitpicking. Benefits of a french education. Anyway, it would be nice to have a link to a brief "About us/History of the company" page. It's important for the reader to know that this is not a fly-by-night operation.
+[^aboutpage]: It would be nice to have a link to a brief "About us/History of the company" page. It's important for the reader to know that this is not a fly-by-night operation. For example, 37signals/Basecamp has an awesome [about page](https://basecamp.com/about) which presents the company while resolving tons of customer objections. Litterally every paragraph deals with a separate concern a client may have.
 [^gmailuse]: This also applies to using Gmail or Outlook. The hidden cost of using Outlook for a single user is probably 100$/month but it increases significantly (read: non-linearly) with the number of users.
