@@ -3,11 +3,14 @@ layout: post
 title: "Sales page teardown: Workshop"
 featured: true
 ---
-[Workshop](http://letsworkshop.com/) is a service which sends you curated web development leads. As as a consultant, their sales pitch resonated deeply with me[^feast]. Let's see what makes it so great.
+
+Ah the life of the beginning freelancer. Landing contracts. Writing code. Arguing with cheap clients. Looking for contracts (actually spending an awful lot of time on the latter).
+
+[Workshop](http://letsworkshop.com/) is a service which sends you curated web development leads. Their sales pitch resonated deeply with me[^feast]. Let's see what makes it so great.
 
 ## Introduction
 
-Before diving into the main body copy, let's talk about the first screen because it's **exceedingly great**. It's very obvious the author spent a lot of time on the first screen.[^firstline]
+Before diving into the main body copy, let's talk about the first screen because it's **exceedingly great**. It's very obvious the author spent a lot of time on it.[^firstline]
 
 A lot of longform sales pages rely on the strength of a single tagline to make you read the rest of the page[^sugarman]. This one doesn't --- the first screen is actually a condensed version of the sales pitch. It answers the three questions everybody asks themselves when landing on a new website:
 
@@ -15,13 +18,22 @@ A lot of longform sales pages rely on the strength of a single tagline to make y
 
 Having a drawing here is a great idea --- it gets the point across really well, without a lot of words
 
-## Main copy
+## Body copy
 
-Software engineers use design patterns
-One great way to structure a sales pitch is to use a sales pattern: Pain Dream Fix[^hoy].
-The copy is broken into (roughly) three parts. The first one sets the stage. Here it is:
+### (Aside: Pains and Dreams)
+
+Software engineers use design patterns to structure code. Copywriters, too, have a handful of ways to structure a pitch . One of those is called "Pain Dream Fix"[^hoy].  It consists in breaking the copy is broken into (roughly) three parts.
+
+1.
+The first one sets the stage. Its role is to make the reader realize that he has a deep pain.
+The second part is about showing the reader how life could be without this problem.
+The final part, the fix, is actually presenting the product you're selling.
+
+Here's the pain part:
 
 <img src="/images/workshop_teardown/2.png" class="img-responsive" />
+
+The text quickly segues 
 
 It's great because it's really well researched. A lot of these things are problems that young, inexperienced freelancer meet. They don't have a sales pipeline yet and/or they lack the discipline to look for jobs periodically.
 
@@ -79,7 +91,7 @@ tagline
 [^sugarman]: That's the famous Sugarman quote "The purpose of the headline is to get the first sentence read. The purpose of the first sentence is to get the second sentence read." etc.
 [^compulsive]:  I guess that's a good assumption with compulsive readers like me --- but don't believe that most people read every little line on their box of cereals during breakfast. 
 [^feast]: I still get occasional shivers when reading the expression "feast or famine".
-[^hoy]: Credits to Amy Hoy for coming up with the concept, though it probably exists under other names.
+[^hoy]: Credits to [Amy Hoy](https://unicornfree.com/) for naming this. It's probably known as something else too.
 [^firstline]: Take the opening line. _"I send people who need websites your way."_ <br>The wording is simple but doesn't say a lot about the leads you're getting --- what kind of budget do they have? --- so the author followed up with _"This week alone I've sent more than **$159,215 worth of work**."_
 
     The same thing applies to the design of the CTA button. See how the small balloon to the left helps resolving this sales objection?
