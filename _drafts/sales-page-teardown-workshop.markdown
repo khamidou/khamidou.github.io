@@ -22,7 +22,7 @@ Having a drawing here is a great idea --- it gets the point across really well, 
 
 ### (Aside: Pains and Dreams)
 
-Software engineers use design patterns to structure code. Copywriters, too, have a handful of ways to structure a pitch . One of those is called "Pain Dream Fix"[^hoy].  It consists in breaking the copy is broken into (roughly) three parts.
+Software engineers use design patterns to structure code. Copywriters, too, have a handful of ways to structure a pitch. One of those is called "Pain Dream Fix"[^hoy].  It consists in breaking the copy into (roughly) three parts.
 
 1.
 The first one sets the stage. Its role is to make the reader realize that he has a deep pain.
