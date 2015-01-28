@@ -16,7 +16,7 @@ A lot of longform sales pages rely on the strength of a single tagline to make y
 
 <img src="/images/workshop_teardown/1.png" class="img-responsive" />
 
-Having a drawing here is a great idea --- it gets the point across really well, without a lot of words
+Having a drawing here is a great idea --- it gets the point across really well, without a lot of words. The call to action makes it clear that you're going to receive an email.
 
 ## Body copy
 
@@ -27,10 +27,11 @@ Let's look at the first two paragraphs.
 
 What's happening here?
 
-The writer starts with a long paragraph about how hard freelance life is. It lists a number of issues that young, inexperienced freelancer have. They don't have a sales pipeline yet and/or they lack the discipline to look for jobs periodically.
+The writer starts with a long paragraph about how hard freelance life is. Reading it, I could almost see myself when I just started freelancing two years ago. Inexperienced, with no idea of whatsoever of how to get clients and what's a sales pipeline. These are just typical issues for a freelancer.
 
-it hits an emotional point "You're already working too much. You have to check important emails, fix billing issues, and put out fires in your business. Doing lead generation on top of everything sucks."
+I also really like how it hits an emotional point "You're already working too much. You have to check important emails, fix billing issues, and put out fires in your business. Doing lead generation on top of everything sucks." After all, who likes spending time writing emails on job boards?
 
+What I find really smart is that instead of giong for a hard sale right away, the author paints you how life could be otherwise. What would you be like if you were a freelancer without having to look at leads? 
 segues about how life would be otherwise
     -> wouldn't be things great without having to search for clients? What if you could find quality clients, like this?
 
