@@ -6,17 +6,22 @@ featured: true
 
 Ah the life of the beginning freelancer. Landing contracts. Writing code. Arguing with cheap clients. Looking for contracts (actually spending an awful lot of time on the latter).
 
-[Workshop](http://letsworkshop.com/) is a service which sends you curated web development leads. Their sales pitch resonated deeply with me[^feast]. Let's see what makes it so great.
+[Workshop](http://letsworkshop.com/) is a service which sends you ten high-quality leads every day. They've got a great sales pitch which resonated deeply with me[^feast]. Let's dive in.
 
-## Introduction
+## Aside: telling people what you're about
 
-Before diving into the main body copy, let's talk about the first screen because it's **exceedingly great**. It's very obvious the author spent a lot of time on it.[^firstline]
+Before diving into the main body copy, let's talk about the first screen because it's **exceedingly great**. 
+It's very obvious the author spent a lot of time on it.[^firstline]
 
-A lot of longform sales pages rely on the strength of a single tagline to make you read the rest of the page[^sugarman]. This one doesn't --- the first screen is actually a condensed version of the sales pitch. It answers the three questions everybody asks themselves when landing on a new website:
+Tons of web page seem to assume that people have the patience to sit through 4 or 5 screens before deciding whether to close the page or not. I do, but I'm a compulsive reader --- not sure everyone is one[^parallax].
+
+This one doesn't --- the first screen is actually a condensed version of the sales pitch. It answers the three questions everybody asks themselves when landing on a new website:
 
 <img src="/images/workshop_teardown/1.png" class="img-responsive" />
 
-Having a drawing here is a great idea --- it gets the point across really well, without a lot of words. The call to action makes it clear that you're going to receive an email.
+You couldn't be clearer. The first screen has everything you need to know about the service and go on your merry way.
+
+Bonus point for having a drawing here -- it gets the point across really well, without a lot of words.
 
 ## Body copy
 
@@ -27,11 +32,9 @@ Let's look at the first two paragraphs.
 
 What's happening here?
 
-The writer starts with a long paragraph about how hard freelance life is. Reading it, I could almost see myself when I just started freelancing two years ago. Inexperienced, with no idea of whatsoever of how to get clients and what's a sales pipeline. These are just typical issues for a freelancer.
+The writer starts with a long paragraph about the difficulties of freelancing. Reading it brought me back to when I started doing it in college: I was inexperienced, with no idea of whatsoever of how to get clients and what's a sales pipeline. Typical issues for a beginning freelancer I guess. What's really great is that gets to the point of what makes freelancing hard (mainly, having to run a business while all you want to do is code/design). That shows a deep understanding of his audience.
 
-I also really like how it hits an emotional point "You're already working too much. You have to check important emails, fix billing issues, and put out fires in your business. Doing lead generation on top of everything sucks." After all, who likes spending time writing emails on job boards?
-
-What I find really smart is that instead of giong for a hard sale right away, the author paints you how life could be otherwise. What would you be like if you were a freelancer without having to look at leads? 
+Afterwards, instead of asking for a sale right away, asks us to picture life without having to look for leads. What would you be like if you were a freelancer without having to look at leads? It's refreshing to read a sales page that isn't so concerned with the service it sells. A lot of sales pages are sort of
 segues about how life would be otherwise
     -> wouldn't be things great without having to search for clients? What if you could find quality clients, like this?
 
@@ -41,10 +44,16 @@ when it shows the solution, it feels like a god send
 
 After another paragraph showing how great life would be without having to look for leads, the writer introduces its service. This paragraph, is really, really well written. Look at it:
 
-It's just does so many things right! In a single paragraph, the writer introduces the service, handles a couple sales objections (is it actually used by people?), reminds the reader that this is not a fluff service and that they'll receive something everyday, anchors the price ("it's the cost of a cup of coffee everyday" --- the line is a bit cliché but it's because it *works*) and positions the service "You're not buying workshop because it's cheap, you're buying it because it *works*")
+<img src="/images/workshop_teardown/5.png" class="img-responsive" />
+
+
+It's just does so many things right! In a single paragraph, the writer introduces the service, <span style='background-color: #ff99cc'>gets a couple sales objections our of the way</span>(is it actually used by people? will I need to get involved?), <span style='background-color: #99FF99;'>anchors the price</span>(the "it's the cost of a cup of coffee everyday" line is a bit cliché but it's because it *works*) and <span style='background-color: #ffff99'>positions the service</span> "You're not buying workshop because it's cheap, you're buying it because it *works*")
 
 the service itself has a great positioning
     -> not about price, about quality
+
+One thing that could be better is qualifying customers. The page does a very good job at telling it's a service made for freelancers, however consultants come in all kind of stripes. Does it apply to small agencies? No idea. Same thing about product tiers. The problem here is that the service is constrained by the supply they have --- it must be pretty hard to come up a with a dozen quality leads every day, in multiple segments. 
+
 
 after this the text details the format of a typical email --- it's a good idea to break up the long wall of text with an image, it adds variety. Besides, the comments help establishing the image of the product as a serious thing.
 
@@ -52,8 +61,17 @@ METTRE CAPTURE NEWSLETTER
 
 ## Handling objections
 
-The closing part is about handling potential sales objections. These are pretty much your standard sales objections page. One weird thing is that there's only one testimonial, and it's from a dude whose company sells software for freelancers (he could be using the service but it's not guaranteed ---- what about testimonials from actual users of the service? If the service has helped hundreds of people land work, surely there's going to be a few person to spare a teestomnial[^testimonials]?
+The closing part is about handling potential sales objections. These are pretty much your standard sales objections page. 
 
+## Risk reversal
+
+    "there's zero risk for the first 30 days" ~~~> dubious. Does it means it's risky afterwards? Better have "try it risk-free for a month."
+
+
+One weird thing is that there's only one testimonial, and it's from a dude whose company sells software for freelancers (he could be using the service but it's not guaranteed ---- what about testimonials from actual users of the service? If the service has helped hundreds of people land work, surely there's going to be a few person to spare a teestomnial[^testimonials]?
+
+Handling objections
+    "but the whole point of Workshop is that I send fewer, better leads" --> great way to position the product 
 
 
 ## Closing thoughts
@@ -75,12 +93,6 @@ Credibility & Handling objections
 
 Qualifying customers:
     That's a problem. The page does a very good job at telling it's a service made for freelancers/consultants, however consultants come in all kind of stripes. Does it apply to small agencies? No idea. Same thing about product tiers. The problem here is that the service is constrained by the supply they have --- it must be pretty hard to come up a with a dozen quality leads every day, in multiple segments. 
-
-Reversing risk
-    "there's zero risk for the first 30 days" ~~~> dubious. Does it means it's risky afterwards? Better have "try it risk-free for a month."
-
-Handling objections
-    "but the whole point of Workshop is that I send fewer, better leads" --> great way to position the product 
 
 
 
@@ -113,15 +125,10 @@ tagline
 
 <img src="/images/workshop_teardown/2.png" class="img-responsive" />
 
-
+[^parallax]: I'm looking at you, fancy parallax sales page.
 [^sugarman]: That's the famous Sugarman quote "The purpose of the headline is to get the first sentence read. The purpose of the first sentence is to get the second sentence read." etc.
 [^compulsive]:  I guess that's a good assumption with compulsive readers like me --- but don't believe that most people read every little line on their box of cereals during breakfast. 
 [^feast]: I still get occasional shivers when reading the expression "feast or famine".
 [^hoy]: Credits to [Amy Hoy](https://unicornfree.com/) for naming this. It's probably known as something else too.
-[^testimonials]: Take a look at [Snappy](https://besnappy.com) to see a page that does great testimonials. I even made a [teardown](/2015/01/06/sales-page-teardown-snappy/) of it.
-[^firstline]: Take the opening line. _"I send people who need websites your way."_ <br>The wording is simple but doesn't say a lot about the leads you're getting --- what kind of budget do they have? --- so the author followed up with _"This week alone I've sent more than **$159,215 worth of work**."_
-
-    The same thing applies to the design of the CTA button. See how the small balloon to the left helps resolving this sales objection?
-   <img src="/images/workshop_teardown/4.png" class="img-responsive" />
-
-    These are two examples among many others.
+[^testimonials]: Take a look at [Snappy](https://besnappy.com) to see a page that uses testimonials really well. I liked it so much I made a [teardown](/2015/01/06/sales-page-teardown-snappy/) of it.
+[^firstline]: Take the opening line. _"I send people who need websites your way."_ <br>The wording is simple but doesn't say a lot about the leads you're getting --- what kind of budget do they have? --- so the author followed up with _"This week alone I've sent more than **$159,215 worth of work**."_. This is one example among many others.
