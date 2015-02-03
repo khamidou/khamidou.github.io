@@ -30,9 +30,11 @@ Let's look at the first two paragraphs.
 <img src="/images/workshop_teardown/2.png" class="img-responsive" />
 <img src="/images/workshop_teardown/3.png" class="img-responsive" />
 
-What's happening here?
+What's happening here? Two things: <u>making people realize they have a problem</u> and <u>selling them on a solution</u>.
 
-The writer starts with a long paragraph about the difficulties of freelancing. Reading it brought me back to when I started doing it in college: I was inexperienced, with no idea of whatsoever of how to get clients and what's a sales pipeline. Typical issues for a beginning freelancer I guess. What's really great is that gets to the point of what makes freelancing hard (mainly, having to run a business while all you want to do is code/design). That shows a deep understanding of his audience.
+### Making people realize they have a problem
+
+The writer starts with a long <u>paragraph</u> about the difficulties of freelancing. Reading it brought me back to when I started doing it in college: I was inexperienced, with no idea of whatsoever of how to get clients and what's a sales pipeline. Typical issues for a beginning freelancer I guess. What's really great is that gets to the point of what makes freelancing hard (mainly, having to run a business while all you want to do is code/design). That shows a deep understanding of his audience.
 
 Afterwards, instead of asking for a sale right away, asks us to picture life without having to look for leads. What would you be like if you were a freelancer without having to look at leads? It's refreshing to read a sales page that isn't so concerned with the service it sells. A lot of sales pages are sort of
 segues about how life would be otherwise
@@ -42,12 +44,19 @@ its refreshing to see a sales page spend so much time talking about your problem
 when it shows the solution, it feels like a god send
     -> he's had the time to build rapport
 
+### Selling them on a solution
+
 After another paragraph showing how great life would be without having to look for leads, the writer introduces its service. This paragraph, is really, really well written. Look at it:
 
 <img src="/images/workshop_teardown/5.png" class="img-responsive" />
 
 
-It's just does so many things right! In a single paragraph, the writer introduces the service, <span style='background-color: #ff99cc'>gets a couple sales objections our of the way</span>(is it actually used by people? will I need to get involved?), <span style='background-color: #99FF99;'>anchors the price</span>(the "it's the cost of a cup of coffee everyday" line is a bit cliché but it's because it *works*) and <span style='background-color: #ffff99'>positions the service</span> "You're not buying workshop because it's cheap, you're buying it because it *works*")
+It's just does so many things right! In a single paragraph, the writer:
+
+1. Introduces the service
+2. <span style='background-color: #ff99cc'>Gets a couple sales objections out of the way</span>(is it actually used by people? will I need to get involved?)
+2. <span style='background-color: #99FF99;'>Anchors the price</span>(the "it's the cost of a cup of coffee everyday" line is a bit cliché but it's because it *works*)
+3. <span style='background-color: #ffff99'>Positions the service</span> "You're not buying workshop because it's cheap, you're buying it because it *works*")
 
 the service itself has a great positioning
     -> not about price, about quality
