@@ -13,11 +13,9 @@ Ah the life of the beginning freelancer. Landing contracts. Writing code. Arguin
 Before diving into the main body copy, let's talk about the first screen because it's **exceedingly great**. 
 It's very obvious the author spent a lot of time on it.[^firstline]
 
-Tons of web page seem to assume that people have the patience to sit through 4 or 5 screens before deciding whether to close the page or not. I do, but I'm a compulsive reader --- not sure everyone is one[^parallax].
+Tons of web pages seem to assume that people have the patience to sit through 4 or 5 screens before deciding whether to close the page or not[^parallax]. This one doesn't --- the first screen is actually a condensed version of the sales pitch. It answers the three questions everybody asks themselves when landing on a new website:
 
-This one doesn't --- the first screen is actually a condensed version of the sales pitch. It answers the three questions everybody asks themselves when landing on a new website:
-
-<img src="/images/workshop_teardown/1.png" class="img-responsive" />
+<img src="/images/workshop_teardown/1.png" class="img-responsive" /> 
 
 You couldn't be clearer. The first screen has everything you need to know about the service and go on your merry way.
 
@@ -30,19 +28,17 @@ Let's look at the first two paragraphs.
 <img src="/images/workshop_teardown/2.png" class="img-responsive" />
 <img src="/images/workshop_teardown/3.png" class="img-responsive" />
 
-What's happening here? Two things: <u>making people realize they have a problem</u> and <u>selling them on a solution</u>.
+What's happening here? Two things: <u>making the reader realize she has a problem</u> and <u>selling her on a solution</u>.
 
 ### Making people realize they have a problem
 
-The writer starts with a long <u>paragraph</u> about the difficulties of freelancing. Reading it brought me back to when I started doing it in college: I was inexperienced, with no idea of whatsoever of how to get clients and what's a sales pipeline. Typical issues for a beginning freelancer I guess. What's really great is that gets to the point of what makes freelancing hard (mainly, having to run a business while all you want to do is code/design). That shows a deep understanding of his audience.
+The writer starts with a long <u>paragraph</u> about the difficulties of freelancing. He has a deep understanding of his audience it shows.  Reading it brought me back to when I started doing it in college: I was inexperienced, with no idea of whatsoever of how to get clients and what's a sales pipeline. Typical issues for a beginning freelancer I guess. What's really great is that he articulates what makes freelancing hard (mainly, having to run a business while all you want to do is code/design). 
 
-Afterwards, instead of asking for a sale right away, asks us to picture life without having to look for leads. What would you be like if you were a freelancer without having to look at leads? It's refreshing to read a sales page that isn't so concerned with the service it sells. A lot of sales pages are sort of
-segues about how life would be otherwise
-    -> wouldn't be things great without having to search for clients? What if you could find quality clients, like this?
+The following paragraph isn't about asking for a sale right away. Instead the author paints us the idyllic picture of a life without having to look for leads. How great would it be?
 
-its refreshing to see a sales page spend so much time talking about your problem instead of jumping at the solution
-when it shows the solution, it feels like a god send
-    -> he's had the time to build rapport
+That's a really smart thing to do. You see, one problem people have is they tend to forget about their pains. We get numb. We lose the sense of urgency. By presenting how life would be otherwise it's reminding us how it's a PITA.
+
+when it shows the solution, it feels like a god send -> he's had the time to build rapport
 
 ### Selling them on a solution
 
@@ -70,7 +66,13 @@ METTRE CAPTURE NEWSLETTER
 
 ## Handling objections
 
-The closing part is about handling potential sales objections. These are pretty much your standard sales objections page. 
+The final part of the page is a series of questions and answers to handle sales objections. I don't have a lot to say about it apart from the opening sentence:
+
+<img src="/images/workshop_teardown/6.png" class="img-responsive" />
+
+I like this a lot. Having numbers like this make things reassuring. That's definitely something I'm going to reuse.
+
+My only gripe is that there should be more testimonials. Sure, Ruben Gamez's testimonial is quite good and he's a celibrity of sorts in some circles but it kind of feels out of place with the rest of the page. After all, this is a page for scrappy freelancer. What about using testimonials from actual users of the service?
 
 ## Risk reversal
 
