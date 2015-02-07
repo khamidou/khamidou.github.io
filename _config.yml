@@ -5,10 +5,10 @@ description: "My blog. I mostly talk about solving problems with software, devop
 baseurl: ""
 url: "http://khamidou.com"
 github_username: khamidou
+permalink: none
 
 # Build settings
 markdown: kramdown
 highlighter: pygments
-permalink: pretty
 paginate: 20
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]

@@ -32,11 +32,13 @@ What's happening here? Two things: <u>making the reader realize she has a proble
 
 ### Making people realize they have a problem
 
-The writer starts with a long <u>paragraph</u> about the difficulties of freelancing. He has a deep understanding of his audience it shows.  Reading it brought me back to when I started doing it in college: I was inexperienced, with no idea of whatsoever of how to get clients and what's a sales pipeline. Typical issues for a beginning freelancer I guess. What's really great is that he articulates what makes freelancing hard (mainly, having to run a business while all you want to do is code/design). 
+The writer starts with a long paragraph about the difficulties of freelancing. He has a deep understanding of his audience it shows: he manages to articulate what makes freelancing hard --- mainly, having to run a business while all you want to do is code/design.
 
-The following paragraph isn't about asking for a sale right away. Instead the author paints us the idyllic picture of a life without having to look for leads. How great would it be?
+It brought me back to when I started doing it in college: I was inexperienced, with no idea of whatsoever of how to get clients and what's a sales pipeline. Typical issues for a beginning freelancer I guess. 
 
-That's a really smart thing to do. You see, one problem people have is they tend to forget about their pains. We get numb. We lose the sense of urgency. By presenting how life would be otherwise it's reminding us how it's a PITA.
+The next paragraph is really smart because it's not asking for a sale right away. Instead the author paints us the idyllic picture of a life without having to look for leads. How great would it be?
+
+You see, one problem people have is they tend to forget about their pains. We get numb. We lose the sense of urgency. By presenting how life would be otherwise it's reminding us how it's a PITA.
 
 when it shows the solution, it feels like a god send -> he's had the time to build rapport
 
@@ -50,29 +52,24 @@ After another paragraph showing how great life would be without having to look f
 It's just does so many things right! In a single paragraph, the writer:
 
 1. Introduces the service
-2. <span style='background-color: #ff99cc'>Gets a couple sales objections out of the way</span>(is it actually used by people? will I need to get involved?)
-2. <span style='background-color: #99FF99;'>Anchors the price</span>(the "it's the cost of a cup of coffee everyday" line is a bit cliché but it's because it *works*)
-3. <span style='background-color: #ffff99'>Positions the service</span> "You're not buying workshop because it's cheap, you're buying it because it *works*")
+2. <span style='background-color: #ff99cc'>Gets a couple sales objections out of the way</span>(is it actually used by people? Will I need to get involved?)
+2. <span style='background-color: #99FF99;'>Anchors the price</span>(the "it's the cost of a cup of coffee everyday" line is a bit cliché but it's because so effective)
+3. <span style='background-color: #ffff99'>Positions the service</span> "You're not buying workshop because it's cheap, you're buying it because it *works*").
+     That's a really smart way to position yourself. After all, when the main alternative to your service is manually checking job boards, you can neither compete on price neither on quantity. Quality is where things are at.
 
-the service itself has a great positioning
-    -> not about price, about quality
-
-One thing that could be better is qualifying customers. The page does a very good job at telling it's a service made for freelancers, however consultants come in all kind of stripes. Does it apply to small agencies? No idea. Same thing about product tiers. The problem here is that the service is constrained by the supply they have --- it must be pretty hard to come up a with a dozen quality leads every day, in multiple segments. 
-
-
-after this the text details the format of a typical email --- it's a good idea to break up the long wall of text with an image, it adds variety. Besides, the comments help establishing the image of the product as a serious thing.
-
-METTRE CAPTURE NEWSLETTER
+One thing that could be better is qualifying customers. The page does a very good job at telling it's a service made for freelancers, however they come in all kind of stripes. Does it apply to small agencies? No idea.
 
 ## Handling objections
 
-The final part of the page is a series of questions and answers to handle sales objections. I don't have a lot to say about it apart from the opening sentence:
+The final part of the sales page is a FAQ. I don't have a lot to say about it apart from the opening sentence[^nitpick]:
 
 <img src="/images/workshop_teardown/6.png" class="img-responsive" />
 
 I like this a lot. Having numbers like this make things reassuring. That's definitely something I'm going to reuse.
 
-My only gripe is that there should be more testimonials. Sure, Ruben Gamez's testimonial is quite good and he's a celibrity of sorts in some circles but it kind of feels out of place with the rest of the page. After all, this is a page for scrappy freelancer. What about using testimonials from actual users of the service?
+My only gripe is that there should be more testimonials. Sure, Ruben Gamez's testimonial is quite good and he's a celebrity of sorts in some circles but it kind of feels out of place with the rest of the page.
+
+After all, the audience of this page is mostly freelancer who have a hard time coming up with leads. What is more convincing: a testimonial from a freelancer just like you or one from someone who probably works fulltime on a SaaS service?
 
 ## Risk reversal
 
@@ -87,7 +84,7 @@ Handling objections
 
 ## Closing thoughts
 
-This is a great sales page but I'm wondering a couple things about the service. First, as a web developer I know that there's a lot of segmentation between competencies --- it's unlikely for Rails developer to be able to customize your Wordpress install, or it would take her a lot of time. An obvious choice to grow the service would be to fork it into specific verticals --- having a daily email only for Wordpress developers for example. Maybe Robert could branch off with a Wordpress-specific weekly email, to get his feet wet.
+This is a great sales page but I'm wondering a couple things about the service. First, as a web developer I know that there's a lot of segmentation between skills --- it's unlikely for Rails developer to be able to customize your Wordpress install, or it would take her a lot of time. An obvious choice to grow the service would be to fork it into specific verticals --- having a daily email only for Wordpress developers for example. Maybe Robert could branch off with a Wordpress-specific weekly email, to get his feet wet.
 
 
 There's a limited number of leads you can send per day. That's annoying because
@@ -143,3 +140,5 @@ tagline
 [^hoy]: Credits to [Amy Hoy](https://unicornfree.com/) for naming this. It's probably known as something else too.
 [^testimonials]: Take a look at [Snappy](https://besnappy.com) to see a page that uses testimonials really well. I liked it so much I made a [teardown](/2015/01/06/sales-page-teardown-snappy/) of it.
 [^firstline]: Take the opening line. _"I send people who need websites your way."_ <br>The wording is simple but doesn't say a lot about the leads you're getting --- what kind of budget do they have? --- so the author followed up with _"This week alone I've sent more than **$159,215 worth of work**."_. This is one example among many others.
+[^nitpick]: Ok, so this is probably the nitpick of nitpicks and maybe my programmer brain taking over but I've got a hard time parsing "There's zero risk for the first 30 days.". What about having instead a line like "Try it risk-free for 30 days"? 
+[^positioning]: 
