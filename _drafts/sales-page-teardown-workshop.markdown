@@ -59,79 +59,33 @@ It's just does so many things right! In a single paragraph, the writer:
 
 One thing that could be better is qualifying customers. The page does a very good job at telling it's a service made for freelancers, however they come in all kind of stripes. Does it apply to small agencies? No idea.
 
-## Handling objections
+## Handling customer objections
 
-The final part of the sales page is a FAQ. I don't have a lot to say about it apart from the opening sentence[^nitpick]:
+The final part of the sales page is a FAQ followed by a short testimonial. I don't have much to say about it apart from the opening sentence:
 
-<img src="/images/workshop_teardown/6.png" class="img-responsive" />
+<img src="/images/workshop_teardown/7.png" class="img-responsive" />
 
-I like this a lot. Having numbers like this make things reassuring. That's definitely something I'm going to reuse.
+I like it _a lot_. Having numbers like this make things reassuring. That's definitely something I'm going to reuse[^nitpick].
 
 My only gripe is that there should be more testimonials. Sure, Ruben Gamez's testimonial is quite good and he's a celebrity of sorts in some circles but it kind of feels out of place with the rest of the page.
 
-After all, the audience of this page is mostly freelancer who have a hard time coming up with leads. What is more convincing: a testimonial from a freelancer just like you or one from someone who probably works fulltime on a SaaS service?
-
-## Risk reversal
-
-    "there's zero risk for the first 30 days" ~~~> dubious. Does it means it's risky afterwards? Better have "try it risk-free for a month."
-
-
-One weird thing is that there's only one testimonial, and it's from a dude whose company sells software for freelancers (he could be using the service but it's not guaranteed ---- what about testimonials from actual users of the service? If the service has helped hundreds of people land work, surely there's going to be a few person to spare a teestomnial[^testimonials]?
-
-Handling objections
-    "but the whole point of Workshop is that I send fewer, better leads" --> great way to position the product 
-
+After all, this page is mostly for freelancers who have a hard time coming up with leads. What is more convincing: a testimonial from a freelancer just like you or one from someone who probably works fulltime on a SaaS service?
 
 ## Closing thoughts
 
-This is a great sales page but I'm wondering a couple things about the service. First, as a web developer I know that there's a lot of segmentation between skills --- it's unlikely for Rails developer to be able to customize your Wordpress install, or it would take her a lot of time. An obvious choice to grow the service would be to fork it into specific verticals --- having a daily email only for Wordpress developers for example. Maybe Robert could branch off with a Wordpress-specific weekly email, to get his feet wet.
+This is a great sales page but I'm wondering a couple things about the service.
+
+
+As a web developer I know that there's a lot of segmentation between skills. For example, it's unlikely for Rails developer to be able to customize your Wordpress install, or it would take her a lot of time.
+
+An obvious choice to grow the service would be to branch into specific verticals --- having a weekly email only for Wordpress developers for example.
+
+The problem is coming up with leads. Would it be possible to come up with 10 high-quality Rails leads a week? You'd have to ask Robert about this.
 
 
 There's a limited number of leads you can send per day. That's annoying because
 1. There's probably some overlap
 2. People would benefit from more segmented change
-
-### The pitch itself
-
-Positioning:
-    The thing that rang painfully true when I read this page for the first time was the bit about searching jobs. Who likes searching for jobs on freelance boards? This service has a great positioning, between zero investment (doing the job yourself) and very expensive services (getting an agent to do the work for you). That's a really smart productized service.
-
-Credibility & Handling objections
-    A short blurb at the end of the page. This part is a bit lacking -- surely if there's hundreds of customers he could have peppered a few testimonials here and there?
-
-Qualifying customers:
-    That's a problem. The page does a very good job at telling it's a service made for freelancers/consultants, however consultants come in all kind of stripes. Does it apply to small agencies? No idea. Same thing about product tiers. The problem here is that the service is constrained by the supply they have --- it must be pretty hard to come up a with a dozen quality leads every day, in multiple segments. 
-
-
-
-Strategic
----------
-Positioning
-    searching jobs on job boards or elance is a waste of time
-    emotional point: feast of famine consulting "Kiss f || f goodbye"
-Credibility
-    a short blurb at the end of the page, among other handled objections + a nice drawing and testimonial. This part is a bit lacking -- surely if there's hundreds of customers he could have peppered a few testimonials here and there?
-
-Qualifying customers
-    
-Making the service concrete
-    an email every day
-Reversing risk
-    "there's zero risk for the first 30 days" ~~~> dubious. Does it means it's risky afterwards? Better have "try it risk-free for a month."
-Handling objections
-    
-
-Pricing
-    Single pricing model -->
-
-Tactical
---------
-
-Pain, Dream, Fix
-using an image
-tagline
-
-<img src="/images/workshop_teardown/2.png" class="img-responsive" />
 
 [^parallax]: I'm looking at you, fancy parallax sales page.
 [^sugarman]: That's the famous Sugarman quote "The purpose of the headline is to get the first sentence read. The purpose of the first sentence is to get the second sentence read." etc.
@@ -140,5 +94,6 @@ tagline
 [^hoy]: Credits to [Amy Hoy](https://unicornfree.com/) for naming this. It's probably known as something else too.
 [^testimonials]: Take a look at [Snappy](https://besnappy.com) to see a page that uses testimonials really well. I liked it so much I made a [teardown](/2015/01/06/sales-page-teardown-snappy/) of it.
 [^firstline]: Take the opening line. _"I send people who need websites your way."_ <br>The wording is simple but doesn't say a lot about the leads you're getting --- what kind of budget do they have? --- so the author followed up with _"This week alone I've sent more than **$159,215 worth of work**."_. This is one example among many others.
-[^nitpick]: Ok, so this is probably the nitpick of nitpicks and maybe my programmer brain taking over but I've got a hard time parsing "There's zero risk for the first 30 days.". What about having instead a line like "Try it risk-free for 30 days"? 
-[^positioning]: 
+[^nitpick]: Ok, so this is probably the nitpick of nitpicks --- and maybe my programmer brain taking over --- but I've got a hard time parsing _"There's zero risk for the first 30 days"_. Does it means there's actual risks after the first month?
+
+    What about having instead a line like "Try it risk-free for 30 days"? 
