@@ -1,7 +1,7 @@
 # Site settings
 title: Karim Hamidou
 email: dontspam@khamidou.com
-description: "My blog. I mostly talk about solving problems with software, devops and, occasionally, security."
+description: "My blog. I mostly talk about design and solving problems with software."
 baseurl: ""
 url: "http://khamidou.com"
 github_username: khamidou
