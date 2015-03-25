@@ -30,15 +30,15 @@ What's happening here? Two things: <a href="#problems">making readers realize th
 
 <h3 id="problems">Making readers realize they have a problem</h3>
 
-The writer starts with a long paragraph about the difficulties of freelancing. He has a deep understanding of his audience it shows: he manages to articulate what makes freelancing hard --- mainly, having to run a business while all you want to do is code/design.
+The writer starts with a long paragraph about the difficulties of freelancing. He has a deep understanding of his audience it shows. He manages to articulate what makes freelancing hard: having to run a business while all you want to do is code/design.
 
 The following paragraph is really smart because it's not asking for a sale right away. Instead the author paints us the picture of a life without having to look for leads. How great would it be?
 
-When writing a sales page, you have to keep in mind that people in general tend to forget about their pains. We get numb. That's why you need to present an alternative.
+When writing a sales page, you have to keep in mind that people in general tend to forget about their pains. We get numb to them. That's why you need to present an alternative.
 
 <h3 id="selling">Selling them on a solution</h3>
 
-After another paragraph showing how great life would be without having to look for leads, the writer introduces its service. This paragraph, is really, really well written. Look at it:
+The writer finally introduces its service. This paragraph, is really, really well written. Look at it:
 
 <img src="/images/workshop_teardown/5.png" class="img-responsive" />
 
@@ -53,7 +53,7 @@ It's just does so many things right! In a single paragraph, the writer:
 
 ## Handling customer objections
 
-The final part of the sales page is a FAQ followed by a short testimonial. I don't have much to say about it apart from the opening sentence, which I like a lot.
+The final part of the sales page is a FAQ followed by a short testimonial. I don't have much to say about it (it's still great though!) apart from the opening sentence, which I like a lot.
 
 <img src="/images/workshop_teardown/7.png" class="img-responsive" />
 <img src="/images/workshop_teardown/8.png" class="img-responsive" />
@@ -66,15 +66,15 @@ After all, this page is mostly for freelancers who have a hard time coming up wi
 
 ## Closing thoughts
 
-This is a great sales page but I'm wondering a couple things about the service.
-
 As a web developer I know that there's a lot of different verticals. For example, it's unlikely to find a Rails programmer who would know how to customize your wordpress website.
 
-An obvious way to grow the service would be to branch into specific specialities --- having a weekly email only for Wordpress developers for example. The problem is coming up with leads. Would it be possible to come up with 10 high-quality Rails leads a week? Possibly.
+One way to grow the service would be to branch into specific specialities --- for example having a weekly email for Rails developers. The problem is coming up with leads. Would it be possible to come up with 10 high-quality Rails leads a week? Surely but this would be harder than coming up with generic leads.
+
+The simplest way to grow this service would probably be branching into different specialities. What about copywriters? Illustrators? These are disciplines where there could be a lot of demands and where the returns would be higher.
 
 <hr>
 
-__Key takeaway:__ Nobody buys software, they buy solutions to their problems. Don't try to sell your service too early.
+__Key takeaway:__ Don't try to sell your service too early. Tell a story.
 
 <hr>
 
