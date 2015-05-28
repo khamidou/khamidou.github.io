@@ -1,5 +1,5 @@
 ---
-layout: guide
+layout: post
 title: The bare minimum you need to know about accepting payments with Django
 date: 2014-10-01 00:00:00
 ---
