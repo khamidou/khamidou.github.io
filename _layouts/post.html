@@ -25,26 +25,41 @@ layout: default
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
 				{{ content }}
 
-                <hr>
+                <div class="signupForm">
+                    <br>
+                    <hr>
+                    <p>
+                    Liked this article? Follow me on <a href="https://twitter.com/karim_hamidou">twitter</a> or subscribe to my mailing list:
+                    </p>
+                    <!-- Begin MailChimp Signup Form -->
+                    <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+                    <style type="text/css">
+                        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+                        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                        We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                    </style>
+                    <div id="mc_embed_signup">
+                        <form action="//khamidou.us8.list-manage.com/subscribe/post?u=3420a1e0a27cb99701eb3692f&amp;id=9e995bb99d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll">
 
-                {% comment %}
-                <ul class="pager">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-                    </li>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-                    </li>
-                    {% endif %}
-                </ul>
-                {% endcomment %}
+                                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                <div style="position: absolute; left: -5000px;"><input type="text" name="b_3420a1e0a27cb99701eb3692f_9e995bb99d" tabindex="-1" value=""></div>
+                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                            </div>
+                        </form>
+                    </div>
 
+                    <!--End mc_embed_signup-->
+                    <script type="text/javascript">
+                        signupForm = document.getElementsByClassName('signupForm')[0];
+                        footnotes = document.getElementsByClassName('footnotes')[0];
+                        parentDiv = footnotes.parentNode;
+                        parentDiv.insertBefore(signupForm, footnotes);
+                    </script>
+                </div>
             </div>
         </div>
     </div>
