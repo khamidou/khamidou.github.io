@@ -39,6 +39,10 @@ The last type of pricing is volume pricing. It's a favorite of commodity provide
 
 You probably don't want to adopt this pricing model unless you're operating in a commoditized market, for two reasons.
 
+First, it's hard to make good margins by pricing this way. Why? Because your main differentiator between customers is the usage they're doing of your service 
+
+First, you probably want to sell your service with a high margin[^AMZ]. One of the ways to do it is to position your service as som. The poster child for this is Apple: you're buying a mac from them because you can't get one from somewhere else.
+
 1. It's very, very hard to be a commodity provider. The margins are razor-thin --- after all, if you're selling VPSes, any person with half a rack in datacenter can and competition is fierce[^marco].
 
 First, the marginal cost of your service (i.e: the cost it takes you to service another customer, assuming that you don't need things like support) is very close to zero.
@@ -51,6 +55,12 @@ This is the pricing table I came up with:
 
 <img alt="bugblur pricing" class="img-responsive" src="/images/saas_pricing/bugblur.png" />
 
+I chose to go with two plans, 
+
+# Closing remarks
+
+I'm not dead set on this pricing model. I'm actually pretty sure it's going to evolve in the next few months
+
 [^plans]: My goal it is to be able to run it on 30 minutes a day. I know it's ambitious, so we'll see how it turns out in a few months.
 
 [^slacks_sales_page]:
@@ -60,7 +70,7 @@ This is the pricing table I came up with:
 
 [^segmentation]: Marketers call this segmentation. Basically, it's selling cramped airplane seats to families and slightly more spacious seats to Fortune 500 employees.
 
-[^contrarian]: However I wonder if there's not an upper limit to this. I guess we'll learn a few months down the hype cycle. I know I look forward to the flurry of startup blog posts explaining why "Slack doesn't scale".
+[^contrarian]: However I wonder if there's not an upper limit to this. I guess we'll learn a few months down the hype cycle. I know I'm looking forward to the flurry of medium posts explaining why "Slack doesn't scale".
 
 [^compliance]: like compliance.
 
