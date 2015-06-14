@@ -3,13 +3,15 @@ layout: post
 title: How I chose a pricing scheme for my SaaS app
 featured: true
 ---
-I'm working on a tiny, tiny SaaS app, as a side project, [Bugblur](https://cveblur.com). It's an app that watches and summarizes [CVEs](https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) so you don't have to. I was unsure about the right plans and pricing to adopt, so I thought I'd look at how successful webapps price themselves.
+I'm working on a tiny, tiny SaaS app, as a side project, [Bugblur](https://bugblur.com). It's an app that watches and summarizes [CVEs](https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) so you don't have to. I'm building BugBlur because I need it, and also to learn about the dark arts of marketing[^plans].
 
-The idea behind most pricing plans is that your customers don't all have the same needs, and some of them get a lot more value out of your product than the rest. A good pricing system allows you to charge those customers accordingly.
+I was unsure about the right plans and pricing to adopt, so I thought I'd look at how successful webapps price themselves.
+
+The idea behind most pricing plans is that all your customers don't have the same needs, and some of them get a lot more value out of your product than the rest. A good pricing system allows you to charge those customers accordingly.
 
 How do you go about this? There's a variety of approaches. The most common seems to be breaking your customers into different categories[^segmentation], and then mix and match this with the pricing scheme of your choice, which seem to be either feature pricing, seat pricing or volume pricing.
 
-# 1. Feature pricing
+# Feature pricing
 
 Feature pricing is probably the most popular pricing scheme. The base idea is to unlock some features of your product only for certain plans. A good example of this is Basecamp's pricing table:
 
@@ -23,7 +25,7 @@ The right incentive depends a lot of the type of service you're selling but the 
 
 Here the capped resource is the number of users. I like this pricing scheme because it's not very heavy on features --- the main difference betweens the plans is the number of users. It's important because __you shouldn't feel compelled to add features to a plan just to make your pricing table look better[^something].__ 
 
-# 2. Seat pricing
+# Seat pricing
 
 Seat pricing consists in charging an app per-user. Of course, this is not for every app --- the usefulness of your app must scale with the number of users. One good example is slack[^slacks_sales_page].
 
@@ -31,23 +33,13 @@ Seat pricing consists in charging an app per-user. Of course, this is not for ev
 
 Slack is priced per-user because the benefits a group chat system (obviously) increase with the number of people using[^contrarian]. Astute readers will have noted that slack are segmenting their customers too, with some of their enterprisey features[^compliance] only being available for the most expensive plans. 
 
-# 3. Volume pricing
+# Volume pricing
 
 The last type of pricing is volume pricing. It's a favorite of commodity providers like VPS vendors. Basically, you're charging your customers per number of goods sold, often while applying volume discounts.
 
 <img alt="slack pricing" class="img-responsive" src="/images/saas_pricing/mandrill_pricing.png" />
 
-You probably don't want to adopt this pricing model unless you're operating in a commoditized market, for two reasons.
-
-First, it's hard to make good margins by pricing this way. Why? Because your main differentiator between customers is the usage they're doing of your service 
-
-First, you probably want to sell your service with a high margin[^AMZ]. One of the ways to do it is to position your service as som. The poster child for this is Apple: you're buying a mac from them because you can't get one from somewhere else.
-
-1. It's very, very hard to be a commodity provider. The margins are razor-thin --- after all, if you're selling VPSes, any person with half a rack in datacenter can and competition is fierce[^marco].
-
-First, the marginal cost of your service (i.e: the cost it takes you to service another customer, assuming that you don't need things like support) is very close to zero.
-
-you're giving away the margin you are making on the service.  
+You probably don't want to adopt this pricing model unless you're operating in a commoditized market.
 
 # Implementing pricing
 
@@ -55,11 +47,15 @@ This is the pricing table I came up with:
 
 <img alt="bugblur pricing" class="img-responsive" src="/images/saas_pricing/bugblur.png" />
 
-I chose to go with two plans, 
+I chose to go with feature pricing, with two plans. The main differentiator is a cap on the number of alerts you can create. That's a not a strong proposition --- there's nothing preventing you from using the service with only a single alert --- but that's a good start.
 
-# Closing remarks
+I'm also planning to add some features exclusively to the "Business" plan, notably integrations with Slack and HipChat, but that's only coming in the next few months.
 
-I'm not dead set on this pricing model. I'm actually pretty sure it's going to evolve in the next few months
+Note that I offer annual billing because it would be silly not to --- there's a lot of upsides (better for cash flow) and virtually no downsides.
+
+# Wrap-up
+
+I'm probably going to revisit this pricing scheme when I'll have better understanding of the featues my customers want. I'm still convinced feature pricing is the right pricing model for BugBlur, but I need to think a bit more about caps and how to upsell users.
 
 [^plans]: My goal it is to be able to run it on 30 minutes a day. I know it's ambitious, so we'll see how it turns out in a few months.
 
