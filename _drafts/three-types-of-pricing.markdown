@@ -3,7 +3,7 @@ layout: post
 title: How I chose a pricing scheme for my SaaS app
 featured: true
 ---
-I'm working on a tiny, tiny SaaS app, as a side project, [Bugblur](https://bugblur.com). It's an app that watches and summarizes [CVEs](https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) so you don't have to. I'm building BugBlur because I need it, and also to learn about the dark arts of marketing[^plans].
+I'm working on a tiny, tiny SaaS app, [Bugblur](https://bugblur.com). It's an app that watches and summarizes [CVEs](https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) so you don't have to. I'm building Bugblur because I need it, and also to learn about the dark arts of marketing[^plans].
 
 I was unsure about the right plans and pricing to adopt, so I thought I'd look at how successful webapps price themselves.
 
@@ -13,17 +13,15 @@ How do you go about this? There's a variety of approaches. The most common seems
 
 # Feature pricing
 
-Feature pricing is probably the most popular pricing scheme. The base idea is to unlock some features of your product only for certain plans. A good example of this is Basecamp's pricing table:
-
-<img alt="basecamp pricing" class="img-responsive" src="/images/saas_pricing/basecamp.png" />
-
-This is probably the easiest type of plan to understand for your customers --- and the simplest to implement too. However, it's important to think a lot about your plans. You need to give a clear incentive for people to adopt a higher plan.
-
-The right incentive depends a lot of the type of service you're selling but the most common way seems to be capping a resource (file size, number of users, of gizmos, etc.). One pricing scheme I really like is the one from <a href="http://bidsketch.com">Bidsketch</a>:
+Feature pricing is the most popular pricing scheme, and probably the easiest for your customers to understand. The base idea is to unlock some features of your product only for certain plans. A good example of this is <a href="http://bidsketch.com">Bidsketch's</a> pricing table:
 
 <img alt="bidsketch pricing" class="img-responsive" src="/images/saas_pricing/bidsketch.png" />
 
-Here the capped resource is the number of users. I like this pricing scheme because it's not very heavy on features --- the main difference betweens the plans is the number of users. It's important because __you shouldn't feel compelled to add features to a plan just to make your pricing table look better[^something].__ 
+It's important to give a clear incentive for people to adopt a higher plan. The right incentive depends a lot of the type of service you're selling but the most common way seems to be capping a resource (file size, number of users, of gizmos, etc.). 
+
+For Bidsketch, the capped resource is the number of users.
+
+As an aside, I really like Bidsketch's pricing table because it's not very heavy on features --- the main difference betweens the plans is the maximum number of users. It's important because __you shouldn't feel compelled to add features to a plan just to make your pricing table look better[^something].__ 
 
 # Seat pricing
 
@@ -37,25 +35,26 @@ Slack is priced per-user because the benefits a group chat system (obviously) in
 
 The last type of pricing is volume pricing. It's a favorite of commodity providers like VPS vendors. Basically, you're charging your customers per number of goods sold, often while applying volume discounts.
 
-<img alt="slack pricing" class="img-responsive" src="/images/saas_pricing/mandrill_pricing.png" />
-
 You probably don't want to adopt this pricing model unless you're operating in a commoditized market.
 
 # Implementing pricing
 
-This is the pricing table I came up with:
+This is the pricing table I chose to go with:
 
 <img alt="bugblur pricing" class="img-responsive" src="/images/saas_pricing/bugblur.png" />
 
-I chose to go with feature pricing, with two plans. The main differentiator is a cap on the number of alerts you can create. That's a not a strong proposition --- there's nothing preventing you from using the service with only a single alert --- but that's a good start.
+Bugblur has two plans. The main differentiator is a cap on the number of alerts you can create. That's a not a strong proposition (yet!) because there's nothing preventing you from using the service with only a single alert (although it would be very annoying).[^annual_billing]
 
 I'm also planning to add some features exclusively to the "Business" plan, notably integrations with Slack and HipChat, but that's only coming in the next few months.
 
-Note that I offer annual billing because it would be silly not to --- there's a lot of upsides (better for cash flow) and virtually no downsides.
+There's two reasons I chose to go with two plans.
 
-# Wrap-up
+The first one is that I wanted to have a simple pricing structure. Bugblur is a very young product. I don't have enough feedback from customers to know in which direction to lead it. At this point, agonizing over the number of plans and features would be  premature optimization.
 
-I'm probably going to revisit this pricing scheme when I'll have better understanding of the featues my customers want. I'm still convinced feature pricing is the right pricing model for BugBlur, but I need to think a bit more about caps and how to upsell users.
+The second reason is that I value simplicity. I like the idea of having a basic and advanced plan. It just _feels_ better.
+
+Anyway, I'm probably going to revisit this pricing scheme when I have better understanding of the product my customers want. We'll see how it turns out.
+
 
 [^plans]: My goal it is to be able to run it on 30 minutes a day. I know it's ambitious, so we'll see how it turns out in a few months.
 
@@ -66,12 +65,8 @@ I'm probably going to revisit this pricing scheme when I'll have better understa
 
 [^segmentation]: Marketers call this segmentation. Basically, it's selling cramped airplane seats to families and slightly more spacious seats to Fortune 500 employees.
 
-[^contrarian]: However I wonder if there's not an upper limit to this. I guess we'll learn a few months down the hype cycle. I know I'm looking forward to the flurry of medium posts explaining why "Slack doesn't scale".
-
 [^compliance]: like compliance.
-
-[^AMZ]: except (maybe) if you're amazon.
 
 [^something]: Something I felt the need to do, too.
 
-[^marco]: Just look at the VPS hosting landscape.
+[^annual_billing]: Note that I offer annual billing because it would be silly not to --- there's a lot of upsides (e.g: better cash flow) and virtually no downsides.
