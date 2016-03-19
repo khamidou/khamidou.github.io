@@ -6,7 +6,7 @@ featured: true
 
 I work at [Nylas](https://nylas.com/) as an engineer on the API team. We're still pretty small, so engineers in my team also have to handle customer support duties. It's great for customers because they get to talk directly to the person who wrote the API they're using[^gruff].
 
-With the 2015 coming to an end, I decided to recap the most important things I learned about customer support.
+With 2015 coming to an end, I decided to recap the most important things I learned about customer support.
 
 ### 1. Customer support is about people (I know, I know.)
 

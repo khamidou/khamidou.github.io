@@ -6,6 +6,7 @@ baseurl: ""
 url: "http://khamidou.com"
 github_username: khamidou
 permalink: none
+gems: ["jekyll-paginate"]
 
 # Build settings
 markdown: kramdown
