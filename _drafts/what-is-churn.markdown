@@ -3,8 +3,10 @@ layout: post
 title: Visualizing customer churn
 featured: true
 ---
-I've been working on an internal dashboard showing various business-level metrics like the churn rate.
-The churn rate[^churn] is one of those concepts which seems simple but turns out to be harder than expected to understand.
+Customer churn is one of those metrics everybody looks at, but it can actually be quite deceptive!
+
+Say, you're the newly-appointed CEO of a SaaS company named Sprockets, Inc. Sprockets is in a difficult position: it's losing money.
+Your first decision is to try to quantify how many people stop Sprockets' service each month.
 
 Like with a lot of things in statistics, it's easier to play with visualization of the data to get a feel of how things work. Here's a quick and dirty dataviz in Javascript.
 
