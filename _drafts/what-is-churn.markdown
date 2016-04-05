@@ -3,16 +3,16 @@ layout: post
 title: Visualizing customer churn
 featured: true
 ---
-Customer churn is one of those metrics everybody looks at, but it can actually be quite deceptive!
+Customer churn is one of those metrics everybody looks at, but it can actually be quite deceptive! Since I had a hard time wrapping my hear around the idea[^idea], I figured I may as well write a quick blog post.
 
-Say, you're the newly-appointed CEO of a SaaS company named Sprockets, Inc. Sprockets is in a difficult position: it's losing money.
-Your first decision is to try to quantify how many people stop Sprockets' service each month.
+### What is churn?
 
-Like with a lot of things in statistics, it's easier to play with visualization of the data to get a feel of how things work. Here's a quick and dirty dataviz in Javascript.
+Let's say you run a SaaS company and offer a single 19$/month plan. Every month you add 30 customers, and lose 10 others. How does this affect your bottom line?
 
-##  The impact of customer churn on revenue
+<center><img src='/images/churn_rate/churn_formula.gif' alt='formula to compute churn rate'></img></center>
 
-Here's a simple example. Let's say you're running a pretty simple SaaS app with a single 29$/month plan. Every month you add 50 customers but you lose 20 others. How does this affect your bottom-line?
+Like with a lot of things in statistics, it's easier to play with a dataviz to get a feel of how things work.
+
 
 <style>
 .axis path,
@@ -43,6 +43,9 @@ Here's a simple example. Let's say you're running a pretty simple SaaS app with 
 </section>
 
 [^churn]: The churn rate is the percentage of customers who've stopped using your product over a period of time.
+[^idea]: There's a lot of [blog](https://blog.rjmetrics.com/2014/08/20/how-to-calculate-your-saas-churn-rate/) [posts](https://engineering.shopify.com/17488468-defining-churn-rate-no-really-this-actually-requires-an-entire-blog-post) [explaining](https://blog.recurly.com/2014/08/better-way-to-calculate-your-churn-rate) why you should be cautious about your churn rate, but they're very mathy and hard to understand.
+
+
 
 <script type='text/javascript' src='/static/js/jquery.min.js'></script>
 <script type='text/javascript' src='/static/js/Chart.min.js'></script>
