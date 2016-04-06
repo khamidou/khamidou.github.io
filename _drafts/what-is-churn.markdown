@@ -3,16 +3,19 @@ layout: post
 title: Visualizing customer churn
 featured: true
 ---
-Customer churn is one of those metrics everybody looks at, but it can actually be quite deceptive! Since I had a hard time wrapping my hear around the idea[^idea], I figured I may as well write a quick blog post.
+Customer churn is one of those metrics everybody looks at, but it can actually be quite deceptive! Since I had a hard time wrapping my hear around the idea[^idea], I figured I may as well write a quick explanation.
 
 ### What is churn?
 
 Let's say you run a SaaS company and offer a single 19$/month plan. Every month you add 30 customers, and lose 10 others. How does this affect your bottom line?
 
+To answer this question, a lot of people use a metric called the *churn rate*. This is how you compute it:
+
 <center><img src='/images/churn_rate/churn_formula.gif' alt='formula to compute churn rate'></img></center>
 
-Like with a lot of things in statistics, it's easier to play with a dataviz to get a feel of how things work.
+Simple, right? There's one funny thing though --- because of the way it's defined, your churn rate becomes smaller every month.
 
+Here's an interactive example to make things clearer (you can play with the sliders to see how it affects the churn rate):
 
 <style>
 .axis path,
@@ -31,14 +34,21 @@ Like with a lot of things in statistics, it's easier to play with a dataviz to g
   stroke: steelblue;
   stroke-width: 1.5px;
 }
+
+#firstGraph {
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 3px;
+}
 </style>
 
 <section id="firstGraph">
   <canvas id="canvas"></canvas>
-  <label>Number of new customers: <span id="newCustomers_v"></span>
-    <input id="newCustomers" type="range" min="0" value="50" max="500" step="1"></input></label> <br>
+  <label style='margin-right: 5em;'>Number of new customers: <span id="newCustomers_v"></span>
+    <input id="newCustomers" type="range" min="0" value="10" max="100" step="1"></input></label>
   <label>Number of churning customers: <span id="churningCustomers_v"></span>
-     <input id="churningCustomers" type="range" min="0" value="20" max="500" step="1"></input></label> <br>
+     <input id="churningCustomers" type="range" min="0" value="5" max="100" step="1"></input></label> <br>
   <label>Price: <input id="pricePlan" type="number" value="29"></input></label>
 </section>
 
@@ -54,7 +64,7 @@ Like with a lot of things in statistics, it's easier to play with a dataviz to g
   var currentChart;
 
   function setChartDimensions() {
-    var width = $("section").width(),
+    var width = $("section").width() - 30,
         height = 400;
     if (currentChart) {
       currentChart.chart.aspectRatio = width / height;
@@ -71,7 +81,7 @@ Like with a lot of things in statistics, it's easier to play with a dataviz to g
     var result = [];
 
     for (i = 0; i < 12; i++) {
-      totalCustomers += new_customers - lost_customers;
+      totalCustomers += totalCustomers * (1 + new_customers - lost_customers);
       revenue = totalCustomers * pricetag;
       result.push(revenue);
     }
@@ -85,11 +95,11 @@ Like with a lot of things in statistics, it's easier to play with a dataviz to g
     var result = [];
 
     result.push(0.0);
-    totalCustomers = new_customers - lost_customers;
+    totalCustomers = totalCustomers * (1 + new_customers - lost_customers);
 
     for (i = 1; i < 12; i++) {
-        result.push((lost_customers / totalCustomers) * 100);
-        totalCustomers += new_customers - lost_customers;
+        result.push(((lost_customers * totalCustomers) / totalCustomers) * 100);
+        totalCustomers += totalCustomers * (1 + new_customers - lost_customers);
     }
 
     return result;
@@ -144,11 +154,11 @@ Like with a lot of things in statistics, it's easier to play with a dataviz to g
   function drawChart() {
     setChartDimensions();
 
-    var new_customers = parseInt($("#newCustomers").val());
-    var lost_customers = parseInt($("#churningCustomers").val());
+    var new_customers = parseInt($("#newCustomers").val()) / 100;
+    var lost_customers = parseInt($("#churningCustomers").val()) / 100;
     var pricetag = parseInt($("#pricePlan").val());
-    $('#newCustomers_v').text(new_customers);
-    $('#churningCustomers_v').text(lost_customers);
+    $('#newCustomers_v').text(new_customers * 100 + '%');
+    $('#churningCustomers_v').text(lost_customers * 100 + '%');
 
     data = getChartData(new_customers, lost_customers, pricetag);
 
@@ -167,11 +177,11 @@ Like with a lot of things in statistics, it's easier to play with a dataviz to g
     });
 
     $(document).on("change", "#firstGraph input", function() {
-        var new_customers = parseInt($("#newCustomers").val());
-        var lost_customers = parseInt($("#churningCustomers").val());
+        var new_customers = parseInt($("#newCustomers").val()) / 100;
+        var lost_customers = parseInt($("#churningCustomers").val()) / 100;
         var pricetag = parseInt($("#pricePlan").val());
-        $('#newCustomers_v').text(new_customers);
-        $('#churningCustomers_v').text(lost_customers);
+        $('#newCustomers_v').text(new_customers * 100 + '%');
+        $('#churningCustomers_v').text(lost_customers * 100 + '%');
 
         var newRevenueValues = computeRevenue(new_customers, lost_customers, pricetag);
         var newChurnValues = computeChurn(new_customers, lost_customers);
@@ -184,3 +194,5 @@ Like with a lot of things in statistics, it's easier to play with a dataviz to g
     });
   };
 </script>
+
+As you can see, your churn rate decreases exponentially, even though your revenue is increasing linearly.
