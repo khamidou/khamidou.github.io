@@ -77,7 +77,7 @@ Here's an interactive example to make things clearer (you can play with the slid
   function computeRevenue(new_customers, lost_customers, pricetag) {
     var i = 0;
     var revenue = 0;
-    var totalCustomers = 0;
+    var totalCustomers = 1;
     var result = [];
 
     for (i = 0; i < 12; i++) {
@@ -91,7 +91,7 @@ Here's an interactive example to make things clearer (you can play with the slid
 
   function computeChurn(new_customers, lost_customers) {
     var i = 0;
-    var totalCustomers = 0;
+    var totalCustomers = 1;
     var result = [];
 
     result.push(0.0);
