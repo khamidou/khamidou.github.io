@@ -6,13 +6,13 @@ featured: true
 
 There's a lot of blog posts about scaling distributed systems to hundreds of thousands users, but not many are about the basics mistakes you'll make when trying to build one.
 
-In this post, I'll share three things I wish I had learned in college (instead of learning them the hard way 😁!).
+In this post, I'll share three things I wish I had learned in college (instead of the hard way 😁!).
 
 ## 1. Limits are everything
 
-I learned this pretty quickly: you can not expect an external service to always work. Even big companies like Google and Amazon have outages, and you have to build this into your service.
+I learned this pretty quickly: you can not expect an external service to always work. Even big companies like Google and Amazon have outages, and you need to prepare for it. This means, setting timeouts when querying an API.
 
-Sometimes your requests to an external API will hang (set a timeout!). Other times an external webhook will DDoS you (set up throttling!). Always make sure your system can handle unexpected failures.
+This also works the other way around --- if you have an external API, limit the maximum number of requests per customers. Accidental DDoSes are a thing.
 
 ## 2. Forget about this fancy algorithm[^database]
 
@@ -24,10 +24,12 @@ I now try to write the dumbest, most obvious code possible. My 3AM self apprecia
 
 Nowadays programming mean relying on hundreds of thousands of lines of code you haven't written.[^rails] You are going to run into weird interactions between different libraries. You may waste a lot of time trying to debug them.[^funstory]
 
-A lot of engineers love debugging complex issues, especially if it involves low-level issues (I know I do!). Unfortunately, not every problem is worth solving, and a simple service restart may be the solution to this problem. You'll have to accept it and move on, as hard as it may be.
+A lot of engineers love debugging complex problems, especially if it involves low-level bits and pieces (I know I do!). Unfortunately, not every problem is worth solving, and a simple service restart may be the solution to this problem. You'll have to accept it and move on, as hard as it may be.
 
-That's all folks! Thanks for reading!
+Thanks for reading!
 
+
+[^DDoS]: If you're building a public API get prepared to get unvoluntarily DDoSed pretty often, which is why it's a good idea to have throttling set-up from the get-go.
 [^database]: (or database, language, library)
 [^rails]: Just think about all the lines of code an HTTP request goes through before hitting your Rails controller.
 [^funstory]: Fun story: I once spent several days chasing a weird OpenSSL memory leak in the [Nylas Sync Engine](https://github.com/nylas/sync-engine). I gave up after reading way too many core dumps.
