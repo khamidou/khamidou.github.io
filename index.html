@@ -3,6 +3,7 @@ layout: page
 title: "Hello. I'm karim."
 ---
 
+<h2 style='margin-bottom: 30px'><span style='border-bottom: 1px solid #ccc; padding-bottom: 3px;'>Posts</span></h2>
 {% assign posts = site.posts | where: "featured", true %}
 {% for post in posts %}
 <div class="post-preview">
@@ -16,7 +17,8 @@ title: "Hello. I'm karim."
         </h3>
         {% endif %}
     </a>
+    {% comment %}
     <p class="post-meta">Posted on {{ post.date | date: "%B %-d, %Y" }}</p>
+    {% endcomment %}
 </div>
-<hr>
 {% endfor %}
