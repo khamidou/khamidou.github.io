@@ -10,6 +10,6 @@ gems: ["jekyll-paginate"]
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 paginate: 20
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
