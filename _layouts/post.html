@@ -1,70 +1,17 @@
 ---
 layout: default
 ---
+<div id="post">
+<b>{{ page.title }}</b> &mdash; {{ page.date | date_to_long_string }}</br></br>
 
-<!-- Post Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{{ page.header-img }}')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <a href='/' class='escape-hatch'>Escape hatch &#8617;</a>
-                    <h1>{{ page.title }}</h1>
-                    {% if page.subtitle %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
-                    {% endif %}
-                    <span class="meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+{{ content }}
+</div>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				{{ content }}
-
-                {% comment %}
-                <div class="signupForm">
-                    <br>
-                    <hr>
-                    <p>
-                        Liked this article? Follow me on <a href="https://twitter.com/karim_hamidou">twitter</a> or subscribe to my mailing list (<strong>No spam; I won't sell you address to anyone. Period.</strong>):
-                    </p>
-                    <!-- Begin MailChimp Signup Form -->
-                    <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-                    <style type="text/css">
-                        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-                        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-                        We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-                    </style>
-                    <div id="mc_embed_signup">
-                        <form action="//khamidou.us8.list-manage.com/subscribe/post?u=3420a1e0a27cb99701eb3692f&amp;id=9e995bb99d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                            <div id="mc_embed_signup_scroll">
-
-                                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                <div style="position: absolute; left: -5000px;"><input type="text" name="b_3420a1e0a27cb99701eb3692f_9e995bb99d" tabindex="-1" value=""></div>
-                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!--End mc_embed_signup-->
-                    <script type="text/javascript">
-                        signupForm = document.getElementsByClassName('signupForm')[0];
-                        footnotes = document.getElementsByClassName('footnotes')[0];
-                        parentDiv = footnotes.parentNode;
-                        parentDiv.insertBefore(signupForm, footnotes);
-                    </script>
-                </div>
-                {% endcomment %}
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    {% for post in site.related_posts limit:3 %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

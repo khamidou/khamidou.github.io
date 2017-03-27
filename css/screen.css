@@ -3,223 +3,199 @@
 /* Common
 /*
 /*****************************************************************************/
+
 /* Global Reset */
+
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 html, body {
-  height: 100%; }
+  height: 100%;
+}
 
 body {
-  font: 16px/24px "DejaVu sans", "Segoe UI", sans-serif;
-  /*font-size: small; */
-  color: #333333; }
+  background-color: rgb(255, 255, 255);
+  font: 14px helvetica, arial, clean, sans-serif;
+  *font-size: small;
+  text-align: center;
+}
 
-p {
-  margin: 1em 0; }
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
 
 h1 {
-  font-size: 26px; }
+  margin-bottom: 1em;
+}
 
-h2 {
-  font-size: 20.5px; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
+p {
+  margin: 1em 0;
+}
 
 a {
-  color: #ff3333; }
+  color: #00a;
+}
 
 a:hover {
-  color: #333333; }
+  color: black;
+}
 
 a:visited {
-  color: #ff3333; }
+  color: #a0a;
+}
 
 table {
   font-size: inherit;
   font: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px; }
-
-th, td {
-  border: 1px solid #dddddd;
-  padding: 5px;
-  vertical-align: top; }
-
-tr:nth-child(even) {
-  background-color: #f5f5f5; }
-
-blockquote {
-  padding-left: 15px;
-  border-left: 3px solid #ff4747;
-  font-style: italic; }
+}
 
 /*****************************************************************************/
 /*
 /* Home
 /*
 /*****************************************************************************/
-.posts {
+
+ul.posts {
   list-style-type: none;
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+}
 
-.posts h3 {
-  line-height: 1.75em; }
+  ul.posts li {
+    line-height: 1.75em;
+  }
 
-.posts span {
-  color: #424242; }
-
-.posts .postTitle {
-  text-decoration: none; }
-
-.posts .date {
-  margin-bottom: 10px; }
+  ul.posts span {
+    color: #aaa;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 80%;
+  }
 
 /*****************************************************************************/
 /*
 /* Site
 /*
 /*****************************************************************************/
+
+.site {
+  font-size: 110%;
+  text-align: justify;
+  width: 32em;
+  margin: 3em auto 2em auto;
+  line-height: 1.5em;
+}
+
 .title {
   color: #a00;
   font-weight: bold;
-  margin-bottom: 0.7em;
-  padding-left: 10px;
-  padding-top: 5px; }
-  .title div {
-    width: 44em;
-    margin: 0 auto; }
-    .title div a {
-      color: #a00;
-      text-decoration: none; }
-    .title div a:hover {
-      color: black; }
+  margin-bottom: 2em;
+}
 
-.site {
-  background-color: #fff;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 16px;
-  text-align: left;
-  width: 44em;
-  margin: 0 auto;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  line-height: 1.6; }
-  .site img {
-    max-width: 42em; }
+  .site .title a {
+    color: #a00;
+    text-decoration: none;
+  }
 
-.footer {
-  font-size: 80%;
-  color: #666;
-  margin-top: 2em;
-  overflow: hidden; }
+  .site .title a:hover {
+    color: black;
+  }
 
-.archives h3:not(:first-child) {
-  margin-top: 30px; }
+  .site .title a.extra {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 1em;
+  }
+
+  .site .title a.extra:hover {
+    color: black;
+  }
+
+  .site .meta {
+    color: #aaa;
+  }
+
+  .site .footer {
+    font-size: 80%;
+    color: #666;
+    border-top: 4px solid #eee;
+    margin-top: 2em;
+    overflow: hidden;
+  }
+
+    .site .footer .contact {
+      float: left;
+      margin-right: 3em;
+    }
+
+      .site .footer .contact a {
+        color: #8085C1;
+      }
+
+    .site .footer .rss {
+      margin-top: 0.5em;
+      float: right;
+    }
+
+      .site .footer .rss img {
+        border: 0;
+      }
 
 /*****************************************************************************/
 /*
 /* Posts
 /*
 /*****************************************************************************/
-.post {
-  margin-bottom: 10px;
-  padding: 10px;
-  /* terminal */ }
-  .post .postTitle {
-    text-decoration: none;
-    font-size: 1.3em; }
-  .post .center {
-    text-align: center; }
-  .post .date {
-    font-size: 0.96em;
-    margin-bottom: 40px; }
-  .post .postLinkTitle {
-    font-size: 1.2em; }
-  .post pre {
+
+#post {
+
+}
+
+  /* standard */
+
+  #post pre {
     border: 1px solid #ddd;
     background-color: #eef;
-    padding: 0 .4em; }
-  .post ul,
-  .post ol {
-    margin-left: 1.35em; }
-  .post code {
+    padding: 0 .4em;
+  }
+
+  #post ul,
+  #post ol {
+    margin-left: 1.35em;
+  }
+
+  #post code {
+    border: 1px solid #ddd;
+    background-color: #eef;
     font-size: 85%;
-    padding: 0 .2em; }
-  .post pre code {
-    border: none; }
-  .post pre.terminal {
+    padding: 0 .2em;
+  }
+
+    #post pre code {
+      border: none;
+    }
+
+  #post img {
+    max-width: 42em;
+    padding: 1em 0;
+  }
+
+  /* terminal */
+
+  #post pre.terminal {
     border: 1px solid black;
-    background-color: #333333;
-    color: white; }
-  .post pre.terminal code {
-    background-color: #333333; }
-  .post p {
-    max-width: 40em;
-    padding-bottom: 2px; }
-  .post #markdown-toc {
-    margin-top: 10px;
-    margin-bottom: 25px; }
+    background-color: #333;
+    color: white;
+  }
 
-.presentation {
-  margin-bottom: 20px; }
-  .presentation .intro {
-    font-size: 30px;
-    line-height: 46px;
-    font-family: Georgia,Palatino,'Palatino Linotype',Times,'Times New Roman',serif; }
+  #post pre.terminal code {
+    background-color: #333;
+  }
 
-.panels {
-  overflow: auto; }
-  .panels .leftPane {
-    float: left;
-    width: 47%;
-    padding-right: 2%; }
-  .panels .rightPane {
-    float: right;
-    width: 48%;
-    border-left: 1px solid #ccc;
-    padding-left: 2%; }
-  .panels .section {
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    font-weight: bold; }
-  .panels .category {
-    margin-bottom: 10px;
-    display: block; }
-  .panels p {
-    margin-top: 0; }
-  .panels ul {
-    margin-bottom: 20px; }
-  .panels li {
-    margin-bottom: 10px;
-    list-style-type: none;
-    margin-left: 0; }
+#related {
+  margin-top: 2em;
+}
 
-.important {
-  background-color: #ee9090; }
-
-.greenlight {
-  background-color: lightgreen; }
-
-.footnotes {
-  margin-top: 50px; }
-
-.greenbox {
-  background-color: #a1ff85;
-  padding: 5px; }
-
-.yellowbox {
-  background-color: #ffcd70;
-  padding: 5px; }
-
-.bluebox {
-  background-color: #c2eeff;
-  border-left: 4px solid #0075A3;
-  padding-left: 5px;
-  border-radius: 3px; }
+  #related h2 {
+    margin-bottom: 1em;
+  }

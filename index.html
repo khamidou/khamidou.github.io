@@ -1,24 +1,22 @@
 ---
-layout: page
-title: "Hello. I'm karim."
+layout: default
+title: Karim Hamidou
 ---
 
-<h2 style='margin-bottom: 30px'><span style='border-bottom: 1px solid #ccc; padding-bottom: 3px;'>Posts</span></h2>
-{% assign posts = site.posts | where: "featured", true %}
-{% for post in posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-    </a>
-    {% comment %}
-    <p class="post-meta">Posted on {{ post.date | date: "%B %-d, %Y" }}</p>
-    {% endcomment %}
+<div id="home">
+  <b>Hello!</b>
+  <p>I'm a french software engineer living in San Francisco, CA.
+      I work on <a href="https://nylas.com">making email better</a>.
+      I'm the creator of <a href="http://chadbot.co">Chad</a>, a chatbot to get excused from meetings and <a href="https://github.com/khamidou/lptrace">lptrace</a>, a tool to trace any Python program.</p>
+
+  <p>We should get coffee sometime — send me an email at <code>hello at khamidou.com</code>!</p>
+
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.featured %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 </div>
-{% endfor %}
