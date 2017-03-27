@@ -42,8 +42,9 @@ a:hover {
   color: black;
 }
 
+/* default visited link color */
 a:visited {
-  color: #a0a;
+  color: #551A8B;
 }
 
 table {
