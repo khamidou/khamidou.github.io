@@ -17,7 +17,7 @@ html, body {
 
 body {
   background-color: rgb(255, 255, 255);
-  font: 14px helvetica, arial, clean, sans-serif;
+  font: 16px helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
 }
