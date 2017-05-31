@@ -178,7 +178,7 @@ ul.posts {
     }
 
   #post img {
-    max-width: 42em;
+    width: 100%;
     padding: 1em 0;
   }
 
@@ -201,3 +201,11 @@ ul.posts {
   #related h2 {
     margin-bottom: 1em;
   }
+
+
+.color-swatch {
+  display: inline-block;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
