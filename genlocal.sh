@@ -1,2 +1,2 @@
 #!/bin/sh
-jekyll serve -Dw -b ""
+jekyll serve --incremental -Dw -b ""
