@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>lisp.py</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>lisp.py</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>A few years ago, I tried to work my way through <a href="https://mitpress.mit.edu/sicp/full-text/book/book.html">Structure and Interpretation of Computer Programs</a>. It’s one of these books every Lisp person will tell you to read. You can actually tell it’s a classic because almost no one read it all the way through.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>One thing that stuck with me is the concept of the metacircular evaluator. A metacircular evaluator is a fancy way to call how a Lisp interpreter that evaluates a Lisp expression recursively. There’s a lot of <a href="https://mitpress.mit.edu/sicp/full-text/sicp/book/chapter-4/figs/eval-apply.gif">abstruse schemas</a> on the Internet to explain it but for some reason I could never wrap my head around it.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>The other day I stumbled upon Peter Norvig’s <a href="http://norvig.com/lispy.html">How to write a Lisp in Python</a>, which took me a few years back. This time, I would figure it out! So, after a bit of Googling and some light reading on Lisp, I started working on a very simple evaluator, in Python.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Python is a great language for trying things out because it gets out of the way and gives us a lot of things out of the box, like memory management – having to write a garbage collector just to implement a basic Lisp doesn’t sound fun!</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>This is the source for this Lisp interpreter. It’s split in three parts:</p>
+<ol>
+<li>Utility functions and data structures</li>
+<li>Parser</li>
+<li>Interpreter</li>
+</ol>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">import</span> re
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> operator
+<span class="hljs-keyword">import</span> pprint <span class="hljs-keyword">as</span> pretty_print</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <h2 id="utility-functions-and-data-structures">Utility functions and data structures</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>pprint = <span class="hljs-keyword">lambda</span> obj: pretty_print.PrettyPrinter(indent=<span class="hljs-number">4</span>).pprint(obj)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fail</span><span class="hljs-params">(s)</span>:</span>
+    <span class="hljs-keyword">print</span> s
+    sys.exit(<span class="hljs-number">-1</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>These classes are mostly containers for our interpreter. They make the code
+a little clearer to write.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InterpreterObject</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, value)</span>:</span>
+        self.value = value
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.value
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Symbol</span><span class="hljs-params">(InterpreterObject)</span>:</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">String</span><span class="hljs-params">(InterpreterObject)</span>:</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Lambda</span><span class="hljs-params">(InterpreterObject)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, arguments, code)</span>:</span>
+        self.arguments = arguments
+        self.code = code
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"(lambda (%s) (%s)"</span> % (self.arguments, self.code)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <h2 id="parser">Parser</h2>
+<p>The parser is pretty simple because lisp has an extremely simple grammar.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tokenize</span><span class="hljs-params">(s)</span>:</span>
+    ret = []
+    in_string = <span class="hljs-keyword">False</span>
+    current_word = <span class="hljs-string">''</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>The algorithm is simple: we scan the string char by char and look
+if we’re at a word, string or s-expr boundary. Depending on the
+case, we either add a new char to the current word, create a new
+word or a new sublist.
+The algorithm is complicated by the fact that we have several delimiters:
+spaces, simple quotes and braces, which makes it some sort of weird
+state machine.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">for</span> i, char <span class="hljs-keyword">in</span> enumerate(s):
+        <span class="hljs-keyword">if</span> char == <span class="hljs-string">"'"</span>:
+            <span class="hljs-keyword">if</span> in_string <span class="hljs-keyword">is</span> <span class="hljs-keyword">False</span>:
+                in_string = <span class="hljs-keyword">True</span>
+                current_word += char
+            <span class="hljs-keyword">else</span>:
+                in_string = <span class="hljs-keyword">False</span>
+                current_word += char
+                ret.append(current_word)
+                current_word = <span class="hljs-string">''</span>
+
+        <span class="hljs-keyword">elif</span> in_string <span class="hljs-keyword">is</span> <span class="hljs-keyword">True</span>:
+            current_word += char
+
+        <span class="hljs-keyword">elif</span> char <span class="hljs-keyword">in</span> [<span class="hljs-string">'\t'</span>, <span class="hljs-string">'\n'</span>, <span class="hljs-string">' '</span>]:
+            <span class="hljs-keyword">continue</span>
+
+        <span class="hljs-keyword">elif</span> char <span class="hljs-keyword">in</span> [<span class="hljs-string">'('</span>, <span class="hljs-string">')'</span>]:
+            ret.append(char)
+
+        <span class="hljs-keyword">else</span>:
+            current_word += char
+            <span class="hljs-keyword">if</span> i &lt; len(s) - <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> s[i+<span class="hljs-number">1</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">'('</span>, <span class="hljs-string">')'</span>, <span class="hljs-string">' '</span>, <span class="hljs-string">'\n'</span>, <span class="hljs-string">'\t'</span>]:
+                ret.append(current_word)
+                current_word = <span class="hljs-string">''</span>
+
+    <span class="hljs-keyword">return</span> ret</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Next are a handful of utility functions that will help us
+convert tokens to their actual values.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_integer</span><span class="hljs-params">(s)</span>:</span>
+    <span class="hljs-keyword">try</span>:
+        int(s)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">except</span> ValueError:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_float</span><span class="hljs-params">(s)</span>:</span>
+    <span class="hljs-keyword">try</span>:
+        float(s)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">except</span> ValueError:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_string</span><span class="hljs-params">(s)</span>:</span>
+    <span class="hljs-keyword">if</span> s[<span class="hljs-number">0</span>] == <span class="hljs-string">"'"</span> <span class="hljs-keyword">and</span> s[<span class="hljs-number">-1</span>] == <span class="hljs-string">"'"</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>The <code>parse</code> function is actually a wrapper for <code>do_parse</code> – I wanted
+to pass an iterator around because it felt a lot nicer than passing
+raw array indices around.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse</span><span class="hljs-params">(tokens)</span>:</span>
+    itert = iter(tokens)
+    token = itert.next()
+
+    <span class="hljs-keyword">if</span> token != <span class="hljs-string">'('</span>:
+        fail(<span class="hljs-string">"Unexpected token {}"</span>.format(token))
+
+    <span class="hljs-keyword">return</span> do_parse(itert)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do_parse</span><span class="hljs-params">(tokens)</span>:</span>
+    ret = []
+
+    current_sexpr = <span class="hljs-keyword">None</span>
+    in_sexp = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-keyword">for</span> token <span class="hljs-keyword">in</span> tokens:
+        <span class="hljs-keyword">if</span> token == <span class="hljs-string">'('</span>:
+            ret.append(do_parse(tokens))
+        <span class="hljs-keyword">elif</span> token == <span class="hljs-string">')'</span>:
+            <span class="hljs-keyword">return</span> ret
+        <span class="hljs-keyword">elif</span> is_integer(token):
+            ret.append(int(token))
+        <span class="hljs-keyword">elif</span> is_float(token):
+            ret.append(float(token))
+        <span class="hljs-keyword">elif</span> is_string(token):
+            ret.append(String(token[<span class="hljs-number">1</span>:][<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>]))
+        <span class="hljs-keyword">else</span>:
+            ret.append(Symbol(token))</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <h2 id="interpreter">Interpreter</h2>
+<p>The interpreter is broken into two functions, <code>eval</code> and <code>apply</code>. Both take an s-expression (<code>expr</code>) and a dictionary of variables in scope (<code>environment</code>) as parameters.</p>
+<p><code>eval</code>‘s role is to take an expression and return its value. For example, if you pass a symbol to <code>eval</code>, it will look up its value in the symbol table and return it.</p>
+<p><code>apply</code> is reserved for evaluating functions. It takes as parameters a function (written in Lisp or Python), a list of arguments and calls the function. How does it do that? It simply updates the <code>environment</code> to define the function’s parameters as local variables, and then calls <code>eval</code>!</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">eval</span><span class="hljs-params">(expr, environment)</span>:</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>First, let’s define how to evaluate numbers, strings and Symbols.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+    <span class="hljs-keyword">if</span> isinstance(expr, int):
+        <span class="hljs-keyword">return</span> expr
+    <span class="hljs-keyword">elif</span> isinstance(expr, str):
+        <span class="hljs-keyword">return</span> expr
+    <span class="hljs-keyword">elif</span> isinstance(expr, float):
+        <span class="hljs-keyword">return</span> expr
+    <span class="hljs-keyword">elif</span> isinstance(expr, String):
+        <span class="hljs-keyword">return</span> expr.value
+    <span class="hljs-keyword">elif</span> isinstance(expr, Symbol):
+        <span class="hljs-keyword">if</span> expr.value <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> environment:
+            fail(<span class="hljs-string">"Couldn't find symbol {}"</span>.format(expr.value))
+        <span class="hljs-keyword">return</span> environment[expr.value]
+    <span class="hljs-keyword">elif</span> isinstance(expr, list):</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Most of the language’s built-ins are defined as Python code
+but we need to handle some language constructs like <code>lambda</code> or <code>if</code> directly
+in the interpreter, because they require a specific evaluation order.</p>
+<p>For example if we defined <code>if</code> as a function,
+this expression <code>(if (= 3 2) (print &#39;3 = 2&#39;) (print &#39;3 = 3&#39;))</code> would print both
+3 = 2 and 3 = 3, because the eval function evaluates its arguments in order.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> isinstance(expr[<span class="hljs-number">0</span>], Symbol):
+            <span class="hljs-keyword">if</span> expr[<span class="hljs-number">0</span>].value == <span class="hljs-string">'lambda'</span>:
+                arg_names = expr[<span class="hljs-number">1</span>]
+                code = expr[<span class="hljs-number">2</span>]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p><code>Lambda</code> is simply an object that holds <code>arguments</code> (a list of arguments with their names) and <code>code</code> (a list of Lisp instructions to execute).</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">return</span> Lambda(arg_names, code)
+
+            <span class="hljs-keyword">elif</span> expr[<span class="hljs-number">0</span>].value == <span class="hljs-string">'if'</span>:
+                condition = expr[<span class="hljs-number">1</span>]
+                then = expr[<span class="hljs-number">2</span>]
+                _else = <span class="hljs-keyword">None</span>
+                <span class="hljs-keyword">if</span> len(expr) == <span class="hljs-number">4</span>:
+                    _else = expr[<span class="hljs-number">3</span>]
+
+                <span class="hljs-keyword">if</span> eval(condition, environment) != <span class="hljs-keyword">False</span>:
+                    <span class="hljs-keyword">return</span> eval(then, environment)
+                <span class="hljs-keyword">elif</span> _else <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+                    <span class="hljs-keyword">return</span> eval(_else, environment)
+
+            <span class="hljs-keyword">elif</span> expr[<span class="hljs-number">0</span>].value == <span class="hljs-string">'define'</span>:
+                name = expr[<span class="hljs-number">1</span>].value
+                value = eval(expr[<span class="hljs-number">2</span>], environment)
+                environment[name] = value
+
+            <span class="hljs-keyword">elif</span> expr[<span class="hljs-number">0</span>].value == <span class="hljs-string">'begin'</span>:
+                <span class="hljs-keyword">for</span> ex <span class="hljs-keyword">in</span> expr[<span class="hljs-number">1</span>:]:
+                    eval(ex, environment)
+
+            <span class="hljs-keyword">else</span>:
+                fn = eval(expr[<span class="hljs-number">0</span>], environment)
+                args = [eval(arg, environment) <span class="hljs-keyword">for</span> arg <span class="hljs-keyword">in</span> expr[<span class="hljs-number">1</span>:]]
+                <span class="hljs-keyword">return</span> apply(fn, args, environment)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Apply is pretty simple too. It checks if a function is an interpreter
+built-in or not.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span><span class="hljs-params">(fn, args, environment)</span>:</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>If it is, it simply passes the arguments to the built-in.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> callable(fn):
+        <span class="hljs-keyword">return</span> fn(*args)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>Otherwise we have to actually evaluate the function.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> isinstance(fn, Lambda):
+        new_env = dict(environment)
+        <span class="hljs-keyword">if</span> len(args) != len(fn.arguments):
+            fail(<span class="hljs-string">"Mismatched number of arguments to lambda"</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>To do this we bind the values of the arguments to the environment.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(fn.arguments)):
+            new_env[fn.arguments[i].value] = args[i]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>And we call eval on the function body. That’s it!</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">return</span> eval(fn.code, new_env)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>Finally we define a handful of system built-ins.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>base_environment = {
+    <span class="hljs-string">'+'</span>: operator.add,
+    <span class="hljs-string">'-'</span>: operator.sub,
+    <span class="hljs-string">'*'</span>: operator.mul,
+    <span class="hljs-string">'/'</span>: operator.div,
+    <span class="hljs-string">'&gt;'</span>: operator.gt,
+    <span class="hljs-string">'&gt;='</span>: operator.ge,
+    <span class="hljs-string">'&lt;'</span>: operator.lt,
+    <span class="hljs-string">'&lt;='</span>: operator.le,
+    <span class="hljs-string">'='</span>: operator.eq,
+    <span class="hljs-string">'!='</span>: operator.ne,
+    <span class="hljs-string">'nil'</span>: <span class="hljs-keyword">None</span>,
+    <span class="hljs-string">'print'</span>: <span class="hljs-keyword">lambda</span> x: sys.stdout.write(str(x) + <span class="hljs-string">'\n'</span>),
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">if</span> len(sys.argv) != <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">print</span> <span class="hljs-string">"usage: python {} &lt;file&gt;"</span>.format(sys.argv[<span class="hljs-number">0</span>])
+        sys.exit(<span class="hljs-number">-1</span>)
+
+    <span class="hljs-keyword">with</span> open(sys.argv[<span class="hljs-number">1</span>]) <span class="hljs-keyword">as</span> fd:
+        contents = fd.read()
+        parsed = parse(tokenize(contents))
+        eval(parsed, base_environment)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    main()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <h2 id="parting-words">Parting words</h2>
+<p>As you can see, it turns out its pretty easy to make your own interpreter! As a general rule, when you find yourself stumped by a weird concept, the easiest way to figure out how it works is to implement a  basic prototype using it.</p>
+<p>If you have questions, don’t hesitate to send me an email to “hello” @ this website’s domain name.</p>
+
+            </div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
