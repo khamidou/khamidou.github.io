@@ -1,0 +1,6 @@
+---
+layout: post
+title: Let's build a tiny Lisp interpreter in Python!
+featured: true
+link: "/compilers/lisp.py/"
+---
