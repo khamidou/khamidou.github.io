@@ -15,11 +15,20 @@
 
  {% for post in site.posts %}
  <entry>
-   <title>{{ post.title }}</title>
-   <link href="http://khamidou.com{{ post.url }}"/>
-   <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://khamidou.com{{ post.id }}</id>
-   <content type="html">{{ post.content | xml_escape }}</content>
+
+    {% if post.link %}
+        <title>{{ post.title }}</title>
+        <link href="{{ post.link }}"/>
+        <updated>{{ post.date | date_to_xmlschema }}</updated>
+        <id>http://khamidou.com{{ post.id }}</id>
+        <content type="html"><a href="{{ post.link }}">{{ post.title }}</a></content>
+   {% else %}
+        <title>{{ post.title }}</title>
+        <link href="http://khamidou.com{{ post.url }}"/>
+        <updated>{{ post.date | date_to_xmlschema }}</updated>
+        <id>http://khamidou.com{{ post.id }}</id>
+        <content type="html">{{ post.content | xml_escape }}</content>
+   {% endif %}
  </entry>
  {% endfor %}
 
