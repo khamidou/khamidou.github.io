@@ -1,23 +1,36 @@
 ---
 layout: post
-title: "The internet is amazing!"
+title: "Parody tee-shirts, or another reason the internet is amazing!"
 featured: true
 ---
-The other day I stumbled upon a weird sub-subculture – people making and wearing parodies shirts of popular brands. It's fascinating to see how people try to appropriate their favorite brands.
+The other day I stumbled upon a fascinating sub-subculture – people making and wearing parodies shirts of popular brands. It's fascinating seeing people trying to appropriate their favorite brands.
 
-For some reason, Patagonia – one of Silicon Valley's favorite sportswear brands – is especially popular. There are literally dozens and dozens of parodies of their iconic logo floating around.
-
-For instance, Patagucci was a short-lived[^cease] brand based on this idea:
+For example, Patagucci was a short-lived brand based that sold Patagonia-inspired clothing:
 
 ![Pataguccia sweater](/images/tee-shirts/patagucci.jpeg)
 
-Some fraternities have come up with their own take on the Patagonia logo:
-![Fratagonia sweater](/images/tee-shirts/fratagonia.png)
+They unfortunately had to shutdown after receiving a [Cease and Desist](https://www.scribd.com/document/294002329/Patagonia-v-Patagucci-trademark-complaint-pdf) from Patagonia, but this doesn't seem to have deterred other fans. There are literally dozens of takes on their iconic logo. [Fraternities sell Fratagonia tee-shirts](/images/tee-shirts/fratagonia.png). [Even Grateful Dead fans have their own](/images/tee-shirts/deadagonia.jpg).
 
-Even Grateful Dead fans have their own tee-shirt!
-![Deadagonia sweater](/images/tee-shirts/deadagonia.jpg)
+I found this really inspiring, so I decided to try to make my own Patagonia-inspired tee-shirt. It turns out it was surprisingly easy, thanks to the Internet.
 
-And [there](/images/tee-shirts/tatooine.png) [are](/images/tee-shirts/supreme.jpg) [more](/images/tee-shirts/green.jpg)!
+The first thing to do was to decide what the logo would be about. Since I live in California, I'd decided it would be about... California[^california].
 
+The second thing I had to decide on was the logo. The Patagonia logo is pretty interesting because it's not a completely abstract form – it's the outline of Mt Fitz Roy, in... Patagonia. I could have simply pasted California on the logo but that wouldn't cut it. I needed something Californian.
 
-[^cease]: After digging around, I found out that they used to have an online store but had to close shop after receiving a Cease and Desist.The [letter](https://www.scribd.com/document/294002329/Patagonia-v-Patagucci-trademark-complaint-pdf) is an interesting read, if you're curious.
+That's when it hit me – why not replace Mt Fitz Roy by the most iconic skyline in California – el Capitan? Doing so would be above my drawing abilities, but I was able to find a good illustrator on fiverr to draw it:
+
+![California logo](/images/tee-shirts/california-logo.png)
+
+After that it was pretty easy to find an online tee-shirt printing service that would print a tee-shirt with this logo. Three weeks later I received my tee-shirt by mail:
+
+![California tee-shirt](/images/tee-shirts/california.jpg)
+
+It's pretty crazy that all of this happened thanks to the Internet. Patagonia parodies wouldn't be a thing without the Internet. I wouldn't have heard of them or decided to make another one without it. And you, obviously wouldn't read this.
+
+In the last six months it's been pretty easy to think only about the bad aspects of the Internet – how toxic some communities can be, for example. It's also important to remember that the Internet enables people to do amazing things[^lol] every day, and we should be grateful for it.
+
+[^california]: One thing to know about Californians if you've never been there is that they're really proud to live in California. It's pretty common to see locals wearing California tee-shirts and sweaters, which is something you will not see in any other place.
+
+    It's also why Antony Kiedis has written hundreds of songs about California.
+
+toxic some communities can be, for example. It's also important to remember that t[^lol]: I'm not talking about this humble tee-shirt of course!
