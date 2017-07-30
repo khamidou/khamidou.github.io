@@ -3,7 +3,7 @@ layout: post
 title: "The Internet is amazing!"
 featured: true
 ---
-The other day I stumbled upon a fascinating sub-subculture – people making and wearing parody shirts of popular brands. It's fascinating seeing people trying to appropriate their favorite brands.
+The other day I stumbled upon a fascinating sub-subculture – people making and wearing parody shirts of popular brands. It's fascinating to see people trying to make brand logos their own.
 
 For example, Patagucci was a short-lived brand based that sold Patagonia-inspired clothing:
 
