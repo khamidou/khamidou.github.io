@@ -17,6 +17,6 @@ But, here’s the issue. Unlike regular metrics (e.g: monthly revenue, 90th perc
 
 Voilà, you have a recipe for ending up with a broken process! So, next time you think about optimizing a process, take and step back and make sure you’re not looking at a proxy metric.
 
-[^itw]: (Note: I’m not singling out Palantir here - they just happened to be at the top of [/r/cscareerquestions](https://www.reddit.com/r/rcscareerquestions) today. Other tech companies are also well known for their drawn-out, or sometimes plain ridiculous hiring processes.)
+[^itw]: (Note: I’m not singling out Palantir here - they just happened to be at the top of [/r/cscareerquestions](https://www.reddit.com/r/cscareerquestions) today. Other tech companies are also well known for their drawn-out, or sometimes plain ridiculous hiring processes.)
 
 [^otherwise]: otherwise they wouldn’t be where they are today
