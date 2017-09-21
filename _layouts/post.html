@@ -3,6 +3,9 @@ layout: default
 ---
 <div id="post">
 <b>{{ page.title }}</b> &mdash; {{ page.date | date_to_long_string }}</br></br>
+{% if page.subtitle %}
+    <b>{{ page.subtitle }}</b>
+{% endif %}
 
 {{ content }}
 </div>
