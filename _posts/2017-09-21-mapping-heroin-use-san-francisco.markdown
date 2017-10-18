@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mapping Heroin use in San Francisco"
+title: "Mapping Needles in San Francisco"
 featured: true
 ---
 My biggest shock when moving to San Francisco was seeing the number of people living in the streets. I have the feeling that in the last few years, things have been getting worse. There are more people on the street, more tent campments and more drug use.
