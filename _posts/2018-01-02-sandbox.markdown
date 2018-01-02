@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Let's build a tiny code sandbox!
+title: Let's build an online code sandbox!
 featured: true
 link: "/sandboxing/"
 ---
