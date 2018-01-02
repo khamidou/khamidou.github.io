@@ -1,0 +1,6 @@
+---
+layout: post
+title: Let's build a tiny code sandbox!
+featured: true
+link: "/sandboxing/"
+---
