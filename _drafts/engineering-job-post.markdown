@@ -5,13 +5,24 @@ featured: true
 ---
 Writing a good job post is one of the most overlooked parts of the process of hiring engineers. That's unfortunate because a job post is often the first contact a future hire has with your company[^website].
 
+If you're a company looking to hire remote workers, you absolutely need a good job posting[^remote]
+
 What's interesting is that there are almost no guides about how to write a blog post – it seems that most startups slap them together based on what everyone else does. That's why most startup job posts end up reading like an ambitious mission statement ("We want to disrupt the pizza delivery market!") followed by laundry list of requirements (Python! Javascript! Mongo! AWS!).
 
 There's a better way to do that – and it will get you more motivated candidates. Candidates who are interested in your culture and technical challenges. This is a guide on how to do this.
 
+## Table of contents
+{:.no_toc}
+
+1. This line is a placeholder to generate the table of contents
+{:toc}
+
+
 ## The first role of a job post is selling
 
-The most important thing to remember when writing a job post is that you're trying to get a candidate interested in your company. Generally[^spacex], candidates are interested by three things (in this order):
+The most important thing to remember when writing a job post is that you're trying to get a candidate interested in your company.
+
+Generally[^spacex], candidates are interested by three things (in this order):
 
 1. your company culture: Does it have work-life balance? Will my colleagues be nice? Is the company diverse?
 2. opportunities for growth: If I want to lead a team, will I be able to do it in a few years? Can I do public speaking?
@@ -21,12 +32,35 @@ That means that you're going to have to put these three things front and center.
 
 ## How to structure a job post
 
-A job post usually has a three parts structure:
-1. What the company does
-2. What our ideal candidate looks like
-3. Why we're cool and why you should join us
+Like the best classical essays, most job posts follow a three-part structure. Generally it looks like this:
+1. What the role is
+2. What our requirements are
+3. Why're we're cool
+
+Other companies like to spend some time telling you how cool they are before describing the job – I'm not sure it's a great idea. People are looking for a *specific* job at your company. They're not looking for *any* job there.
+
+For example, here's a great job post from Stripe that follows this structure to a tee:
+
+![stripe](/images/job_posts/stripe-web-engineer-annotated.png)
+
+Let's zoom into each part to see what makes them tick.
+
+## What the role is
+
+I know it can be very tempting to say something like "well, on a day-to-day basis you'll be fixing bugs and implementing features. You might have to talk to customers.". One the contrary, you need to be as detailed as possible to give your reader a clear idea of the job.
+
+Here's a great example of this, one of Nylas' engineering job posts, written by my colleague [Evan Morikawa](http://evanmorikawa.com/):
+
+![nylas job description](/images/job_posts/nylas-job-description.png)
+
+Obviously, Nylas is still a pretty small company so it's easier to give meaningful examples of work! However, this is also possible for a bigger company. Here's how Square does it for example: 
+
+![square job description](/images/job_posts/square-job-description.png)
+
+This is a pretty masterful description! On the one hand you have an introduction paragraph that shows how important the team is for the success of the company ("This work has direct impact on Square’s profitability and financial success."). On the other hand you have a detailed list of what you'll work on, as well as a couple hard problems to keep you up at night.
 
 
+why stripe's job 
 job posts are way more important than you think
 often, there's the first thing applicants see, before even your company website
 however there's no real guide to writing a good job post
@@ -78,6 +112,8 @@ even fine companies make job post mistakes though, for example:
     you will rarely find a candidate that matches all the requirements you have.  
 
 content upgrade: my swipe file of 7 great job posts – the one which are well written and to which I always come back to.
+
+[^remote]: I have a personal theory – remote working is becoming mainstream but right now it's the best way to find talent that is both cheaper and better than in Silicon Valley.
 
 [^website]: Sometimes, even before your corporate website. For example, if they found your post through a job board.
 [^spacex]: Obviously, the order is going to be a little different if you're, say, SpaceX. You'll get a lot more mission-driven people.
