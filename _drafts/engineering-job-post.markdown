@@ -18,7 +18,7 @@ There's a better way to do that – and it will get you more motivated candidate
 {:toc}
 
 
-## The first role of a job post is selling
+# The first role of a job post is selling
 
 The most important thing to remember when writing a job post is that you're trying to get a candidate interested in your company.
 
@@ -30,7 +30,7 @@ Generally[^spacex], candidates are interested by three things (in this order):
 
 That means that you're going to have to put these three things front and center. I know that this sounds easier said than done – don't worry we'll be diving into specific examples you can later use as inspiration.
 
-## How to structure a job post
+# How to structure a job post
 
 Like the best classical essays, most job posts follow a three-part structure. Generally it looks like this:
 1. What the role is
@@ -39,11 +39,13 @@ Like the best classical essays, most job posts follow a three-part structure. Ge
 
 Other companies like to spend some time telling you how cool they are before describing the job – I'm not sure it's a great idea. People are looking for a *specific* job at your company. They're not looking for *any* job there.
 
-For example, here's a great job post from Stripe that follows this structure to a tee:
+For example, here's a great job post from Stripe that follows this structure to a tee (click to zoom):
 
-![stripe](/images/job_posts/stripe-web-engineer-annotated.png)
+<a href='/images/job_posts/stripe-web-engineer-annotated.png'>
+    <img alt='stripe' src='/images/job_posts/stripe-web-engineer-annotated.png' />
+</a>
 
-Let's zoom into each part to see what makes them tick.
+Let's dive into each part to see what makes them tick.
 
 ## What the role is
 
@@ -59,8 +61,33 @@ Obviously, Nylas is still a pretty small company so it's easier to give meaningf
 
 This is a pretty masterful description! On the one hand you have an introduction paragraph that shows how important the team is for the success of the company ("This work has direct impact on Square’s profitability and financial success."). On the other hand you have a detailed list of what you'll work on, as well as a couple hard problems to keep you up at night.
 
+## What our requirements are
 
-why stripe's job 
+Lots of companies have long lists of requirements. This is far from ideal, because first, how many hard requirements do you have? Most of the things that end up on a requirements list are at best nice to have.[^bash]
+
+However, long lists of requirements have a more pernicious effect – they can intimidate some people who would otherwise apply . [Impostor syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome) is a real thing.
+
+To make sure you're not letting anybody out, it's best to keep requirements list as short as possible. Here's a good example from Clever:
+
+{% include image-caption.html url="/images/job_posts/clever-requirements.png"
+                              caption="" %}
+
+## Why we're cool
+
+Finally, you need to explain why someone would join your startup over any other startup. This is certainly the most tricky part of writing a job post, since it's kind of hard to sum up what makes your company special.
+
+One of the best ways to write a "Why we're cool" section is to sit down and write what makes the culture of your company great. This means writing down the big things (Do you have a mission? Do you value autonomy? What about work-life balance?) as well as the smaller ones (What's your open source policy? Does everybody eat lunch at their desks or do people go out together?)
+
+Don't be afraid to get into as much detail as you want – there are hundreds of startups in the bay area using Python. There are thousands using Node. None have your unique company culture and that's what you need to put forward.
+
+Here's a breakdown of the "Why we're cool" section of another Stripe job posting[^whatcani]. Pay attention to all the unique selling points they have:
+![stripe cool description](/images/job_posts/stripe-cool.png)
+
+This job posting hits all the notes – from the big things (the mission: increasing the GDP of the Internet) to the smaller ones (everybody having lunch together).
+
+If you're looking for more inspiration, here's a couple more good "why we're cool" examples:
+
+ why stripe's job 
 job posts are way more important than you think
 often, there's the first thing applicants see, before even your company website
 however there's no real guide to writing a good job post
@@ -117,3 +144,7 @@ content upgrade: my swipe file of 7 great job posts – the one which are well w
 
 [^website]: Sometimes, even before your corporate website. For example, if they found your post through a job board.
 [^spacex]: Obviously, the order is going to be a little different if you're, say, SpaceX. You'll get a lot more mission-driven people.
+[^requirements]: Take a junior engineer for example. Do you have that many requirements, besides knowing how to code, being easy to work with and not needing too much supervision?
+[^bash]: Does an SRE need to know Bash? Maybe – or maybe they can figure it out on the job.
+[^copypasta]: The good news is that if you've figured out how to write it, you can just copy-paste it into all your job posts!
+[^whatcani]: What can I say? They have great job postings!
