@@ -34,7 +34,7 @@ That means that you're going to have to put these three things front and center.
 
 Like the best classical essays, most job posts follow a three-part structure. Generally it looks like this:
 1. What the role is
-2. What our requirements are
+2. What you need to know
 3. Why're we're cool
 
 Other companies like to spend some time telling you how cool they are before describing the job – I'm not sure it's a great idea. People are looking for a *specific* job at your company. They're not looking for *any* job there.
@@ -61,7 +61,7 @@ Obviously, Nylas is still a pretty small company so it's easier to give meaningf
 
 This is a pretty masterful description! On the one hand you have an introduction paragraph that shows how important the team is for the success of the company ("This work has direct impact on Square’s profitability and financial success."). On the other hand you have a detailed list of what you'll work on, as well as a couple hard problems to keep you up at night.
 
-## What our requirements are
+## What you need to know
 
 Lots of companies have long lists of requirements. This is far from ideal, because first, how many hard requirements do you have? Most of the things that end up on a requirements list are at best nice to have.[^bash]
 
@@ -85,7 +85,9 @@ Here's a breakdown of the "Why we're cool" section of another Stripe job posting
 
 This job posting hits all the notes – from the big things (the mission: increasing the GDP of the Internet) to the smaller ones (everybody having lunch together).
 
-If you're looking for more inspiration, here's a couple more good "why we're cool" examples:
+If you're looking for more inspiration, [Github](/images/job_posts/github-cool.png) and – in a more corporate style – [Splunk](/images/job_posts/splunk-cool.png) have good "why we're cool" sections.
+
+## Gotchas
 
  why stripe's job 
 job posts are way more important than you think
