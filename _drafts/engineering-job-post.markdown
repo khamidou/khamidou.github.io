@@ -3,20 +3,20 @@ layout: post
 title: How to write a good engineering job post
 featured: true
 ---
-Writing a good job post is one of the most overlooked parts of the process of hiring engineers. That's unfortunate because a job post is often the first contact a future hire has with your company[^website].
+Writing a job post feels like pulling teeth, which is why most of them end up reading like an ambitious mission statement ("We want to disrupt the pizza delivery market!") followed by laundry list of requirements (Python! Javascript! Mongo! AWS!).
 
-If you're a company looking to hire remote workers, you absolutely need a good job posting[^remote]
+Luckily, there's a better way to do this – and once you know the proper structure it will be a lot easier, too! It will also get you candidates who are interested in your culture and technical challenges.
 
-What's interesting is that there are almost no guides about how to write a job post – it seems that most startups slap them together based on what everyone else does. That's why most startup job posts end up reading like an ambitious mission statement ("We want to disrupt the pizza delivery market!") followed by laundry list of requirements (Python! Javascript! Mongo! AWS!).
+This is a modest guide on how to do it. I've included a lot of examples because I think it's the best way to learn. Of course, if you have questions, remarks or insults, feel free to send me an email at *hello* at khamidou.com.
 
-There's a better way to do that – and it will get you more motivated candidates. Candidates who are interested in your culture and technical challenges. This is a guide on how to do this.
+**Table of contents**
 
-## Table of contents
 {:.no_toc}
 
 1. This line is a placeholder to generate the table of contents
 {:toc}
 
+<br>
 
 # The first role of a job post is selling
 
@@ -65,14 +65,14 @@ This is a pretty masterful description! On the one hand you have an introduction
 
 Lots of companies have long lists of requirements. This is far from ideal, because first, how many hard requirements do you have? Most of the things that end up on a requirements list are at best nice to have.[^bash]
 
-However, long lists of requirements have a more pernicious effect – they can intimidate some people who would otherwise apply . [Impostor syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome) is a real thing.
+However, long lists of requirements have a more pernicious effect – they can intimidate some people who would otherwise apply. [Impostor syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome) is a real thing.
 
 To make sure you're not letting anybody out, it's best to keep requirements list as short as possible. Here's a good example from Clever:
 
 {% include image-caption.html url="/images/job_posts/clever-requirements.png"
                               caption="" %}
 
-Most engineers spend as much time dealing with people as they do dealing with technical issues, so remember to not get bogged down with technical requirements. They're important, sure, but half of your requirements should be non-technical.
+Most engineers spend as much time dealing with people as they do dealing with technical issues, so remember to not get bogged down with technical requirements. They're important, sure, but a good rule of thumb is that roughly half of your requirements should be non-technical.
 
 ## Why we're cool
 
@@ -89,7 +89,7 @@ This job posting hits all the notes – from the big things (the mission: increa
 
 If you're looking for more inspiration, [Github](/images/job_posts/github-cool.png) and – in a more corporate style – [Splunk](/images/job_posts/splunk-cool.png) have good "why we're cool" sections.
 
-## Watch out for biases
+# Watch out for biases!
 
 Make sure that your job post isn't unconsciously biased towards certain categories. One example I can remember is an old Nylas SRE job posting that had this interesting metaphor:
 
@@ -99,13 +99,11 @@ It's kind of hard to say "look for your own unconscious bias in the post you wro
 
 You could also use a tool like [Kat Matfield's gender decoder](http://gender-decoder.katmatfield.com/) to "lint" your post and make sure it's gender neutral.
 
-## Wrap-up
+# Putting it all together
 
-Hopefully, this guide will help you write job posts that bring more people. Let me know if you have questions by sending me an email at hello *at* khamidou.com!
+Hopefully, this guide will help you write job posts that bring more people. With the right structure in place, writing a
 
 Content upgrade: my swipe file of 7 great job posts – the one which are well written and to which I always come back to.
-
-[^remote]: I have a personal theory – remote working is becoming mainstream but right now it's the best way to find talent that is both cheaper and better than in Silicon Valley.
 
 [^website]: Sometimes, even before your corporate website. For example, if they found your post through a job board.
 [^spacex]: Obviously, the order is going to be a little different if you're, say, SpaceX. You'll get a lot more mission-driven people.
