@@ -3,11 +3,11 @@ layout: post
 title: How to write a good engineering job post
 featured: true
 ---
-Writing a job post feels like pulling teeth, which is why most of them end up reading like an ambitious mission statement ("We want to disrupt the pizza delivery market!") followed by laundry list of requirements (Python! Javascript! Mongo! AWS!).
+Writing a job post feels like pulling teeth, which is why most job posts end up reading like an ambitious mission statement ("We want to disrupt the pizza delivery market!") followed by laundry list of requirements (Python! Javascript! Mongo! AWS!).
 
 Luckily, there's a better way to do this – and once you know the proper structure it will be a lot easier, too! It will also get you candidates who are interested in your culture and technical challenges.
 
-This is a modest guide on how to do it. I've included a lot of examples because I think it's the best way to learn. Of course, if you have questions, remarks or insults, feel free to send me an email at *hello* at khamidou.com.
+This is a modest guide on how to do it. I've included a lot of examples because I think it's the best way to learn – feel free to click on any screenshot to get to the bigger version.
 
 **Table of contents**
 
@@ -53,11 +53,15 @@ I know it can be very tempting to say something like "well, on a day-to-day basi
 
 Here's a great example of this, one of Nylas' engineering job posts, written by my colleague [Evan Morikawa](http://evanmorikawa.com/):
 
-![nylas job description](/images/job_posts/nylas-job-description.png)
+<a href='/images/job_posts/nylas-job-description.png'>
+    <img alt='nylas job description' src='/images/job_posts/nylas-job-description.png' />
+</a>
 
 Obviously, Nylas is still a pretty small company so it's easier to give meaningful examples of work! However, this is also possible for a bigger company. Here's how Square does it for example:
 
-![square job description](/images/job_posts/square-job-description.png)
+<a href='/images/job_posts/square-job-description.png'>
+    <img alt='square job description' src='/images/job_posts/square-job-description.png' />
+</a>
 
 This is a pretty masterful description! On the one hand you have an introduction paragraph that shows how important the team is for the success of the company ("This work has direct impact on Square’s profitability and financial success."). On the other hand you have a detailed list of what you'll work on, as well as a couple hard problems to keep you up at night.[^specific]
 
@@ -99,11 +103,14 @@ It's kind of hard to say "look for your own unconscious bias in the post you wro
 
 You could also use a tool like [Kat Matfield's gender decoder](http://gender-decoder.katmatfield.com/) to "lint" your post and make sure it's gender neutral.
 
-# Putting it all together
+# Wrap-up
 
-Hopefully, this guide will help you write job posts that bring more people. With the right structure in place, writing a
+Hopefully, with the right structure in place writing a job post isn't going to feel like pulling teeth anymore!
+Please let me know if you have questions or comments – send me an email at *hello* at khamidou.com.
 
-Content upgrade: my swipe file of 7 great job posts – the one which are well written and to which I always come back to.
+{% comment %}
+If you're interested in good examples of job posts, you can also download my swipe file – the job posts I always go back to when I'm writing one – by signing up to my mailing list.
+{% endcomment %}
 
 [^website]: Sometimes, even before your corporate website. For example, if they found your post through a job board.
 [^spacex]: Obviously, the order is going to be a little different if you're, say, SpaceX. You'll get a lot more mission-driven people.
