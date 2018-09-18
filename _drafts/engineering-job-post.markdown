@@ -5,7 +5,7 @@ featured: true
 ---
 Writing a job post feels like pulling teeth, which is why most job posts end up reading like an ambitious mission statement ("We want to disrupt the pizza delivery market!") followed by laundry list of requirements (Python! Javascript! Mongo! AWS!).
 
-Luckily, there's a better way to do this – and once you know the proper structure it will be a lot easier, too! It will also get you candidates who are interested in your culture and technical challenges.
+Luckily, there's a better way to do this – and once you know the proper structure it will be a lot easier, too! It will help you attract candidates who are interested in your culture and technical challenges.
 
 This is a modest guide on how to do it. I've included a lot of examples because I think it's the best way to learn – feel free to click on any screenshot to get to the bigger version.
 
@@ -24,7 +24,7 @@ The most important thing to remember when writing a job post is that you're tryi
 
 Generally[^spacex], candidates are interested by three things (in this order):
 
-1. your company culture: Does it have work-life balance? Will my colleagues be nice? Is the company diverse?
+1. your company culture: Does it have work-life balance? Is the company diverse? Will my colleagues be nice?
 2. opportunities for growth: If I want to lead a team, will I be able to do it in a few years? Can I do public speaking?
 3. your company's mission: Is it going to make the world a better place?
 
@@ -35,9 +35,7 @@ That means that you're going to have to put these three things front and center.
 Like the best classical essays, most job posts follow a three-part structure. Generally it looks like this:
 1. What the role is
 2. What you need to know
-3. Why're we're cool
-
-Other companies like to spend some time telling you how cool they are before describing the job – I'm not sure it's a great idea. People are looking for a *specific* job at your company. They're not looking for *any* job there.
+3. Why we're cool
 
 For example, here's a great job post from Stripe that follows this structure to a tee (click to zoom):
 
@@ -95,11 +93,9 @@ If you're looking for more inspiration, [Github](/images/job_posts/github-cool.p
 
 # Watch out for biases!
 
-Make sure that your job post isn't unconsciously biased towards certain categories. One example I can remember is an old Nylas SRE job posting that had this interesting metaphor:
+Make sure that your job post isn't unconsciously biased towards certain categories. One example I can remember is an old Nylas job posting[^retired] that had an interesting metaphor about the job of an SRE being like working at a pit stop on an F1 racing team. I remember finding this working uncomfortable because it makes the job sound way more stressful than it is – which would cause some good, qualified applicants to not apply.
 
-(We've retired this job posting a long time ago!)
-
-It's kind of hard to say "look for your own unconscious bias in the post you wrote", but what helps would be to ask a diverse set of your coworkers whether they'd consider applying after reading your job post.
+I know it's easy to say "look for your own unconscious bias in the post you wrote", but what helps would be to ask a diverse set of your coworkers whether they'd consider applying after reading your job post.
 
 You could also use a tool like [Kat Matfield's gender decoder](http://gender-decoder.katmatfield.com/) to "lint" your post and make sure it's gender neutral.
 
@@ -119,3 +115,4 @@ If you're interested in good examples of job posts, you can also download my swi
 [^copypasta]: The good news is that if you've figured out how to write it, you can just copy-paste it into all your job posts!
 [^whatcani]: What can I say? They have great job postings!
 [^specific]: In general, it's better to be very specific about what the job will entails, because it helps the reader imagine what they'll be doing.
+[^retired]: we've retired this job posting a long time ago!
