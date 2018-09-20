@@ -246,3 +246,7 @@ figure > figcaption {
     font-size: 0.75em;
     padding-bottom: 5px;
 }
+
+#markdown-toc {
+    margin-bottom: 30px;
+}

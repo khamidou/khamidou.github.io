@@ -3,7 +3,7 @@ layout: post
 title: How to write a good engineering job post
 featured: true
 ---
-Writing a job post feels like pulling teeth, which is why most job posts end up reading like an ambitious mission statement ("We want to disrupt the pizza delivery market!") followed by laundry list of requirements (Python! Javascript! Mongo! AWS!).
+Writing a job post feels like pulling teeth, which is why most job posts end up reading like an ambitious mission statement (*"We want to disrupt the pizza delivery market!"*) followed by laundry list of requirements (*Python! Javascript! Mongo! AWS!*).
 
 Luckily, there's a better way to do this – and once you know the proper structure it will be a lot easier, too! It will help you attract candidates who are interested in your culture and technical challenges.
 
@@ -16,9 +16,7 @@ This is a modest guide on how to do it. I've included a lot of examples because 
 1. This line is a placeholder to generate the table of contents
 {:toc}
 
-<br>
-
-# The first role of a job post is selling
+<h2>The first role of a job post is selling</h2>
 
 The most important thing to remember when writing a job post is that you're trying to get a candidate interested in your company.
 
