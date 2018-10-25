@@ -20,7 +20,7 @@ This is a modest guide on how to do it. I've included a lot of examples because 
 
 The most important thing to remember when writing a job post is that you're trying to get a candidate interested in your company.
 
-Generally[^spacex], candidates are interested by three things (in this order):
+Generally, candidates are interested by three things (in this order[^spacex]):
 
 1. your company culture: Does it have work-life balance? Is the company diverse? Will my colleagues be nice?
 2. opportunities for growth: If I want to lead a team, will I be able to do it in a few years? Can I do public speaking?
