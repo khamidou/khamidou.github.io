@@ -3,4 +3,5 @@ layout: post
 title: Let's build an online code sandbox!
 featured: true
 link: "/sandboxing/"
+category: programming
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: The day Google DDoSed us
 featured: true
+category: programming
 ---
 There's an interesting post about [rate-limiting](https://medium.com/figma-design/an-alternative-approach-to-rate-limiting-f8a06cf7c94c) making the rounds on social media. Reading it reminded me of the day where we got involuntarily DDoSed by Google.
 

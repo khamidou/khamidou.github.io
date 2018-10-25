@@ -2,6 +2,7 @@
 layout: post
 title: "The scripting ideology"
 featured: true
+category: programming
 ---
 The other day I randomly came across one of Larry Wall's keynotes, [Perl, the first postmodern language](http://www.wall.org/~larry/pm.html). It's a fascinating read and really articulates what makes scripting languages different from other languages.
 
