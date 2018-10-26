@@ -13,25 +13,13 @@ title: Karim Hamidou
 
   <br>
   <h1>Writings</h1>
-  <h3>General</h3>
   <ul class="posts">
     {% for post in site.posts %}
-      {% if post.category != 'programming' and post.featured %}
-          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-
-  <h3>Programming-related</h3>
-  <ul class="posts">
-    {% for post in site.posts %}
-      {% if post.category == 'programming' and post.featured and post.link %}
+      {% if post.featured and post.link %}
           <li><a href="{{ post.link }}">{{ post.title }}</a></li>
-      {% elsif post;category == 'programming' and post.featured %}
+      {% elsif post.featured %}
           <li><a href="{{ post.url }}">{{ post.title }}</a></li>
       {% endif %}
     {% endfor %}
   </ul>
-
-
 </div>
