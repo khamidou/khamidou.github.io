@@ -1,25 +1,23 @@
 ---
 layout: default
-title: Karim Hamidou
+title: Home
+frontpage: true
 ---
+<p>
+Hello! My name is Karim, I'm a french software engineer living in San Francisco. I work at <a href="https://nylas.com">Nylas</a>, trying to make email better. I'm also the creator of <a href="http://chadbot.co">Chad</a>, a chatbot to get excused from meetings and <a href="https://github.com/khamidou/lptrace">lptrace</a>, a tool to trace Python programs.
+</p>
 
-<div id="home">
-  <img src="/images/avatar.png" class='avatar'/><br>
-  <b>Hello!</b>
-  <p>I'm a french engineer living in San Francisco. I work at <a href="https://nylas.com">Nylas</a>, trying to make email better.
-      I'm also the creator of <a href="http://chadbot.co">Chad</a>, a chatbot to get excused from meetings and <a href="/lptrace">lptrace</a>, a tool to trace Python programs.</p>
-
-  <p>We should get coffee sometime — send me an email at <code>hello at khamidou.com</code>!</p>
-
-  <br>
-  <h1>Writings</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
+<p>
+You can reach out by sending me an email at <span class="fixedfont">hello at khamidou.com</span>.
+</p>
+<hr>
+<h4>Writings</h4>
+<div class="posts">
+  {% for post in site.posts %}
       {% if post.featured and post.link %}
-          <li><a href="{{ post.link }}">{{ post.title }}</a></li>
+      <li><a href="{{ post.link }}">{{ post.title }}</a><br></li>
       {% elsif post.featured %}
-          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      <li><a href="{{ post.url }}">{{ post.title }}</a><br></li>
       {% endif %}
-    {% endfor %}
-  </ul>
+  {% endfor %}
 </div>
