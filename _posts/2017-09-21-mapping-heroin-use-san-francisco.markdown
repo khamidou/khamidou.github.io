@@ -3,7 +3,7 @@ layout: post
 title: "Mapping Needles in San Francisco"
 featured: true
 ---
-My biggest shock when moving to San Francisco was seeing the number of people living in the streets. I have the feeling that in the last few years, things have been getting worse. There are more people on the street, more tent campments and more drug use.
+My biggest shock when moving to San Francisco was seeing the heartbreaking number of people living in the streets. I have the feeling that in the last few years, things have been getting worse. There are more people on the street, more tent campments and more drug use.
 
 I just learnt through [this very cool article](http://katiehempenius.com/post/drug-markets-of-san-francisco/) about the city of San Francisco's [open data initiative](https://datasf.org/opendata/), so I decided to check if my perception was true or not.
 
