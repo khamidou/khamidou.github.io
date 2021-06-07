@@ -13,9 +13,11 @@ The result was pretty cool but the animation wasn't super smooth (most likely be
 
 ![balloons](/images/infinity_pools/css_balloons.png)
 
-I figured it'd be a fun way to practice some animation drawing, a thing I hadn't  done since using GDI+.
+<br>
 
-Using Canvas was relatively straightforward, although the API has some strange edge cases around using Retina screens. The one strange thing that really confused me was handling rotation – I was running into some weird screen tearing issues that made me not use rotations altogether, since I really didn't want to relearn college matrix algebra 😅
+To improve that, I decided to port the example code to Canvas. I figured it'd be a fun way to practice some animation drawing, a thing I hadn't done any since using GDI+ on Windows.
+
+Using Canvas was relatively straightforward, although the API has some interesting edge cases around using Retina screens. I also ran into some weird screen tearing issues that made me not use rotations altogether, since I really didn't want to relearn college matrix algebra 😅
 
 Here's the final result:
 
