@@ -3,7 +3,7 @@ layout: post
 title: "Revisiting Infinity Pools"
 featured: true
 ---
-A few years back (4 years already!) I built [Infinity Pools](/infinity-pools.html), an extension to block the constantly refreshing feeds from Facebook and Twitter. Unfortunately, after a few months, both websites changed how their refresh their feeds and the extension broke.
+A few years back (4 years already!) I built [Infinity Pools](/infinity-pools.html), an extension to block the constantly refreshing feeds from Facebook and Twitter. Unfortunately, after a few months, both websites changed how they refresh their feeds and the extension broke.
 
 A couple weeks ago, I decided to take another stab at it. I've always felt it made more sense to block websites after a certain amount of time, so I decided to go with that.
 
