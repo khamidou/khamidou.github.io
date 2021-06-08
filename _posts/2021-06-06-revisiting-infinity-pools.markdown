@@ -21,6 +21,7 @@ Using Canvas was relatively straightforward, although the API has some interesti
 
 Here's the final result:
 
+<iframe src="/infinity_pools/frame.html"></iframe>
 ![balloons](/images/infinity_pools/final_balloons.png)
 
 Of course, you can find the source code for this extension on [Github](https://github.com/khamidou/infinity-pools/).
