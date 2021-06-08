@@ -21,6 +21,6 @@ Using Canvas was relatively straightforward, although the API has some interesti
 
 Here's the final result:
 
-<iframe src="/infinity_pools/frame.html" width="100%" height="800"></iframe>
+<iframe src="/infinity_pools/frame.html" width="1024" height="800"></iframe>
 
 Of course, you can find the source code for this extension on [Github](https://github.com/khamidou/infinity-pools/).
