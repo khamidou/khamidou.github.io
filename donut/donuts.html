@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>donuts.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>donuts.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>Ok, so for the past month or so I’ve been fascinated by this
+<a href="https://www.a1k0n.net/2011/07/20/donut-math.html">donut.c file</a> that draws
+an animated donut in the terminal.</p>
+<p>To understand it, I rebuilt it in Javascript in the browser, with built-in texturing. Here’s what it looks like:</p>
+<iframe src="../donuts.html" width="100%" height="100%" ></iframe>
+
+<p>(I know, I know, very anticlimatic).</p>
+<p>Why do this?</p>
+<ol>
+<li>I’ve always thought graphics programming was very mysterious with a lot of heavy math. Donut.c and the blog post that goes with it really broke it down to an understandable level!</li>
+<li>I love donuts.</li>
+</ol>
+<p>This post will break down the source of my port somewhat line-by-line.</p>
+<p>However, please keep in mind I have very little idea about the right way to do graphics programmings. I’ve mostly pieced the code together from various sources and sticked to what worked.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">var</span> windowWidth = <span class="hljs-built_in">window</span>.innerWidth;
+<span class="hljs-keyword">var</span> windowHeight = <span class="hljs-built_in">window</span>.innerHeight;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawDonut</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> circle_radius = <span class="hljs-number">50</span>;
+  <span class="hljs-keyword">let</span> torus_radius = <span class="hljs-number">200</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="the-canvas-api">The Canvas API</h2>
+<p>I decided to go with the Canvas API because it seems like the fastest way
+to draw pixels in a browser window. It’s a bit of a strange API because
+it’s very high-level and kind of a black box.</p>
+<p>For example, I couldn’t find how to paint a single pixel – you have to
+either draw a rectangle or a line. When trying to optimize the rendering,
+I had to try a bunch of techniques to see what would work.</p>
+<p>Another issue is that we have to do these intricate scaling hacks because the canvas API
+doesn’t know about hidpi displays:
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio">https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"donutCanvas"</span>);
+
+  canvas.style.width = windowWidth + <span class="hljs-string">"px"</span>;
+  canvas.style.height = windowHeight + <span class="hljs-string">"px"</span>;
+
+  <span class="hljs-keyword">var</span> windowScale = <span class="hljs-built_in">window</span>.devicePixelRatio;
+  canvas.width = <span class="hljs-built_in">Math</span>.floor(windowWidth * windowScale);
+  canvas.height = <span class="hljs-built_in">Math</span>.floor(windowHeight * windowScale);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>A small optimization – instead of rendering directly to the screen, we
+render to a buffer that then gets rendered to the screen. This is called
+<a href="https://en.wikipedia.org/wiki/Multiple_buffering#Double_buffering_in_computer_graphics">double buffering</a>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> offscreenCanvas = <span class="hljs-keyword">new</span> OffscreenCanvas(<span class="hljs-number">2.5</span> * torus_radius, <span class="hljs-number">2.5</span> * torus_radius);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Another small optimization – our offscreen canvas is actually smaller
+than the whole screen – this means that we only have to repaint part of the
+screen at every render.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  offscreenCanvas.width = <span class="hljs-number">3</span> * torus_radius;
+  offscreenCanvas.height = canvas.height;
+
+  <span class="hljs-keyword">let</span> donutTexture = <span class="hljs-keyword">new</span> Image();
+
+  <span class="hljs-keyword">var</span> ctx = canvas.getContext(<span class="hljs-string">"2d"</span>, { <span class="hljs-attr">alpha</span>: <span class="hljs-literal">false</span> });
+  <span class="hljs-keyword">var</span> offscreenCtx = offscreenCanvas.getContext(<span class="hljs-string">"2d"</span>, { <span class="hljs-attr">alpha</span>: <span class="hljs-literal">false</span> });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>A handful of constants and variables which are explained in more details
+in donut.c. A and B are our rotation angles around the Y and Z axes, while
+K1 and K2 have to do with the projection of the picture to a 2D space.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">let</span> A = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">let</span> B = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">const</span> K1 = <span class="hljs-number">200</span>;
+  <span class="hljs-keyword">const</span> K2 = <span class="hljs-number">600</span>;
+
+  <span class="hljs-keyword">let</span> startTimestamp = <span class="hljs-literal">null</span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doDrawTorus</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <h2 id="drawing-toruses">Drawing Toruses</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>First, let’s slightly increment the current rotation angles.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    A += <span class="hljs-number">0.01</span>;
+    B += <span class="hljs-number">0.02</span>;
+
+    <span class="hljs-keyword">let</span> start_x = offscreenCanvas.width / <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> start_y = offscreenCanvas.height / <span class="hljs-number">2</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>We use a <a href="https://en.wikipedia.org/wiki/Z-buffering">Z-buffer</a> to keep
+track of the pixels we need to paint. This solves the problem of having
+one pixel that is not visible because it’s covered by another one.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> zbuffer = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>();
+
+    offscreenCtx.fillStyle = <span class="hljs-string">'black'</span>;
+    offscreenCtx.fillRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, offscreenCanvas.width, offscreenCanvas.height);
+    offscreenCtx.fillStyle = <span class="hljs-string">'salmon'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Next, we have several complicated math functions that are explained in a bit more details in <a href="https://www.a1k0n.net/2011/07/20/donut-math.html">donut.c</a>
+Basically, we have to do two things:</p>
+<ol>
+<li>Draw a static torus.</li>
+<li>Rotate that torus along Y and Z with an angle of A and B respectively.</li>
+</ol>
+<p>This all leads to very complicated math. Luckily, nowadays Wolfram Alpha
+makes matrix multiplication a breeze.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compute_next_x</span>(<span class="hljs-params">A, B, torus_radius, circle_radius, theta, phi, canvas</span>) </span>{
+        <span class="hljs-keyword">return</span> (torus_radius + circle_radius * <span class="hljs-built_in">Math</span>.cos(theta)) *
+               (<span class="hljs-built_in">Math</span>.cos(B) *  <span class="hljs-built_in">Math</span>.cos(phi) + <span class="hljs-built_in">Math</span>.sin(A) * <span class="hljs-built_in">Math</span>.sin(B) * <span class="hljs-built_in">Math</span>.sin(phi)) -
+               circle_radius * <span class="hljs-built_in">Math</span>.cos(A) * <span class="hljs-built_in">Math</span>.sin(B) * <span class="hljs-built_in">Math</span>.sin(theta) + offscreenCanvas.width / <span class="hljs-number">2</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compute_next_y</span>(<span class="hljs-params">A, B, torus_radius, circle_radius, theta, phi, canvas</span>) </span>{
+        <span class="hljs-keyword">return</span> (torus_radius + circle_radius * <span class="hljs-built_in">Math</span>.cos(theta)) *
+               (<span class="hljs-built_in">Math</span>.cos(phi) * <span class="hljs-built_in">Math</span>.sin(B) - <span class="hljs-built_in">Math</span>.cos(B) * <span class="hljs-built_in">Math</span>.sin(A) * <span class="hljs-built_in">Math</span>.sin(phi)) +
+               (circle_radius * <span class="hljs-built_in">Math</span>.cos(A) * <span class="hljs-built_in">Math</span>.cos(B) * <span class="hljs-built_in">Math</span>.sin(theta)) + offscreenCanvas.height / <span class="hljs-number">2</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compute_next_z</span>(<span class="hljs-params">A, torus_radius, circle_radius, theta, phi</span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.cos(A) * (torus_radius + circle_radius * <span class="hljs-built_in">Math</span>.cos(theta)) * <span class="hljs-built_in">Math</span>.sin(phi) +
+                            circle_radius * <span class="hljs-built_in">Math</span>.sin(A) * <span class="hljs-built_in">Math</span>.sin(theta);
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <h3 id="texture-mapping">Texture mapping</h3>
+<p>We also need to do texture mapping, which means figuring out which pixels
+from our texture image go where. Typically 3D engines do this in a complicated way – you can find more details <a href="https://gabrielgambetta.com/computer-graphics-from-scratch/14-textures.html">here</a>.
+However, we can also do the simple thing here and just fetch the values of each pixel directly.</p>
+<p>This is of course pretty computationally expensive, but like we say in France, if you don’t have a brain at least you have legs.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compute_map_texture_x</span>(<span class="hljs-params">torus_radius, circle_radius, theta, phi</span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(((torus_radius + circle_radius * <span class="hljs-built_in">Math</span>.cos(theta)) * <span class="hljs-built_in">Math</span>.cos(phi) +
+               <span class="hljs-number">0</span> * <span class="hljs-built_in">Math</span>.sin(phi)));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compute_map_texture_y</span>(<span class="hljs-params">torus_radius, circle_radius, theta, phi</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>turns out it’s the identity function:</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(circle_radius * <span class="hljs-built_in">Math</span>.sin(theta));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compute_luminance</span>(<span class="hljs-params">A, B, theta, phi</span>) </span>{
+      <span class="hljs-keyword">return</span> (<span class="hljs-built_in">Math</span>.cos(phi) * <span class="hljs-built_in">Math</span>.cos(theta) * <span class="hljs-built_in">Math</span>.sin(B) - <span class="hljs-built_in">Math</span>.cos(A) * <span class="hljs-built_in">Math</span>.cos(theta) * <span class="hljs-built_in">Math</span>.sin(phi) -
+              <span class="hljs-built_in">Math</span>.sin(A) * <span class="hljs-built_in">Math</span>.sin(theta) + <span class="hljs-built_in">Math</span>.cos(B) * (<span class="hljs-built_in">Math</span>.cos(A) * <span class="hljs-built_in">Math</span>.sin(theta) - <span class="hljs-built_in">Math</span>.cos(theta) * <span class="hljs-built_in">Math</span>.sin(A) * <span class="hljs-built_in">Math</span>.sin(phi)));
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Finally, we construct the Taurus by iterating twice, first by drawing a
+circle then rotating around A and B.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> phi = <span class="hljs-number">0</span>; phi &lt; <span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI; phi += (<span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI) / <span class="hljs-number">360</span>) {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> theta = <span class="hljs-number">0</span>; theta &lt; <span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI; theta += (<span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI) / <span class="hljs-number">20</span>) {
+
+        <span class="hljs-keyword">let</span> next_x = compute_next_x(A, B, torus_radius, circle_radius, theta, phi, canvas);
+        <span class="hljs-keyword">let</span> next_y = compute_next_y(A, B, torus_radius, circle_radius, theta, phi, canvas);
+        <span class="hljs-keyword">let</span> next_z = compute_next_z(A, torus_radius, circle_radius, theta, phi);
+        <span class="hljs-keyword">let</span> texture_mapping_x = compute_map_texture_x(torus_radius, circle_radius, theta, phi);
+        <span class="hljs-keyword">let</span> texture_mapping_y = compute_map_texture_y(torus_radius, circle_radius, theta, phi);
+        <span class="hljs-keyword">let</span> luminance_value = compute_luminance(A, B, theta, phi);
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> zbuffer[next_x] == <span class="hljs-string">"undefined"</span>) {
+          zbuffer[next_x] = <span class="hljs-built_in">Array</span>();
+        }
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> zbuffer[next_x][next_y] == <span class="hljs-string">"undefined"</span>) {
+            zbuffer[next_x][next_y] = [next_z, next_x, next_y,
+                                       texture_mapping_x, texture_mapping_y, luminance_value];
+            <span class="hljs-keyword">continue</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (zbuffer[next_x][next_y][<span class="hljs-number">0</span>] &lt; next_z) {
+          <span class="hljs-keyword">continue</span>;
+        }
+      }
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Now that we’ve computed everything, we can just iterate through the
+Z-buffer and use it to draw on our offscreen canvas.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> zbuffer) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j <span class="hljs-keyword">in</span> zbuffer[i]) {
+          dest_x = <span class="hljs-built_in">Math</span>.floor(zbuffer[i][j][<span class="hljs-number">1</span>]);
+          dest_y = <span class="hljs-built_in">Math</span>.floor(zbuffer[i][j][<span class="hljs-number">2</span>]);
+          texture_map_x = <span class="hljs-built_in">Math</span>.floor(zbuffer[i][j][<span class="hljs-number">3</span>]);
+          texture_map_y = <span class="hljs-built_in">Math</span>.floor(zbuffer[i][j][<span class="hljs-number">4</span>]);
+          luminance_value = zbuffer[i][j][<span class="hljs-number">5</span>];
+
+          offscreenCtx.drawImage(donutTexture, texture_map_x, texture_map_y, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>, dest_x, dest_y, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>);
+        }
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Finally replace the contents of the screen with the ones from the
+offscreen canvas.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    ctx.drawImage(offscreenCanvas, (canvas.width  - offscreenCanvas.width) / <span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">draw</span>(<span class="hljs-params">timestamp</span>) </span>{
+    <span class="hljs-keyword">if</span> (startTimestamp === <span class="hljs-literal">undefined</span>) {
+      startTimestamp = timestamp;
+    }
+
+    <span class="hljs-keyword">const</span> elapsed = timestamp - startTimestamp;
+    doDrawTorus();
+
+    <span class="hljs-built_in">window</span>.requestAnimationFrame(draw);
+  }
+
+  donutTexture.addEventListener(<span class="hljs-string">'load'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">window</span>.requestAnimationFrame(draw);
+  });
+
+  donutTexture.src = <span class="hljs-string">'donut.jpeg'</span>;
+}
+
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">"DOMContentLoaded"</span>, drawDonut)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>If you’ve read this far, congratulations! I’m not sure if all of this made
+sense but let me reassure you – basic 3D is actually not that hard and pretty gratifying!</p>
+<p>Best,
+Karim</p>
+
+            </div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
